@@ -3,536 +3,322 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arcanjos de Aço MC | Motoclube em Rio das Ostras — RJ</title>
-  <meta name="description" content="Arcanjos de Aço MC — motoclube de Rio das Ostras, RJ. Irmandade, estrada e respeito sobre duas rodas. Tenha interesse em fazer parte do clube pelo WhatsApp.">
+  <title>Arcanjos de Aço MC | Motoclube Custom — Rio das Ostras</title>
+  <meta name="description" content="Arcanjos de Aço MC — motoclube custom de Rio das Ostras. Chopper, colete e estrada. Faça parte pelo WhatsApp.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Roboto+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Staatliches&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <div id="preloader" class="preloader" aria-hidden="true">
+    <div class="preloader__track" aria-hidden="true"></div>
     <div class="preloader__inner">
-      <img src="assets/img/logo.svg" alt="" width="72" height="72">
+      <img src="assets/img/logo.svg" alt="" width="80" height="80">
       <span>Arcanjos de Aço</span>
     </div>
   </div>
 
   <a href="#contato" class="skip-link">Ir para formulário de contato</a>
 
-  <a href="#contato" class="whatsapp-float" aria-label="Quero fazer parte do clube pelo WhatsApp" id="whatsapp-float">
-    <i class="fab fa-whatsapp" aria-hidden="true"></i>
-    <span class="whatsapp-float__ring" aria-hidden="true"></span>
-  </a>
+  <div class="page-shell">
+    <aside class="side-rail" aria-label="Navegação lateral">
+      <a href="#home" class="side-rail__logo" aria-label="Arcanjos de Aço MC — início">
+        <img src="assets/img/logo.svg" alt="" width="44" height="44">
+      </a>
+      <nav class="side-rail__nav" aria-label="Seções">
+        <a href="#home" class="side-rail__link is-active" data-section="home"><span class="side-rail__num">01</span><span class="side-rail__label">Início</span></a>
+        <a href="#sobre" class="side-rail__link" data-section="sobre"><span class="side-rail__num">02</span><span class="side-rail__label">Clube</span></a>
+        <a href="#ritual" class="side-rail__link" data-section="ritual"><span class="side-rail__num">03</span><span class="side-rail__label">Ritual</span></a>
+        <a href="#estrada" class="side-rail__link" data-section="estrada"><span class="side-rail__num">04</span><span class="side-rail__label">Estrada</span></a>
+        <a href="#filme" class="side-rail__link" data-section="filme"><span class="side-rail__num">05</span><span class="side-rail__label">Filme</span></a>
+        <a href="#faq" class="side-rail__link" data-section="faq"><span class="side-rail__num">06</span><span class="side-rail__label">FAQ</span></a>
+        <a href="#contato" class="side-rail__link side-rail__link--cta" data-section="contato"><span class="side-rail__num">07</span><span class="side-rail__label">Entrar</span></a>
+      </nav>
+      <a href="#contato" class="side-rail__wa" id="whatsapp-float" aria-label="Quero fazer parte pelo WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+      </a>
+    </aside>
 
-  <header class="header" id="header">
-    <div class="container">
-      <nav class="nav" aria-label="Navegação principal">
-        <a href="#home" class="logo">
-          <img src="assets/img/logo.svg" alt="" width="40" height="40">
-          <span>Arcanjos de Aço<span class="logo__mc"> MC</span></span>
-        </a>
-        <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu" id="menu-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <ul class="nav-menu" id="nav-menu">
-          <li><a href="#sobre" class="nav-link">O Clube</a></li>
-          <li><a href="#eventos" class="nav-link">Eventos</a></li>
-          <li><a href="#galeria" class="nav-link">Galeria</a></li>
-          <li><a href="#faq" class="nav-link">FAQ</a></li>
-          <li><a href="#contato" class="btn btn-primary nav-cta">Fazer Parte</a></li>
-        </ul>
+    <button class="mobile-trigger" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-drawer">
+      <span></span><span></span>
+    </button>
+
+    <div class="mobile-drawer" id="mobile-drawer" hidden>
+      <nav class="mobile-drawer__nav" aria-label="Menu mobile">
+        <a href="#home">01 · Início</a>
+        <a href="#sobre">02 · O Clube</a>
+        <a href="#ritual">03 · Ritual</a>
+        <a href="#estrada">04 · Na Estrada</a>
+        <a href="#filme">05 · Filme</a>
+        <a href="#vozes">Vozes</a>
+        <a href="#faq">06 · FAQ</a>
+        <a href="#contato" class="mobile-drawer__cta">07 · Fazer Parte</a>
       </nav>
     </div>
-  </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero__bg">
-        <div class="hero__overlay"></div>
-        <div class="hero__particles" id="particles" aria-hidden="true"></div>
-      </div>
-      <div class="container">
-        <div class="hero__grid">
-          <div class="hero__content">
-            <span class="hero-badge" data-aos="fade-down">
-              <i class="fas fa-fire-flame-curved" aria-hidden="true"></i>
-              Motoclube Custom · Rio das Ostras, RJ
-            </span>
-            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
-              Aço, couro e <span class="highlight-gold">estrada</span>
-            </h1>
-            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
-              Arcanjos de Aço MC — chopper, custom e irmandade desde 2017. Colete, respeito e asfalto. Sede nacional no bairro Village, Rio das Ostras.
-            </p>
-            <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
-              <a href="#contato" class="btn btn-primary btn-lg">
-                <i class="fab fa-whatsapp" aria-hidden="true"></i>
-                Quero Fazer Parte
-              </a>
-              <a href="#sobre" class="btn btn-outline btn-lg">Conhecer o Clube</a>
-            </div>
-            <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
-              <div class="stat">
-                <span class="stat-number" data-count="8">0</span><span class="stat-suffix">+</span>
-                <span class="stat-label">Anos de estrada</span>
-              </div>
-              <div class="stat">
-                <span class="stat-number" data-count="50">0</span><span class="stat-suffix">+</span>
-                <span class="stat-label">Rolês realizados</span>
-              </div>
-              <div class="stat">
-                <span class="stat-number" data-count="30">0</span><span class="stat-suffix">+</span>
-                <span class="stat-label">Irmãos ativos</span>
-              </div>
-              <div class="stat">
-                <span class="stat-number" data-count="1">0</span>
-                <span class="stat-label">Sede nacional</span>
-              </div>
-            </div>
+    <main class="main-flow">
+      <!-- HERO CINEMATOGRÁFICO -->
+      <section class="cinema-hero" id="home">
+        <div class="cinema-hero__media">
+          <img src="assets/img/hero.jpg" alt="" class="cinema-hero__img" width="1920" height="1080">
+          <div class="cinema-hero__shade"></div>
+          <div class="cinema-hero__slash" aria-hidden="true"></div>
+          <div class="cinema-hero__sparks" id="particles" aria-hidden="true"></div>
+        </div>
+        <div class="cinema-hero__content">
+          <p class="cinema-hero__eyebrow"><span>Rio das Ostras · RJ</span><span class="cinema-hero__dot">◆</span><span>Desde 2017</span></p>
+          <h1 class="cinema-hero__title">
+            <span class="cinema-hero__line">Arcanjos</span>
+            <span class="cinema-hero__line cinema-hero__line--accent">de Aço</span>
+            <span class="cinema-hero__mc">MC</span>
+          </h1>
+          <p class="cinema-hero__tagline">Custom. Chopper. Colete. Estrada sem volta.</p>
+          <div class="cinema-hero__actions">
+            <a href="#contato" class="btn btn--flame"><i class="fab fa-whatsapp" aria-hidden="true"></i> Quero o Colete</a>
+            <a href="#filme" class="btn btn--ghost">Ver o Filme <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
           </div>
-          <div class="hero__image" data-aos="fade-left" data-aos-delay="500">
-            <div class="hero__image-frame">
-              <img
-                src="assets/img/hero.jpg"
-                alt="Motociclista custom em chopper na estrada — Arcanjos de Aço MC"
-                loading="eager"
-                width="900"
-                height="600"
-              >
-              <div class="hero__float-card" data-aos="zoom-in" data-aos-delay="800">
-                <i class="fas fa-shield-halved" aria-hidden="true"></i>
-                <div>
-                  <strong>Custom &amp; chopper</strong>
-                  <span>MC fundado em 07/09/2017</span>
-                </div>
+        </div>
+        <aside class="cinema-hero__ticker" aria-label="Números do clube">
+          <div class="ticker-item"><span class="ticker-item__n" data-count="8">0</span><span class="ticker-item__l">Anos</span></div>
+          <div class="ticker-item"><span class="ticker-item__n" data-count="50">0</span><span class="ticker-item__l">Rolês</span></div>
+          <div class="ticker-item"><span class="ticker-item__n" data-count="30">0</span><span class="ticker-item__l">Irmãos</span></div>
+        </aside>
+        <div class="scroll-hint" aria-hidden="true"><span>Scroll</span><i class="fas fa-chevron-down"></i></div>
+      </section>
+
+      <!-- MANIFESTO -->
+      <section class="manifesto" id="sobre">
+        <div class="manifesto__grid">
+          <div class="manifesto__visual">
+            <span class="manifesto__watermark" aria-hidden="true">02</span>
+            <div class="manifesto__frame">
+              <img src="assets/img/about.jpg" alt="Irmãos do Arcanjos de Aço MC reunidos na sede" loading="lazy" width="800" height="533">
+            </div>
+            <div class="manifesto__patch">
+              <img src="assets/img/logo.svg" alt="" width="48" height="48">
+              <div>
+                <strong>Sede Nacional</strong>
+                <span>Village · Rio das Ostras</span>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="sobre" class="about">
-      <div class="container">
-        <div class="about-grid">
-          <div class="about-image" data-aos="fade-right">
-            <img src="assets/img/about.jpg" alt="Grupo de motociclistas reunidos na sede do Arcanjos de Aço MC" loading="lazy" width="800" height="533">
-          </div>
-          <div class="about-content" data-aos="fade-left">
-            <span class="section-badge">Nossa história</span>
-            <h2 class="section-title">Arcanjos de Aço MC</h2>
-            <p class="about-text">
-              Fundado em 7 de setembro de 2017, o Arcanjos de Aço MC nasceu da paixão por motos custom, chopper e pelo espírito biker de verdade. Com sede nacional no bairro Village, em Rio das Ostras — RJ, reunimos irmãos de colete que vivem a estrada com respeito e lealdade.
-            </p>
-            <p class="about-text">
-              Rolês, churrascões na sede, ações sociais e presença em eventos da cena custom. Aqui é motor V-Twin, cromado, couro e irmandade — sem frescura.
-            </p>
-            <div class="values-grid">
-              <div class="value-item">
-                <i class="fas fa-handshake" aria-hidden="true"></i>
-                <div>
-                  <strong>Respeito</strong>
-                  <span>Acima de tudo, nas ruas e na sede</span>
-                </div>
-              </div>
-              <div class="value-item">
-                <i class="fas fa-users" aria-hidden="true"></i>
-                <div>
-                  <strong>Irmandade</strong>
-                  <span>Um pelo outro, sempre</span>
-                </div>
-              </div>
-              <div class="value-item">
-                <i class="fas fa-road" aria-hidden="true"></i>
-                <div>
-                  <strong>Estrada</strong>
-                  <span>Rolês e viagens pelo Brasil</span>
-                </div>
-              </div>
-              <div class="value-item">
-                <i class="fas fa-heart" aria-hidden="true"></i>
-                <div>
-                  <strong>Solidariedade</strong>
-                  <span>Ações sociais e apoio à comunidade</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="como-funciona" class="steps">
-      <div class="container">
-        <div class="section-header" data-aos="fade-up">
-          <span class="section-badge">Processo de integração</span>
-          <h2 class="section-title">Como Fazer Parte</h2>
-          <p class="section-subtitle">Três passos para conhecer o clube e iniciar sua jornada como irmão</p>
-        </div>
-        <ol class="steps-grid">
-          <li class="step-card" data-aos="fade-up" data-aos-delay="0">
-            <span class="step-number">1</span>
-            <h3>Entre em contato</h3>
-            <p>Preencha o formulário e envie pelo WhatsApp. Conte sobre você, sua moto e seu interesse no clube.</p>
-          </li>
-          <li class="step-card" data-aos="fade-up" data-aos-delay="150">
-            <span class="step-number">2</span>
-            <h3>Conheça a sede</h3>
-            <p>Marque um encontro na sede em Village, Rio das Ostras. Conheça os irmãos e participe de um rolê.</p>
-          </li>
-          <li class="step-card" data-aos="fade-up" data-aos-delay="300">
-            <span class="step-number">3</span>
-            <h3>Integração</h3>
-            <p>Após o período de observação e alinhamento de valores, inicia-se o processo de integração ao MC.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section id="eventos" class="services">
-      <div class="container">
-        <div class="section-header" data-aos="fade-up">
-          <span class="section-badge">Na estrada</span>
-          <h2 class="section-title">Eventos &amp; Rolês</h2>
-          <p class="section-subtitle">O que move o clube — custom, chopper e asfalto sem limite</p>
-        </div>
-        <div class="services-grid">
-          <article class="service-card featured" data-aos="fade-up" data-aos-delay="0">
-            <div class="service-badge">Tradição</div>
-            <div class="service-icon"><i class="fas fa-route" aria-hidden="true"></i></div>
-            <h3>Rolês &amp; Viagens</h3>
-            <p>Passeios pela região dos lagos, Costa do Sol e interior do estado. Estrada, vento e irmandade.</p>
-            <ul class="service-benefits">
-              <li>Roteiros planejados com segurança</li>
-              <li>Paradas estratégicas e confraternização</li>
-              <li>Presença em eventos de outros MCs</li>
+          <div class="manifesto__copy">
+            <p class="kicker">Manifesto</p>
+            <h2 class="display-title">Não é moto.<br>É <em>código</em>.</h2>
+            <p class="lead">Fundado em 07/09/2017, o Arcanjos de Aço MC nasceu entre motor V-Twin, couro curtido e asfalto quente. Somos irmandade custom — respeito na frente, lealdade atrás, chama no peito.</p>
+            <p class="lead">Rolês pela Costa do Sol, churrascão na sede, ações sociais e presença na cena biker do estado. Aqui não entra quem busca status. Entra quem vive a estrada.</p>
+            <ul class="code-list">
+              <li><span class="code-list__icon" aria-hidden="true">⛓</span><div><strong>Respeito</strong><span>Na sede, na rua, no rolê</span></div></li>
+              <li><span class="code-list__icon" aria-hidden="true">🔥</span><div><strong>Lealdade</strong><span>Irmão nunca anda sozinho</span></div></li>
+              <li><span class="code-list__icon" aria-hidden="true">⚙</span><div><strong>Custom</strong><span>Chopper, clássica, personalizada</span></div></li>
+              <li><span class="code-list__icon" aria-hidden="true">🛣</span><div><strong>Estrada</strong><span>O destino é o caminho</span></div></li>
             </ul>
-            <a href="#contato" class="service-link">Tenho interesse <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- RITUAL - timeline diagonal -->
+      <section class="ritual-band" id="ritual">
+        <div class="ritual-band__inner">
+          <header class="ritual-band__head">
+            <p class="kicker">Ritual de entrada</p>
+            <h2 class="display-title">Como vestir<br>o colete</h2>
+          </header>
+          <ol class="ritual-path">
+            <li class="ritual-step">
+              <span class="ritual-step__km">KM 01</span>
+              <h3>Chama no Zap</h3>
+              <p>Preenche o formulário. Conta quem é, sua máquina e por que quer rodar com a gente.</p>
+            </li>
+            <li class="ritual-step">
+              <span class="ritual-step__km">KM 02</span>
+              <h3>Rola na sede</h3>
+              <p>Encontro em Village. Conhece os irmãos, sente a energia, participa de um rolê.</p>
+            </li>
+            <li class="ritual-step">
+              <span class="ritual-step__km">KM 03</span>
+              <h3>Integração</h3>
+              <p>Período de observação. Valores alinhados, presença na estrada, irmandade confirmada.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ESTRADA - bento assimétrico -->
+      <section class="bento-road" id="estrada">
+        <div class="bento-road__header">
+          <p class="kicker">Na estrada</p>
+          <h2 class="display-title">O que rola<br>no clube</h2>
+        </div>
+        <div class="bento-grid">
+          <article class="bento-card bento-card--hero">
+            <div class="bento-card__bg" style="background-image:url('assets/img/gallery/gallery-1.jpg')"></div>
+            <div class="bento-card__content">
+              <span class="bento-card__tag">Tradição</span>
+              <h3>Rolês &amp; Viagens</h3>
+              <p>Costa do Sol, Região dos Lagos e interior. Formação, paradas e irmandade.</p>
+            </div>
           </article>
-          <article class="service-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-icon"><i class="fas fa-fire" aria-hidden="true"></i></div>
+          <article class="bento-card">
+            <div class="bento-card__icon"><i class="fas fa-fire" aria-hidden="true"></i></div>
             <h3>Churrascões</h3>
-            <p>Encontros na sede com churrasco, música e integração. Momentos para fortalecer os laços entre irmãos.</p>
-            <ul class="service-benefits">
-              <li>Eventos abertos para visitantes</li>
-              <li>Ambiente familiar e acolhedor</li>
-              <li>Música ao vivo e confraternização</li>
-            </ul>
-            <a href="#contato" class="service-link">Tenho interesse <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            <p>Sede, churrasco, som alto e integração. Eventos abertos pra visitantes.</p>
           </article>
-          <article class="service-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-icon"><i class="fas fa-hands-helping" aria-hidden="true"></i></div>
-            <h3>Ações Sociais</h3>
-            <p>Campanhas de arrecadação, visitas e apoio à comunidade. Motoclube com responsabilidade social.</p>
-            <ul class="service-benefits">
-              <li>Doações e campanhas solidárias</li>
-              <li>Presença em eventos beneficentes</li>
-              <li>Apoio a irmãos e comunidade</li>
-            </ul>
-            <a href="#contato" class="service-link">Tenho interesse <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          <article class="bento-card">
+            <div class="bento-card__icon"><i class="fas fa-hands-helping" aria-hidden="true"></i></div>
+            <h3>Ação social</h3>
+            <p>Campanhas, arrecadação e apoio à comunidade local.</p>
           </article>
-          <article class="service-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-icon"><i class="fas fa-flag-checkered" aria-hidden="true"></i></div>
+          <article class="bento-card bento-card--wide">
+            <div class="bento-card__icon"><i class="fas fa-flag-checkered" aria-hidden="true"></i></div>
             <h3>Eventos MC</h3>
-            <p>Presença em encontros regionais e nacionais. Representamos Rio das Ostras com orgulho na cena motociclística.</p>
-            <ul class="service-benefits">
-              <li>Encontros com outros motoclubes</li>
-              <li>Aniversários e comemorações</li>
-              <li>Presença em moto fest regionais</li>
-            </ul>
-            <a href="#contato" class="service-link">Tenho interesse <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            <p>Presença em encontros regionais. Representamos Rio das Ostras com orgulho na cena custom.</p>
+            <a href="#contato" class="bento-card__link">Quero participar <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
           </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="galeria" class="gallery">
-      <div class="container">
-        <div class="section-header" data-aos="fade-up">
-          <span class="section-badge">Momentos</span>
-          <h2 class="section-title">Galeria</h2>
-          <p class="section-subtitle">Registros de rolês, eventos e a vida no clube</p>
+      <!-- FILME - horizontal scroll -->
+      <section class="filmstrip" id="filme">
+        <div class="filmstrip__head">
+          <div>
+            <p class="kicker">Registro</p>
+            <h2 class="display-title">O Filme</h2>
+          </div>
+          <div class="filmstrip__controls">
+            <button type="button" class="film-btn" id="film-prev" aria-label="Foto anterior"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+            <button type="button" class="film-btn" id="film-next" aria-label="Próxima foto"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+          </div>
         </div>
-        <div class="gallery-grid">
-          <figure class="gallery-item" data-aos="fade-up" data-aos-delay="0">
-            <img src="assets/img/gallery/gallery-1.jpg" alt="Motociclistas em estrada durante rolê do Arcanjos de Aço MC" loading="lazy" width="800" height="532">
-            <figcaption>Rolê na estrada</figcaption>
-          </figure>
-          <figure class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-            <img src="assets/img/gallery/gallery-2.jpg" alt="Motos estacionadas em encontro do motoclube" loading="lazy" width="800" height="533">
-            <figcaption>Encontro de irmãos</figcaption>
-          </figure>
-          <figure class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-            <img src="assets/img/gallery/gallery-3.jpg" alt="Grupo de motociclistas em evento do clube" loading="lazy" width="800" height="534">
-            <figcaption>Evento na sede</figcaption>
-          </figure>
-          <figure class="gallery-item" data-aos="fade-up" data-aos-delay="0">
-            <img src="assets/img/gallery/gallery-4.jpg" alt="Detalhe de moto customizada de membro do clube" loading="lazy" width="800" height="533">
-            <figcaption>Máquinas de respeito</figcaption>
-          </figure>
-          <figure class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-            <img src="assets/img/gallery/gallery-5.jpg" alt="Motociclista em pose com sua moto" loading="lazy" width="800" height="1200">
-            <figcaption>Espírito biker</figcaption>
-          </figure>
-          <figure class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-            <img src="assets/img/gallery/gallery-6.jpg" alt="Estrada vista de motociclista em viagem" loading="lazy" width="800" height="600">
-            <figcaption>Na estrada</figcaption>
-          </figure>
-          <figure class="gallery-item" data-aos="fade-up" data-aos-delay="0">
-            <img src="assets/img/gallery/gallery-7.jpg" alt="Motociclistas em formação durante passeio" loading="lazy" width="800" height="600">
-            <figcaption>Formação de rolê</figcaption>
-          </figure>
-          <figure class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-            <img src="assets/img/gallery/gallery-8.jpg" alt="Motociclista pilotando em estrada costeira" loading="lazy" width="800" height="533">
-            <figcaption>Costa do Sol</figcaption>
-          </figure>
+        <div class="filmstrip__track" id="film-track" tabindex="0" aria-label="Galeria de fotos — use as setas para navegar">
+          <figure class="film-frame film-frame--tall"><img src="assets/img/gallery/gallery-5.jpg" alt="Motociclista custom com sua máquina" loading="lazy" width="800" height="1200"><figcaption>Espírito biker</figcaption></figure>
+          <figure class="film-frame"><img src="assets/img/gallery/gallery-1.jpg" alt="Rolê na estrada" loading="lazy" width="800" height="532"><figcaption>Rolê</figcaption></figure>
+          <figure class="film-frame"><img src="assets/img/gallery/gallery-2.jpg" alt="Encontro de irmãos" loading="lazy" width="800" height="533"><figcaption>Encontro</figcaption></figure>
+          <figure class="film-frame film-frame--wide"><img src="assets/img/gallery/gallery-7.jpg" alt="Formação de rolê" loading="lazy" width="800" height="600"><figcaption>Formação</figcaption></figure>
+          <figure class="film-frame"><img src="assets/img/gallery/gallery-4.jpg" alt="Moto customizada" loading="lazy" width="800" height="533"><figcaption>Máquina</figcaption></figure>
+          <figure class="film-frame"><img src="assets/img/gallery/gallery-3.jpg" alt="Evento na sede" loading="lazy" width="800" height="534"><figcaption>Sede</figcaption></figure>
+          <figure class="film-frame"><img src="assets/img/gallery/gallery-6.jpg" alt="Na estrada" loading="lazy" width="800" height="600"><figcaption>Estrada</figcaption></figure>
+          <figure class="film-frame"><img src="assets/img/gallery/gallery-8.jpg" alt="Costa do Sol" loading="lazy" width="800" height="533"><figcaption>Costa</figcaption></figure>
         </div>
-        <p class="gallery-credit" data-aos="fade-up">
-          Fotos representativas do clube · Acompanhe mais em
-          <a href="https://www.instagram.com/arcanjos_de_aco/" target="_blank" rel="noopener noreferrer">@arcanjos_de_aco</a> no Instagram
-        </p>
-      </div>
-    </section>
+        <p class="filmstrip__credit">Fotos do clube · <a href="https://www.instagram.com/arcanjos_de_aco/" target="_blank" rel="noopener noreferrer">@arcanjos_de_aco</a></p>
+      </section>
 
-    <section id="depoimentos" class="testimonials">
-      <div class="container">
-        <div class="section-header" data-aos="fade-up">
-          <span class="section-badge">Voz dos irmãos</span>
-          <h2 class="section-title">O que Dizem os Irmãos</h2>
-          <p class="section-subtitle">A experiência de quem vive o espírito Arcanjos de Aço</p>
-        </div>
-        <div class="testimonials-grid">
-          <blockquote class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
-            <div class="testimonial-stars" aria-label="5 de 5 estrelas">★★★★★</div>
-            <p class="testimonial-text">"Encontrei uma família de verdade. O respeito e a irmandade aqui não se comparam. Cada rolê é uma experiência única."</p>
-            <footer class="testimonial-author">
-              <div class="author-avatar" aria-hidden="true">RM</div>
-              <div>
-                <cite class="author-name">Ricardo M.</cite>
-                <span class="author-service">Irmão · 3 anos no clube</span>
-              </div>
-            </footer>
+      <!-- VOZES - cards sobrepostos -->
+      <section class="voices" id="vozes">
+        <p class="kicker">Vozes</p>
+        <h2 class="display-title">Quem já<br>veste o colete</h2>
+        <div class="voices__stack">
+          <blockquote class="voice-card voice-card--back">
+            <p>"Desde que entrei, minha visão do motoclubismo mudou. Lealdade, estrada e respeito mútuo."</p>
+            <footer><cite>André L.</cite><span>2 anos</span></footer>
           </blockquote>
-          <blockquote class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="testimonial-stars" aria-label="5 de 5 estrelas">★★★★★</div>
-            <p class="testimonial-text">"A sede em Village é nosso point. Churrascão, música e os melhores rolês pela região. Orgulho de vestir o colete."</p>
-            <footer class="testimonial-author">
-              <div class="author-avatar" aria-hidden="true">FS</div>
-              <div>
-                <cite class="author-name">Fábio S.</cite>
-                <span class="author-service">Irmão · Rio das Ostras</span>
-              </div>
-            </footer>
+          <blockquote class="voice-card voice-card--mid">
+            <p>"A sede em Village é nosso point. Churrascão, música e os melhores rolês da região."</p>
+            <footer><cite>Fábio S.</cite><span>Rio das Ostras</span></footer>
           </blockquote>
-          <blockquote class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="testimonial-stars" aria-label="5 de 5 estrelas">★★★★★</div>
-            <p class="testimonial-text">"Desde que entrei, minha visão do motoclubismo mudou. Aqui é lealdade, estrada e respeito mútuo. Recomendo a quem busca isso."</p>
-            <footer class="testimonial-author">
-              <div class="author-avatar" aria-hidden="true">AL</div>
-              <div>
-                <cite class="author-name">André L.</cite>
-                <span class="author-service">Irmão · 2 anos no clube</span>
-              </div>
-            </footer>
+          <blockquote class="voice-card voice-card--front">
+            <p>"Encontrei família de verdade. Cada rolê é único. O respeito aqui não se compara."</p>
+            <footer><cite>Ricardo M.</cite><span>3 anos</span></footer>
           </blockquote>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="cta-section">
-      <div class="container">
-        <div class="cta-content" data-aos="zoom-in">
-          <h2 class="cta-title">Pronto para rodar com a gente?</h2>
-          <p class="cta-text">Se você tem paixão pela estrada, respeito e vontade de fazer parte de uma irmandade de verdade, fale conosco.</p>
-          <a href="#contato" class="btn btn-primary btn-lg">
-            <i class="fab fa-whatsapp" aria-hidden="true"></i>
-            Quero Fazer Parte do Clube
-          </a>
+      <!-- FAQ editorial -->
+      <section class="faq-editorial" id="faq">
+        <div class="faq-editorial__col">
+          <p class="kicker">Dúvidas</p>
+          <h2 class="display-title">Perguntas<br>na mesa</h2>
+          <p class="lead">Tudo que você precisa saber antes de chamar no Zap.</p>
         </div>
-      </div>
-    </section>
-
-    <section id="faq" class="faq">
-      <div class="container">
-        <div class="section-header" data-aos="fade-up">
-          <span class="section-badge">Dúvidas frequentes</span>
-          <h2 class="section-title">Perguntas e Respostas</h2>
-          <p class="section-subtitle">Tudo que você precisa saber antes de entrar em contato</p>
-        </div>
-        <div class="faq-list" role="list">
-          <div class="faq-item" data-aos="fade-up" data-aos-delay="0">
-            <button class="faq-question" aria-expanded="false">
-              <span>Como faço para entrar no Arcanjos de Aço MC?</span>
-              <i class="fas fa-chevron-down" aria-hidden="true"></i>
-            </button>
-            <div class="faq-answer" hidden>
-              <p>Entre em contato pelo formulário WhatsApp. Você será convidado para conhecer a sede, participar de um rolê e passar pelo período de observação antes da integração.</p>
-            </div>
+        <div class="faq-editorial__list" role="list">
+          <div class="faq-row">
+            <button class="faq-row__q" aria-expanded="false"><span>Como entrar no Arcanjos de Aço MC?</span><i class="fas fa-plus" aria-hidden="true"></i></button>
+            <div class="faq-row__a" hidden><p>Formulário WhatsApp → encontro na sede → rolê → período de observação → integração.</p></div>
           </div>
-          <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-            <button class="faq-question" aria-expanded="false">
-              <span>Preciso ter moto para participar?</span>
-              <i class="fas fa-chevron-down" aria-hidden="true"></i>
-            </button>
-            <div class="faq-answer" hidden>
-              <p>Sim, é necessário possuir moto e habilitação válida. O clube valoriza o espírito motociclista e a presença ativa nos rolês e eventos.</p>
-            </div>
+          <div class="faq-row">
+            <button class="faq-row__q" aria-expanded="false"><span>Preciso ter moto?</span><i class="fas fa-plus" aria-hidden="true"></i></button>
+            <div class="faq-row__a" hidden><p>Sim. Moto própria, habilitação válida e presença ativa nos rolês.</p></div>
           </div>
-          <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
-            <button class="faq-question" aria-expanded="false">
-              <span>Onde fica a sede do clube?</span>
-              <i class="fas fa-chevron-down" aria-hidden="true"></i>
-            </button>
-            <div class="faq-answer" hidden>
-              <p>A sede nacional fica no bairro Village, Rio das Ostras — RJ. O endereço completo é informado após o primeiro contato pelo WhatsApp.</p>
-            </div>
+          <div class="faq-row">
+            <button class="faq-row__q" aria-expanded="false"><span>Onde fica a sede?</span><i class="fas fa-plus" aria-hidden="true"></i></button>
+            <div class="faq-row__a" hidden><p>Bairro Village, Rio das Ostras — RJ. Endereço completo após primeiro contato.</p></div>
           </div>
-          <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-            <button class="faq-question" aria-expanded="false">
-              <span>Os eventos são abertos ao público?</span>
-              <i class="fas fa-chevron-down" aria-hidden="true"></i>
-            </button>
-            <div class="faq-answer" hidden>
-              <p>Alguns eventos como churrascões e ações sociais são abertos a visitantes. Rolês e eventos internos são exclusivos para irmãos e convidados autorizados.</p>
-            </div>
+          <div class="faq-row">
+            <button class="faq-row__q" aria-expanded="false"><span>Eventos abertos ao público?</span><i class="fas fa-plus" aria-hidden="true"></i></button>
+            <div class="faq-row__a" hidden><p>Churrascões e ações sociais sim. Rolês internos são para irmãos e convidados.</p></div>
           </div>
-          <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-            <button class="faq-question" aria-expanded="false">
-              <span>Qual a diferença do Arcanjos de Aço para outros clubes com nome parecido?</span>
-              <i class="fas fa-chevron-down" aria-hidden="true"></i>
-            </button>
-            <div class="faq-answer" hidden>
-              <p>O Arcanjos de Aço MC é de Rio das Ostras, RJ, fundado em 2017, com sede no bairro Village. Não confundir com Arcanjos do Norte (RO), Arcanjos Moto Grupo (ES) ou outros homônimos.</p>
-            </div>
+          <div class="faq-row">
+            <button class="faq-row__q" aria-expanded="false"><span>Não confundir com outros "Arcanjos"</span><i class="fas fa-plus" aria-hidden="true"></i></button>
+            <div class="faq-row__a" hidden><p>Arcanjos de Aço MC é de Rio das Ostras, RJ, fundado em 2017. Homônimos em RO, ES e MG são clubes diferentes.</p></div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="contato" class="contact">
-      <div class="container">
-        <div class="contact-grid">
-          <div class="contact-info" data-aos="fade-right">
-            <span class="section-badge">Contato</span>
-            <h2 class="section-title">Quero Fazer Parte</h2>
-            <p class="contact-lead">Preencha o formulário e envie direto para nosso WhatsApp. Responderemos o mais breve possível.</p>
-            <ul class="contact-details">
-              <li>
-                <i class="fas fa-location-dot" aria-hidden="true"></i>
-                <div>
-                  <strong>Sede Nacional</strong>
-                  <p>Bairro Village — Rio das Ostras, RJ</p>
-                </div>
-              </li>
-              <li>
-                <i class="fab fa-instagram" aria-hidden="true"></i>
-                <div>
-                  <strong>Instagram</strong>
-                  <p><a href="https://www.instagram.com/arcanjos_de_aco/" target="_blank" rel="noopener noreferrer" style="color:inherit">@arcanjos_de_aco</a></p>
-                </div>
-              </li>
-              <li>
-                <i class="fab fa-whatsapp" aria-hidden="true"></i>
-                <div>
-                  <strong>WhatsApp</strong>
-                  <p>Via formulário ao lado</p>
-                </div>
-              </li>
-            </ul>
+      <!-- INGRESSO - ticket form -->
+      <section class="ticket-zone" id="contato">
+        <div class="ticket">
+          <div class="ticket__stub" aria-hidden="true">
+            <span>ADM</span>
+            <span>2026</span>
+            <span>MC</span>
           </div>
-          <div class="contact-form-wrap" data-aos="fade-left">
-            <form id="whatsapp-form" novalidate>
-              <div class="form-group">
-                <label for="nome">Nome completo *</label>
-                <input type="text" id="nome" name="nome" required autocomplete="name">
+          <div class="ticket__body">
+            <div class="ticket__info">
+              <p class="kicker">Ingresso</p>
+              <h2 class="display-title">Pedido de<br>Admissão</h2>
+              <p class="lead">Preenche, envia no Zap e aguarda o retorno dos irmãos.</p>
+              <ul class="ticket__meta">
+                <li><i class="fas fa-map-pin" aria-hidden="true"></i> Village — Rio das Ostras, RJ</li>
+                <li><i class="fab fa-instagram" aria-hidden="true"></i> <a href="https://www.instagram.com/arcanjos_de_aco/" target="_blank" rel="noopener noreferrer">@arcanjos_de_aco</a></li>
+              </ul>
+            </div>
+            <form class="ticket__form" id="whatsapp-form" novalidate>
+              <div class="field"><label for="nome">Nome *</label><input type="text" id="nome" name="nome" required autocomplete="name"></div>
+              <div class="field-row">
+                <div class="field"><label for="cidade">Cidade/UF *</label><input type="text" id="cidade" name="cidade" required placeholder="Rio das Ostras, RJ"></div>
+                <div class="field"><label for="moto">Sua moto *</label><input type="text" id="moto" name="moto" required placeholder="Harley Sportster 2019"></div>
               </div>
-              <div class="form-group">
-                <label for="cidade">Cidade/UF *</label>
-                <input type="text" id="cidade" name="cidade" required placeholder="Ex: Rio das Ostras, RJ">
+              <div class="field-row">
+                <div class="field"><label for="tempo-estrada">Tempo de estrada *</label>
+                  <select id="tempo-estrada" name="tempo-estrada" required>
+                    <option value="">—</option>
+                    <option>Menos de 1 ano</option>
+                    <option>1 a 3 anos</option>
+                    <option>3 a 5 anos</option>
+                    <option>5 a 10 anos</option>
+                    <option>Mais de 10 anos</option>
+                  </select>
+                </div>
+                <div class="field"><label for="como-conheceu">Como conheceu *</label>
+                  <select id="como-conheceu" name="como-conheceu" required>
+                    <option value="">—</option>
+                    <option>Instagram</option>
+                    <option>Indicação de irmão</option>
+                    <option>Evento / rolê</option>
+                    <option>Google / internet</option>
+                    <option>Outro</option>
+                  </select>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="moto">Sua moto (marca/modelo/ano) *</label>
-                <input type="text" id="moto" name="moto" required placeholder="Ex: Harley Davidson Sportster 2019">
-              </div>
-              <div class="form-group">
-                <label for="tempo-estrada">Tempo de estrada *</label>
-                <select id="tempo-estrada" name="tempo-estrada" required>
-                  <option value="">Selecione...</option>
-                  <option value="Menos de 1 ano">Menos de 1 ano</option>
-                  <option value="1 a 3 anos">1 a 3 anos</option>
-                  <option value="3 a 5 anos">3 a 5 anos</option>
-                  <option value="5 a 10 anos">5 a 10 anos</option>
-                  <option value="Mais de 10 anos">Mais de 10 anos</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="como-conheceu">Como conheceu o clube? *</label>
-                <select id="como-conheceu" name="como-conheceu" required>
-                  <option value="">Selecione...</option>
-                  <option value="Instagram">Instagram</option>
-                  <option value="Indicação de irmão">Indicação de irmão</option>
-                  <option value="Evento / rolê">Evento / rolê</option>
-                  <option value="Google / internet">Google / internet</option>
-                  <option value="Outro">Outro</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="mensagem">Mensagem</label>
-                <textarea id="mensagem" name="mensagem" rows="3" placeholder="Conte um pouco sobre você e seu interesse no clube..."></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary btn-lg btn-block">
-                <i class="fab fa-whatsapp" aria-hidden="true"></i>
-                Enviar pelo WhatsApp
-              </button>
+              <div class="field"><label for="mensagem">Mensagem</label><textarea id="mensagem" name="mensagem" rows="2" placeholder="Conte sobre você..."></textarea></div>
+              <button type="submit" class="btn btn--flame btn--full"><i class="fab fa-whatsapp" aria-hidden="true"></i> Enviar Pedido</button>
             </form>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="#home" class="logo">
-            <img src="assets/img/logo.svg" alt="" width="40" height="40">
-            <span>Arcanjos de Aço<span class="logo__mc"> MC</span></span>
-          </a>
-          <p>Motoclube custom de Rio das Ostras, RJ — chopper, colete e estrada desde 2017.</p>
-        </div>
-        <nav class="footer-nav" aria-label="Links do rodapé">
-          <h3>Links</h3>
-          <ul>
-            <li><a href="#sobre">O Clube</a></li>
-            <li><a href="#eventos">Eventos</a></li>
-            <li><a href="#galeria">Galeria</a></li>
-            <li><a href="#contato">Fazer Parte</a></li>
-          </ul>
-        </nav>
-        <div class="footer-contact">
-          <h3>Contato</h3>
-          <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Village — Rio das Ostras, RJ</p>
-          <div class="footer-social" role="group" aria-label="Redes sociais">
-            <a href="https://www.instagram.com/arcanjos_de_aco/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @arcanjos_de_aco"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Arcanjos de Aço MC. Todos os direitos reservados.</p>
-        <p class="footer-demo">Site demonstrativo — desenvolvido por <a href="https://fariasdigital.com.br" target="_blank" rel="noopener noreferrer">Farias Digital</a></p>
-      </div>
-    </div>
-  </footer>
+    <footer class="site-foot">
+      <img src="assets/img/logo.svg" alt="" width="32" height="32">
+      <p>&copy; 2026 Arcanjos de Aço MC · Rio das Ostras, RJ</p>
+      <p class="site-foot__demo">Demo <a href="https://fariasdigital.com.br" target="_blank" rel="noopener noreferrer">Farias Digital</a></p>
+    </footer>
+  </div>
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
