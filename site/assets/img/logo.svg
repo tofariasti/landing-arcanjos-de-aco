@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Arcanjos de Aço MC">
+  <defs>
+    <linearGradient id="chrome" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8eaed"/>
+      <stop offset="50%" stop-color="#9aa0a8"/>
+      <stop offset="100%" stop-color="#c0c5ce"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f0d78c"/>
+      <stop offset="100%" stop-color="#d4a84b"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="56" fill="#0a0a0c" stroke="url(#gold)" stroke-width="3"/>
+  <circle cx="60" cy="60" r="48" fill="none" stroke="url(#chrome)" stroke-width="1.5" opacity="0.6"/>
+  <path d="M35 72c8-18 22-28 25-28s17 10 25 28" fill="none" stroke="url(#chrome)" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="35" cy="72" r="10" fill="#141418" stroke="url(#chrome)" stroke-width="3"/>
+  <circle cx="85" cy="72" r="10" fill="#141418" stroke="url(#chrome)" stroke-width="3"/>
+  <circle cx="35" cy="72" r="4" fill="#c41e1e"/>
+  <circle cx="85" cy="72" r="4" fill="#c41e1e"/>
+  <path d="M48 38 L60 28 L72 38 L68 50 L52 50 Z" fill="url(#gold)" opacity="0.9"/>
+  <text x="60" y="98" text-anchor="middle" fill="#c0c5ce" font-family="Arial,sans-serif" font-size="9" font-weight="bold">MC</text>
+</svg>

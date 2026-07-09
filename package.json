@@ -1,0 +1,12 @@
+{
+  "name": "landing-arcanjos-de-aco",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "screenshots": "node scripts/capture-screenshots.mjs",
+    "test:responsive": "node scripts/test-responsive.mjs"
+  },
+  "devDependencies": {
+    "puppeteer": "^24.0.0"
+  }
+}
