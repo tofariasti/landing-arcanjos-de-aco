@@ -3,8 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "python3 -m http.server 8080",
     "screenshots": "node scripts/capture-screenshots.mjs",
-    "test:responsive": "node scripts/test-responsive.mjs"
+    "test:responsive": "node scripts/test-responsive.mjs",
+    "sync:instagram": "node scripts/sync-instagram.mjs"
   },
   "devDependencies": {
     "puppeteer": "^24.0.0"

@@ -40,7 +40,7 @@ Landing page de alta conversão para o motoclube Arcanjos de Aço MC de Rio das 
 2. **Sobre o clube** — História, valores e sede em Rio das Ostras
 3. **Como fazer parte** — 3 passos: contato → encontro → integração
 4. **Eventos & rolês** — Rolês, churrascões, ações sociais e eventos MC
-5. **Galeria** — 8 fotos com crédito ao [@arcanjos_de_aco](https://www.instagram.com/arcanjos_de_aco/)
+5. **Galeria** — 12 fotos oficiais do [@arcanjos_de_aco](https://www.instagram.com/arcanjos_de_aco/) (carregadas via `instagram.json`)
 6. **Depoimentos** — 3 avaliações de irmãos
 7. **CTA** — Seção de conversão intermediária
 8. **FAQ** — Requisitos, sede, eventos e homônimos
@@ -95,7 +95,7 @@ python3 -m http.server 8080
 1. **WhatsApp:** altere `WHATSAPP_NUMBER` em `site/assets/js/main.js`
 2. **Cores:** edite as variáveis CSS em `:root` no `site/assets/css/style.css`
 3. **Textos e eventos:** edite `site/index.html`
-4. **Fotos:** substitua arquivos em `site/assets/img/gallery/` por fotos oficiais do clube
+4. **Fotos do Instagram:** rode `npm run sync:instagram` para atualizar `site/assets/data/instagram.json` e as imagens em `site/assets/img/gallery/`. Hero, sobre e galeria usam fotos oficiais do perfil.
 
 ## Estrutura
 

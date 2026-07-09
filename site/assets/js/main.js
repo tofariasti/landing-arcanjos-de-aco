@@ -14,6 +14,7 @@
     initCounters();
     initFaq();
     initFilmstrip();
+    initInstagramGallery();
     initFormValidation();
   });
 
@@ -212,6 +213,50 @@
         }
       });
     });
+  }
+
+  function initInstagramGallery() {
+    var track = document.getElementById('film-track');
+    if (!track) return;
+
+    fetch('assets/data/instagram.json')
+      .then(function (res) { return res.json(); })
+      .then(function (items) {
+        if (!items || !items.length) return;
+
+        var variants = ['', 'film-frame--tall', 'film-frame--wide', ''];
+        track.innerHTML = '';
+
+        items.forEach(function (item, index) {
+          var frame = document.createElement('figure');
+          frame.className = 'film-frame ' + (variants[index % variants.length] || '');
+          var loading = 'eager';
+          var imgTag = '<img src="' + item.file + '" alt="' + escapeHtml(item.alt) + '" loading="' + loading + '" decoding="async" width="800" height="600">';
+          if (item.permalink) {
+            frame.innerHTML =
+              '<a href="' + item.permalink + '" target="_blank" rel="noopener noreferrer" class="film-frame__link">' +
+              imgTag +
+              '<figcaption>' + escapeHtml(item.caption) + ' <i class="fab fa-instagram" aria-hidden="true"></i></figcaption>' +
+              '</a>';
+          } else {
+            frame.innerHTML =
+              imgTag +
+              '<figcaption>' + escapeHtml(item.caption) + '</figcaption>';
+          }
+          track.appendChild(frame);
+        });
+      })
+      .catch(function () {
+        /* manifest ausente — galeria vazia */
+      });
+  }
+
+  function escapeHtml(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
   }
 
   function initFilmstrip() {
