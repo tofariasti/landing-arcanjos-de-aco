@@ -202,10 +202,10 @@
     for (var i = 0; i < 25; i++) {
       var particle = document.createElement('div');
       var size = Math.random() * 6 + 3;
-      var isGold = Math.random() > 0.6;
+      var isGold = Math.random() > 0.55;
       var color = isGold
-        ? 'rgba(212,168,75,0.5)'
-        : 'rgba(196,30,30,0.4)';
+        ? 'rgba(201,162,39,0.55)'
+        : 'rgba(249,115,22,0.45)';
       particle.style.cssText =
         'position:absolute;width:' + size + 'px;height:' + size + 'px;' +
         'background:radial-gradient(circle,' + color + ' 0%,transparent 70%);' +
@@ -313,7 +313,7 @@
     toast.setAttribute('role', 'status');
     toast.innerHTML = '<i class="fas fa-check-circle"></i><span>Mensagem enviada! Aguarde nosso contato.</span>';
     toast.style.cssText =
-      'position:fixed;top:100px;right:2rem;background:linear-gradient(135deg,#c41e1e,#991b1b);' +
+      'position:fixed;top:100px;right:2rem;background:linear-gradient(135deg,#e85d04,#c2410c);' +
       'color:#fff;padding:1rem 1.5rem;border-radius:1rem;box-shadow:0 10px 25px rgba(0,0,0,0.3);' +
       'display:flex;align-items:center;gap:0.75rem;font-weight:600;z-index:10000;';
     document.body.appendChild(toast);

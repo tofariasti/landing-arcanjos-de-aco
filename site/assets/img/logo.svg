@@ -1,22 +1,48 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Arcanjos de Aço MC">
   <defs>
     <linearGradient id="chrome" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#e8eaed"/>
-      <stop offset="50%" stop-color="#9aa0a8"/>
-      <stop offset="100%" stop-color="#c0c5ce"/>
+      <stop offset="0%" stop-color="#e8ecf0"/>
+      <stop offset="45%" stop-color="#9aa0a8"/>
+      <stop offset="100%" stop-color="#c8cdd4"/>
     </linearGradient>
-    <linearGradient id="gold" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#f0d78c"/>
-      <stop offset="100%" stop-color="#d4a84b"/>
+    <linearGradient id="flame" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#c2410c"/>
+      <stop offset="50%" stop-color="#e85d04"/>
+      <stop offset="100%" stop-color="#fb923c"/>
     </linearGradient>
+    <linearGradient id="brass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8c96a"/>
+      <stop offset="100%" stop-color="#c9a227"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-  <circle cx="60" cy="60" r="56" fill="#0a0a0c" stroke="url(#gold)" stroke-width="3"/>
-  <circle cx="60" cy="60" r="48" fill="none" stroke="url(#chrome)" stroke-width="1.5" opacity="0.6"/>
-  <path d="M35 72c8-18 22-28 25-28s17 10 25 28" fill="none" stroke="url(#chrome)" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="35" cy="72" r="10" fill="#141418" stroke="url(#chrome)" stroke-width="3"/>
-  <circle cx="85" cy="72" r="10" fill="#141418" stroke="url(#chrome)" stroke-width="3"/>
-  <circle cx="35" cy="72" r="4" fill="#c41e1e"/>
-  <circle cx="85" cy="72" r="4" fill="#c41e1e"/>
-  <path d="M48 38 L60 28 L72 38 L68 50 L52 50 Z" fill="url(#gold)" opacity="0.9"/>
-  <text x="60" y="98" text-anchor="middle" fill="#c0c5ce" font-family="Arial,sans-serif" font-size="9" font-weight="bold">MC</text>
+  <!-- Patch outer ring -->
+  <circle cx="60" cy="60" r="56" fill="#050506" stroke="url(#brass)" stroke-width="3"/>
+  <circle cx="60" cy="60" r="50" fill="none" stroke="url(#chrome)" stroke-width="1" opacity="0.5"/>
+  <!-- Wings -->
+  <path d="M18 58 Q30 38 42 52 L38 62 Q28 54 18 58Z" fill="url(#chrome)" opacity="0.7"/>
+  <path d="M102 58 Q90 38 78 52 L82 62 Q92 54 102 58Z" fill="url(#chrome)" opacity="0.7"/>
+  <!-- Chopper silhouette - long fork, ape hangers -->
+  <path d="M32 78c6-14 16-22 28-22s22 8 28 22" fill="none" stroke="url(#chrome)" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M28 78 L24 62 L30 58 L36 72" fill="none" stroke="url(#chrome)" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M92 78 L96 62 L90 58 L84 72" fill="none" stroke="url(#chrome)" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- Wheels -->
+  <circle cx="32" cy="78" r="11" fill="#0c0d10" stroke="url(#chrome)" stroke-width="2.5"/>
+  <circle cx="88" cy="78" r="11" fill="#0c0d10" stroke="url(#chrome)" stroke-width="2.5"/>
+  <circle cx="32" cy="78" r="4" fill="url(#flame)" filter="url(#glow)"/>
+  <circle cx="88" cy="78" r="4" fill="url(#flame)" filter="url(#glow)"/>
+  <!-- Tank & engine block -->
+  <ellipse cx="60" cy="62" rx="14" ry="8" fill="#14161a" stroke="url(#chrome)" stroke-width="1.5"/>
+  <rect x="54" y="66" width="12" height="6" rx="1" fill="url(#chrome)" opacity="0.5"/>
+  <!-- Flame top emblem -->
+  <path d="M54 32 Q60 22 66 32 Q64 40 60 44 Q56 40 54 32Z" fill="url(#flame)" filter="url(#glow)"/>
+  <!-- MC bottom rocker -->
+  <path d="M28 100 Q60 108 92 100" fill="none" stroke="url(#brass)" stroke-width="2"/>
+  <text x="60" y="98" text-anchor="middle" fill="url(#brass)" font-family="Arial Black,sans-serif" font-size="11" font-weight="900" letter-spacing="2">MC</text>
 </svg>

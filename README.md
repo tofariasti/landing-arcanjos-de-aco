@@ -23,7 +23,7 @@ Landing page de alta conversão para o motoclube Arcanjos de Aço MC de Rio das 
 
 ## Funcionalidades
 
-- Design responsivo (mobile-first) com identidade visual de motoclube (preto, cromado, vermelho e dourado)
+- Design responsivo (mobile-first) com identidade visual de motoclube custom (preto asfalto, laranja chama, cromado, couro e latão)
 - Integração WhatsApp com formulário estruturado para interesse em fazer parte do clube
 - Animações ao scroll (AOS) + partículas, contadores, preloader e hover effects
 - Acessibilidade WCAG 2.1 AA (skip link, ARIA, foco visível, reduced motion)
@@ -53,7 +53,7 @@ Landing page de alta conversão para o motoclube Arcanjos de Aço MC de Rio das 
 - JavaScript vanilla (ES6+)
 - AOS (Animate On Scroll) v2.3.4
 - Font Awesome 6.4
-- Google Fonts (Bebas Neue + Inter)
+- Google Fonts (Black Ops One + Roboto Condensed)
 
 ## Testes de Responsividade
 
