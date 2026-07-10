@@ -115,7 +115,17 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; text-transform:
 .hero__welcome em { color: var(--blood); font-style: normal; display: block; font-size: 0.85em; margin-top: 0.25rem; }
 .hero__club { font-family: var(--font-display); font-size: clamp(2rem, 7vw, 4.5rem); letter-spacing: 0.08em; margin-bottom: 0.75rem; text-shadow: 0 0 40px rgba(196,30,30,0.3); }
 .hero__club span { color: var(--blood); font-size: 0.5em; vertical-align: super; }
-.hero__tag { color: var(--ash); font-size: 1.1rem; margin-bottom: 2rem; max-width: 480px; margin-inline: auto; }
+.hero__quote {
+  color: var(--ash);
+  font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+  line-height: 1.45;
+  font-style: italic;
+  margin: 0 auto 2rem;
+  max-width: 34rem;
+  border-left: 3px solid var(--blood);
+  padding-left: 1rem;
+  text-align: left;
+}
 .hero__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 .hero__stats {
   position: static; transform: none; margin-top: 2rem; justify-content: center;
