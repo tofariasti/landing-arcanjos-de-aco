@@ -167,27 +167,6 @@ window.ArcanjosLoja = (function () {
     });
   }
 
-  function observeLojaCards(container) {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    var cards = container.querySelectorAll('.loja-card');
-    if (!cards.length) return;
-
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
-
-    cards.forEach(function (card, index) {
-      card.classList.add('reveal');
-      card.style.setProperty('--reveal-delay', (index % 12) * 0.07 + 's');
-      observer.observe(card);
-    });
-  }
-
   function render(containerId, options) {
     options = options || {};
     var container = document.getElementById(containerId || 'loja-grid');
@@ -209,7 +188,10 @@ window.ArcanjosLoja = (function () {
         }).join('');
 
         bindPurchaseActions(container, products);
-        observeLojaCards(container);
+
+        if (window.ArcanjosReveal && typeof ArcanjosReveal.refresh === 'function') {
+          ArcanjosReveal.refresh();
+        }
       })
       .catch(function () {
         container.innerHTML = '<p class="loja__intro">Catálogo temporariamente indisponível. Chame no WhatsApp para consultar produtos.</p>';

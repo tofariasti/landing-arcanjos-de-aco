@@ -1,7 +1,7 @@
 /* Loja oficial — estilos compartilhados (use --loja-accent por versão) */
 .loja {
   --loja-accent: #c41e1e;
-  padding: 2rem 1.5rem 4rem;
+  padding: 2rem 1.5rem 2.5rem;
 }
 
 .loja__shell,

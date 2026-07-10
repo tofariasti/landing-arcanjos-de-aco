@@ -193,7 +193,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; text-transform:
 
 /* Galeria */
 .galeria {
-  padding: 0 1.5rem 5rem;
+  padding: 0 1.5rem 2.5rem;
   background: linear-gradient(180deg, var(--obsidian) 0%, var(--charcoal) 12%, var(--charcoal) 100%);
   border-top: 1px solid rgba(196, 30, 30, 0.15);
 }
@@ -234,15 +234,16 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; text-transform:
 }
 .masonry {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 110px;
-  grid-auto-flow: dense;
-  gap: 0.55rem;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  grid-auto-flow: row;
+  gap: 0.75rem;
   text-align: left;
 }
 .masonry-item {
   position: relative;
-  grid-column: span 2;
+  grid-column: 1;
+  grid-row: auto;
   border-radius: 3px;
   overflow: hidden;
   background: var(--steel);
@@ -265,13 +266,18 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; text-transform:
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.masonry-item--tall { grid-row: span 2; }
-.masonry-item--wide { grid-column: span 2; }
-.masonry-item--square { grid-row: span 2; }
+.masonry-item--tall,
+.masonry-item--wide,
+.masonry-item--square {
+  grid-column: 1;
+  grid-row: auto;
+}
 .masonry-item__btn {
   display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  max-height: 220px;
   padding: 0;
   border: none;
   background: none;
@@ -677,6 +683,9 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; text-transform:
   }
   .masonry-item { grid-column: span 3; }
   .masonry-item--wide { grid-column: span 6; }
+  .masonry-item--tall,
+  .masonry-item--square { grid-row: span 2; }
+  .masonry-item__btn { height: 100%; aspect-ratio: auto; }
   .galeria__meta { letter-spacing: 0.28em; font-size: 0.72rem; }
   .lightbox__prev { left: 1rem; }
   .lightbox__next { right: 1rem; }
@@ -713,6 +722,9 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; text-transform:
   }
   .masonry-item { grid-column: span 4; }
   .masonry-item--wide { grid-column: span 8; }
+  .masonry-item--tall,
+  .masonry-item--square { grid-row: span 2; }
+  .masonry-item__btn { height: 100%; aspect-ratio: auto; }
   .hero__stats { gap: 3rem; padding: 1rem 2rem; }
   .evento-card {
     grid-template-columns: 5.5rem 1fr;

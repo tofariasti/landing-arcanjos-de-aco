@@ -83,6 +83,10 @@ window.ArcanjosInstagram = (function () {
     if (options.lightbox !== false) {
       initLightbox(container, items, options.lightboxClass || 'lightbox');
     }
+
+    if (window.ArcanjosReveal && typeof ArcanjosReveal.refresh === 'function') {
+      ArcanjosReveal.refresh();
+    }
   }
 
   function renderPolaroidCarousel(container, items, options) {
@@ -171,6 +175,10 @@ window.ArcanjosInstagram = (function () {
     if (options.prevId && options.nextId) {
       container.tabIndex = 0;
       bindCarouselNav(container, options.prevId, options.nextId, options.scrollAmount);
+    }
+
+    if (window.ArcanjosReveal && typeof ArcanjosReveal.refresh === 'function') {
+      ArcanjosReveal.refresh();
     }
   }
 
@@ -322,6 +330,10 @@ window.ArcanjosInstagram = (function () {
 
     if (!prefersReducedMotion && options.autoplay !== false) {
       container.classList.add('filmstrip--active');
+    }
+
+    if (window.ArcanjosReveal && typeof ArcanjosReveal.refresh === 'function') {
+      ArcanjosReveal.refresh();
     }
   }
 
