@@ -660,9 +660,19 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
 }
 
 .loja { --loja-accent: var(--red); background: var(--black); border-top: 2px solid rgba(196, 30, 30, 0.15); }
-.loja-card { background: var(--charcoal); }
-.loja-card__name { font-family: var(--font-display); color: var(--white); }
-.loja-card__buy { font-family: var(--font-display); }
+.loja--teaser .loja__teaser-cta { font-family: var(--font-display); }
+.membros { --membros-accent: var(--red); }
+.membros--teaser .membros__teaser-cta { font-family: var(--font-display); }
+.garagem__teaser {
+  padding: 0;
+  text-align: left;
+  background: transparent;
+}
+.garagem__teaser .membros__teaser {
+  margin: 0;
+  max-width: none;
+  text-align: left;
+}
 
 /* Responsive — mobile first */
 @media (min-width: 641px) {

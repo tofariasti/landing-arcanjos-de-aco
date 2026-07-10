@@ -615,8 +615,9 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; text-transform:
 .footer { text-align: center; padding: 2rem 1.5rem; border-top: 1px solid #222; color: var(--ash); font-size: 0.85rem; }
 
 .loja { --loja-accent: var(--blood); background: var(--charcoal); border-top: 1px solid rgba(196, 30, 30, 0.15); }
-.loja-card { background: var(--obsidian); border-color: rgba(196, 30, 30, 0.15); }
-.loja-card__name { font-family: var(--font-display); color: var(--bone); }
+.loja--teaser .loja__teaser-cta { font-family: var(--font-display); }
+.membros { --membros-accent: var(--blood); background: var(--obsidian); border-top: 1px solid rgba(196, 30, 30, 0.12); }
+.membros--teaser .membros__teaser-cta { font-family: var(--font-display); }
 .footer img { margin: 0 auto 0.75rem; border-radius: 50%; border: 2px solid var(--blood); }
 .footer__social {
   display: flex; justify-content: center; gap: 1rem; margin-top: 0.75rem;

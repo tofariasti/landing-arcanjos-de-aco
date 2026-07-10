@@ -18,6 +18,7 @@
     '.eventos__legend > li',
     '.eventos__ultimo-role__grid > .role-thumb',
     '.loja__grid > .loja-card',
+    '.membros__list > .membro',
     '.steps > li',
     '.faq__list > .faq-item',
     '.origem__grid > *',
@@ -26,7 +27,7 @@
 
   var SECTION_HEADERS = '.section-head, .chapter-head, .kicker, .eventos__intro, .contato__header, .estrada-ritual__intro, .eventos__ultimo-role__head';
 
-  var ASYNC_SECTION_SELECTORS = ['#masonry-gallery', '#ig-carousel', '#filmstrip-gallery', '#loja-grid'];
+  var ASYNC_SECTION_SELECTORS = ['#masonry-gallery', '#ig-carousel', '#filmstrip-gallery', '#loja-grid', '#membros-list'];
 
   var BLOCK_TARGETS = [
     'main .section-intro',

@@ -1,0 +1,150 @@
+{
+  "intro": "Cada irmão carrega o nome do clube na estrada — e cada máquina tem uma história. Conheça quem roda com a A.A.M.C. e como a moto entrou na vida dele.",
+  "note": "Perfis sujeitos a atualização. Quer entrar na garagem? Fale com a sede em Village.",
+  "members": [
+    {
+      "id": "ze-alex",
+      "name": "Zé Alex",
+      "role": "Fundador",
+      "city": "Village · Rio das Ostras",
+      "since": "2017",
+      "photo": "img/profile-pic.jpg",
+      "bio": "Fundou o Arcanjos de Aço em 07/09/2017. Da sede no Village, mantém o código vivo: respeito, lealdade, custom e estrada.",
+      "moto": {
+        "name": "Harley Fat Bob",
+        "year": "2015",
+        "type": "Custom",
+        "image": "img/gallery/ig-DNa5_DqN6HB.jpg",
+        "acquired": "2016",
+        "nickname": "A Preta",
+        "story": "Comprou usada em Cabo Frio depois de meses caçando o som certo do V-Twin. Chegou fosca de fábrica; ele abriu o escape, subiu o guidão e deixou a pintura do jeito que a Costa do Sol pede. Foi nessa máquina que o primeiro pelotão A.A.M.C. saiu da sede Village — e ainda é a que abre a maioria dos rolês."
+      }
+    },
+    {
+      "id": "fabio",
+      "name": "Fábio",
+      "role": "Irmão",
+      "city": "Rio das Ostras",
+      "since": "2018",
+      "photo": "img/gallery/ig-DXpImOtFrNL.jpg",
+      "bio": "Um dos primeiros a vestir o colete depois da fundação. Presença firme nos rolês longos e nos churrascões da base.",
+      "moto": {
+        "name": "Sportster 883",
+        "year": "2012",
+        "type": "Clássica",
+        "image": "img/gallery/ig-DO8sIzHDRsm.jpg",
+        "acquired": "2018",
+        "nickname": "883",
+        "story": "Herdou a paixão do pai e comprou a 883 com o primeiro salário fixo na região. Trocou banco, espelhos e pneus; manteve o visual limpo porque 'clássica não precisa gritar'. Já fez Rio das Ostras–Búzios ida e volta no mesmo dia mais vezes do que conta — e diz que a moto ainda tem fôlego de sobra."
+      }
+    },
+    {
+      "id": "ricardo",
+      "name": "Ricardo",
+      "role": "Irmão",
+      "city": "Região dos Lagos",
+      "since": "2019",
+      "photo": "img/gallery/ig-DZLIW4BOTm-.jpg",
+      "bio": "Chegou pelo Instagram, ficou pela irmandade. Responsável por várias customizações leves na garagem da sede.",
+      "moto": {
+        "name": "Softail Custom",
+        "year": "2009",
+        "type": "Chopper",
+        "image": "img/gallery/ig-DM0uORsPubC.jpg",
+        "acquired": "2019",
+        "nickname": "Solo",
+        "story": "Achou a Softail em um anúncio de Macaé, motor parado há meses. Levou para a oficina de um conhecido, reconstruiu o que precisava e montou banco solo com roda dianteira fina. 'A moto estava morta; a gente devolveu ela pra estrada.' Hoje é a assinatura visual dele em todo encontro do clube."
+      }
+    },
+    {
+      "id": "andre",
+      "name": "André L.",
+      "role": "Irmão",
+      "city": "Cabo Frio",
+      "since": "2024",
+      "photo": "img/gallery/ig-DXsjXw_jBCp.jpg",
+      "bio": "Entrou há dois anos. Diz que o motoclubismo mudou depois de rodar com os Arcanjos — lealdade, estrada e respeito mútuo.",
+      "moto": {
+        "name": "Kawasaki Vulcan S",
+        "year": "2021",
+        "type": "Custom",
+        "image": "img/gallery/ig-DZDcNdWyr9o.jpg",
+        "acquired": "2022",
+        "nickname": "Vulcan",
+        "story": "Trocou uma trail de fim de semana pela Vulcan quando decidiu que a estrada seria séria. Comprou zero-km em Niterói, instalou bagageiro e protetor de motor no primeiro mês. A primeira viagem longa com o clube foi Costa do Sol até Búzios — voltou com o colete sujo de inseto e a certeza de que tinha achado o lugar certo."
+      }
+    },
+    {
+      "id": "marcos",
+      "name": "Marcos",
+      "role": "Irmão",
+      "city": "Barra de São João",
+      "since": "2020",
+      "photo": "img/gallery/ig-DZBorxelzFH.jpg",
+      "bio": "Sempre na retaguarda do pelotão. Quem fica pra trás, ele espera — código de estrada na prática.",
+      "moto": {
+        "name": "Harley Iron 883",
+        "year": "2017",
+        "type": "Clássica",
+        "image": "img/gallery/ig-DZL0IQQF8UH.jpg",
+        "acquired": "2020",
+        "nickname": "Iron",
+        "story": "Comprou de um irmão de outro clube que estava saindo da estrada. Negócio fechado na mão, na sede Village, com café e conversa até tarde. Trocou escapamento e farol; manteve o preto fosco original. 'Não quis inventar moda — quis uma moto que aguente o tranco e represente o colete.'"
+      }
+    },
+    {
+      "id": "paulo",
+      "name": "Paulo",
+      "role": "Irmão",
+      "city": "Casimiro de Abreu",
+      "since": "2021",
+      "photo": "img/gallery/ig-DZrzGZilit1.jpg",
+      "bio": "Vem do interior fluminense pra quase todo rolê. Distância nunca foi desculpa.",
+      "moto": {
+        "name": "Yamaha Midnight Star 950",
+        "year": "2014",
+        "type": "Cruiser",
+        "image": "img/gallery/ig-DYhYuVFDYWFHgs1IiGFxS9-ASlldN--wI87ums0.jpg",
+        "acquired": "2021",
+        "nickname": "Midnight",
+        "story": "Sonhou com cruiser desde adolescência. Guardou por três anos e fechou negócio numa feira de motos em Campos. A Midnight veio com 40 mil km e história de dono anterior cuidadoso. Paulo só acrescentou alforjes de couro e um adesivo A.A.M.C. no tanque — o resto é fidelidade ao que a moto já era."
+      }
+    },
+    {
+      "id": "diego",
+      "name": "Diego",
+      "role": "Irmão",
+      "city": "Rio das Ostras",
+      "since": "2022",
+      "photo": "img/gallery/ig-DX4_RgTjns_.jpg",
+      "bio": "Mais novo do pelotão fixo. Aprendeu o ritual de estrada na prática, rolê após rolê.",
+      "moto": {
+        "name": "Honda Shadow 750",
+        "year": "2010",
+        "type": "Cruiser",
+        "image": "img/hero.jpg",
+        "acquired": "2022",
+        "nickname": "Shadow",
+        "story": "Primeira moto grande depois de anos de 150cc. O pai ajudou na entrada; o restante saiu de hora extra. Achou a Shadow com pintura original e poucos detalhes custom — preferiu assim. 'Quero ganhar a estrada antes de mexer na máquina.' Já cruzou a Região dos Lagos com o clube e guarda o adesivo do primeiro churrascão no para-lama."
+      }
+    },
+    {
+      "id": "roberto",
+      "name": "Roberto",
+      "role": "Irmão",
+      "city": "Búzios",
+      "since": "2019",
+      "photo": "img/about.jpg",
+      "bio": "Ponto de apoio quando o pelotão para em Búzios. Casa aberta, café pronto, moto sempre no ponto.",
+      "moto": {
+        "name": "Harley Street Bob",
+        "year": "2018",
+        "type": "Custom",
+        "image": "img/gallery/ig-DNa5_DqN6HB.jpg",
+        "acquired": "2019",
+        "nickname": "Bob",
+        "story": "Trocou um carro popular pela Street Bob num impulso calculado: 'ou eu vivo a estrada de verdade, ou fico só olhando Instagram.' Comprou semi-nova em São Pedro da Aldeia, instalou guidão mini-ape e banco solo. Foi nessa moto que conheceu o Zé Alex num posto da RJ-106 — conversa virou convite, convite virou colete."
+      }
+    }
+  ]
+}

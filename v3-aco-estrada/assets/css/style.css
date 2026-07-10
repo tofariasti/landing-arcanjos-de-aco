@@ -366,9 +366,9 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 .error-message { color: #ff4444; font-size: 0.8rem; margin-top: 0.25rem; }
 
 .loja { --loja-accent: var(--ember); }
-.loja-card { background: var(--steel); border-color: rgba(168, 168, 174, 0.15); }
-.loja-card__name { font-family: var(--font-display); color: var(--white); }
-.loja-card__buy { font-family: var(--font-display); letter-spacing: 0.1em; }
+.loja--teaser .loja__teaser-cta { font-family: var(--font-display); letter-spacing: 0.1em; }
+.membros { --membros-accent: var(--ember); }
+.membros--teaser .membros__teaser-cta { font-family: var(--font-display); letter-spacing: 0.1em; }
 
 .footer { text-align: center; padding: 2rem; border-top: 1px solid rgba(168,168,174,0.1); color: var(--silver); font-size: 0.85rem; position: relative; z-index: 2; }
 .footer img { margin: 0 auto 0.75rem; border-radius: 50%; border: 2px solid var(--ember); }

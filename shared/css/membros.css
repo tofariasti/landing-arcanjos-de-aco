@@ -1,0 +1,256 @@
+/* Irmãos / membros — estilos compartilhados */
+.membros {
+  --membros-accent: #c41e1e;
+  padding: 2rem 1.5rem 3rem;
+}
+
+.membros__shell {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.membros__intro {
+  color: #999;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  margin-bottom: 2.5rem;
+  max-width: 42rem;
+}
+
+.membros__list {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.membro {
+  display: grid;
+  gap: 1.5rem;
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.membro:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.membro__portrait {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #111;
+}
+
+.membro__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(25%);
+  transition: filter 0.4s, transform 0.5s;
+}
+
+.membro:hover .membro__portrait img {
+  filter: grayscale(0%);
+  transform: scale(1.03);
+}
+
+.membro__meta {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #777;
+  margin-bottom: 0.45rem;
+}
+
+.membro__name {
+  font-size: clamp(1.75rem, 4vw, 2.4rem);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+}
+
+.membro__bio {
+  color: #aaa;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  max-width: 36rem;
+  margin-bottom: 1.75rem;
+}
+
+.membro__moto {
+  display: grid;
+  gap: 1.25rem;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+.membro__moto-media {
+  aspect-ratio: 16 / 10;
+  background: #0a0a0a;
+  overflow: hidden;
+}
+
+.membro__moto-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s;
+}
+
+.membro:hover .membro__moto-media img {
+  transform: scale(1.04);
+}
+
+.membro__moto-body {
+  padding: 1.15rem 1.25rem 1.4rem;
+}
+
+.membro__moto-label,
+.membro__story-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--membros-accent);
+  margin-bottom: 0.4rem;
+}
+
+.membro__moto-name {
+  font-size: 1.35rem;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.35rem;
+}
+
+.membro__moto-nick {
+  color: #888;
+  font-weight: 400;
+  font-size: 0.85em;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.membro__moto-meta {
+  color: #777;
+  font-size: 0.88rem;
+  margin-bottom: 1rem;
+}
+
+.membro__story-text {
+  color: #b8b4ac;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.membros__note {
+  margin-top: 2.5rem;
+  font-size: 0.82rem;
+  color: #666;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Teaser nas landings */
+.membros--teaser {
+  text-align: center;
+}
+
+.membros--teaser .membros__teaser {
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 0.5rem 0 0.25rem;
+}
+
+.membros--teaser .membros__teaser-text {
+  color: #999;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.membros--teaser .membros__teaser-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.9rem 1.6rem;
+  background: var(--membros-accent, #c41e1e);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: filter 0.2s, transform 0.2s;
+}
+
+.membros--teaser .membros__teaser-cta:hover {
+  color: #fff;
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+@media (min-width: 769px) {
+  .membro {
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .membro--flip {
+    grid-template-columns: 1fr 280px;
+  }
+
+  .membro--flip .membro__portrait {
+    order: 2;
+  }
+
+  .membro--flip .membro__content {
+    order: 1;
+  }
+
+  .membro__portrait {
+    aspect-ratio: 3 / 4;
+    position: sticky;
+    top: 5.5rem;
+  }
+
+  .membro__moto {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: stretch;
+  }
+
+  .membro__moto-media {
+    aspect-ratio: auto;
+    min-height: 100%;
+  }
+
+  .membro__moto-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.5rem 1.6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .membro {
+    grid-template-columns: 320px 1fr;
+    gap: 2.5rem;
+  }
+
+  .membro--flip {
+    grid-template-columns: 1fr 320px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .membro__portrait img,
+  .membro__moto-media img {
+    transition: none;
+  }
+
+  .membro:hover .membro__portrait img,
+  .membro:hover .membro__moto-media img {
+    transform: none;
+  }
+}

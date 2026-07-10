@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../shared/css/footer-credit.css">
   <link rel="stylesheet" href="../shared/css/reveal.css">
   <link rel="stylesheet" href="../shared/css/loja.css">
+  <link rel="stylesheet" href="../shared/css/membros.css">
 </head>
 <body>
   <a href="#contato" class="skip-link">Ir para formulário de contato</a>
@@ -25,7 +26,8 @@
     <a href="#doutrina" class="chapter-nav__dot" data-chapter="doutrina" aria-label="Doutrina"><span>Doutrina</span></a>
     <a href="#estrada" class="chapter-nav__dot" data-chapter="estrada" aria-label="Estrada"><span>Estrada</span></a>
     <a href="#galeria" class="chapter-nav__dot" data-chapter="galeria" aria-label="Galeria"><span>Galeria</span></a>
-    <a href="#loja" class="chapter-nav__dot" data-chapter="loja" aria-label="Loja"><span>Loja</span></a>
+    <a href="../loja/" class="chapter-nav__dot" data-chapter="loja" aria-label="Loja"><span>Loja</span></a>
+    <a href="../membros/" class="chapter-nav__dot" data-chapter="irmaos" aria-label="Irmãos"><span>Irmãos</span></a>
     <a href="#eventos" class="chapter-nav__dot" data-chapter="eventos" aria-label="Eventos"><span>Eventos</span></a>
     <a href="#contato" class="chapter-nav__dot" data-chapter="contato" aria-label="Contato"><span>Contato</span></a>
   </nav>
@@ -137,21 +139,34 @@
       <div class="filmstrip" id="filmstrip-gallery"></div>
     </section>
 
-    <section class="loja chapter section-bleed" id="loja" data-chapter="loja">
+    <section class="loja loja--teaser chapter section-bleed" id="loja" data-chapter="loja">
       <div class="noise" aria-hidden="true"></div>
       <div class="section-inner">
         <p class="kicker">Capítulo V — Loja</p>
         <h2>Produtos Oficiais</h2>
-        <p class="loja__intro">Merchan oficial A.A.M.C. Pedidos via WhatsApp — retirada na sede Village ou envio sob consulta.</p>
-        <div class="loja__grid" id="loja-grid" aria-live="polite"></div>
-        <p class="loja__note">Tamanhos e disponibilidade confirmados na sede. Produtos sujeitos a estoque.</p>
+        <div class="loja__teaser">
+          <p class="loja__teaser-text">Camisetas, bonés, patches e merchan oficial. Pedidos via WhatsApp ou Mercado Livre — retirada na sede Village ou envio sob consulta.</p>
+          <a href="../loja/" class="loja__teaser-cta">Ver loja oficial <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="membros membros--teaser chapter section-bleed" id="irmaos" data-chapter="irmaos">
+      <div class="noise" aria-hidden="true"></div>
+      <div class="section-inner">
+        <p class="kicker">Capítulo VI — Pelotão</p>
+        <h2>Os Irmãos</h2>
+        <div class="membros__teaser">
+          <p class="membros__teaser-text">Conheça quem veste o colete, qual moto cada um roda e a história de como a máquina entrou na vida dele.</p>
+          <a href="../membros/" class="membros__teaser-cta">Ver irmãos e motos <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
       </div>
     </section>
 
     <section class="eventos chapter section-bleed" id="eventos" data-chapter="eventos">
       <div class="noise" aria-hidden="true"></div>
       <div class="section-inner">
-        <p class="kicker">Capítulo VI — Agenda</p>
+        <p class="kicker">Capítulo VII — Agenda</p>
         <h2>Eventos &amp; Viagens</h2>
         <p class="eventos__intro">Rolês, churrascões e encontros na estrada. Confirme presença na sede ou pelo WhatsApp.</p>
         <div class="eventos__agenda">
@@ -243,7 +258,7 @@
       <div class="noise" aria-hidden="true"></div>
       <div class="section-inner contato__grid">
         <div class="contato__info">
-          <p class="kicker">Capítulo VII — Ingresso</p>
+          <p class="kicker">Capítulo VIII — Ingresso</p>
           <h2>Pedido de Admissão</h2>
           <p>Preenche, envia no Zap e aguarda o retorno dos irmãos.</p>
           <ul>
@@ -295,8 +310,6 @@
   <script src="../shared/js/whatsapp.js"></script>
   <script src="../shared/js/instagram.js"></script>
   <script src="../shared/js/reveal.js"></script>
-  <script src="../shared/js/loja.js"></script>
   <script src="assets/js/main.js"></script>
-  <script>ArcanjosLoja.init();</script>
 </body>
 </html>
