@@ -1,0 +1,252 @@
+/* Loja oficial — estilos compartilhados (use --loja-accent por versão) */
+.loja {
+  --loja-accent: #c41e1e;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.loja__shell,
+.loja .section-inner > .loja__intro,
+.loja .section-inner > .loja__grid,
+.loja .section-inner > .loja__note {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loja__intro {
+  color: #999;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+  max-width: 42rem;
+}
+
+.loja__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.loja-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.loja-card:hover {
+  border-color: rgba(196, 30, 30, 0.4);
+  transform: translateY(-2px);
+}
+
+.loja-card__media {
+  position: relative;
+  aspect-ratio: 4/3;
+  background: #111;
+  overflow: hidden;
+}
+
+.loja-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s;
+}
+
+.loja-card:hover .loja-card__media img {
+  transform: scale(1.04);
+}
+
+.loja-card__badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.55rem;
+  background: var(--loja-accent);
+  color: #fff;
+}
+
+.loja-card__body {
+  padding: 1.15rem 1.25rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.loja-card__cat {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.loja-card__name {
+  font-size: 1.15rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.loja-card__desc {
+  color: #aaa;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.loja-card__price {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--loja-accent);
+  letter-spacing: 0.02em;
+}
+
+.loja-card__price small {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #888;
+}
+
+.loja-card__size {
+  margin-top: 0.25rem;
+}
+
+.loja-card__size label {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 0.3rem;
+}
+
+.loja-card__size select {
+  width: 100%;
+  padding: 0.55rem 0.65rem;
+  background: #111;
+  border: 1px solid #333;
+  color: #f5f5f5;
+  font-size: 0.95rem;
+}
+
+.loja-card__size select:focus {
+  outline: none;
+  border-color: var(--loja-accent);
+}
+
+.loja-card__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-top: 0.5rem;
+}
+
+.loja-card__buy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  border: none;
+  background: var(--loja-accent);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.2s;
+}
+
+.loja-card__buy:hover {
+  filter: brightness(1.1);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.loja-card__buy--whatsapp {
+  background: #25d366;
+}
+
+.loja-card__buy--whatsapp:hover {
+  color: #fff;
+}
+
+.loja-card__buy--mercadolivre {
+  background: #ffe600;
+  color: #1a1a1a;
+}
+
+.loja-card__buy--mercadolivre:hover {
+  color: #1a1a1a;
+  filter: brightness(1.04);
+}
+
+.loja-card__buy--external {
+  background: #222;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.loja-card__buy--external:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.loja-card__ml-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.35rem;
+  height: 1.35rem;
+  padding: 0 0.2rem;
+  border-radius: 2px;
+  background: rgba(26, 26, 26, 0.12);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.loja__note {
+  margin-top: 1.75rem;
+  font-size: 0.82rem;
+  color: #666;
+  font-style: italic;
+  text-align: center;
+}
+
+@media (min-width: 641px) {
+  .loja__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .loja-card {
+    grid-template-columns: 130px 1fr;
+  }
+
+  .loja-card__media {
+    aspect-ratio: auto;
+    min-height: 100%;
+  }
+}
+
+@media (min-width: 901px) {
+  .loja__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .loja-card {
+    grid-template-columns: 1fr;
+  }
+
+  .loja-card__media {
+    aspect-ratio: 4/3;
+  }
+}

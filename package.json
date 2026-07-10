@@ -3,9 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "python3 -m http.server 8080",
+    "dev": "python3 -m http.server 5500",
     "screenshots": "node scripts/capture-screenshots.mjs",
     "test:responsive": "node scripts/test-responsive.mjs",
+    "test:animations": "node scripts/test-animations.mjs",
     "sync:instagram": "node scripts/sync-instagram.mjs"
   },
   "devDependencies": {

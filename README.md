@@ -1,14 +1,20 @@
-# Arcanjos de Aço MC — Motoclube
+# Arcanjos de Aço MC — 3 Versões de Landing Page
 
-Landing page de alta conversão para o motoclube Arcanjos de Aço MC de Rio das Ostras, RJ, desenvolvida com foco em responsividade, acessibilidade e integração WhatsApp.
+Três conceitos exclusivos de landing page para o motoclube **Arcanjos de Aço MC** de Rio das Ostras, RJ — com assets compartilhados do Instagram, hub de seleção e deploy automático no GitHub Pages.
 
 [![Live Demo](https://img.shields.io/badge/demo-online-brightgreen)](https://tofariasti.github.io/landing-arcanjos-de-aco/)
 
-## Demo
+## Hub de apresentação
 
-**Moldura (preview):** [https://tofariasti.github.io/landing-arcanjos-de-aco/](https://tofariasti.github.io/landing-arcanjos-de-aco/)
+**Escolha entre as 3 versões:** [https://tofariasti.github.io/landing-arcanjos-de-aco/](https://tofariasti.github.io/landing-arcanjos-de-aco/)
 
-**Tela cheia:** [https://tofariasti.github.io/landing-arcanjos-de-aco/site/](https://tofariasti.github.io/landing-arcanjos-de-aco/site/)
+| Versão | Conceito | URL |
+|--------|----------|-----|
+| V1 | **RAÇA** — Abutres-inspired, preloader, ticker, mapa territorial, masonry | [/v1-raca/](https://tofariasti.github.io/landing-arcanjos-de-aco/v1-raca/) |
+| V2 | **TERRITÓRIO** — Split hero, mapa RJ interativo, timeline, carrossel IG | [/v2-territorio/](https://tofariasti.github.io/landing-arcanjos-de-aco/v2-territorio/) |
+| V3 | **AÇO ESTRADA** — Ken Burns, chapter nav, filmstrip, CTAs cinematográficos | [/v3-aco-estrada/](https://tofariasti.github.io/landing-arcanjos-de-aco/v3-aco-estrada/) |
+
+A versão antiga **"Asfalto Infinito"** (`site/`) foi arquivada e redireciona para o hub.
 
 ## Screenshots
 
@@ -21,106 +27,89 @@ Landing page de alta conversão para o motoclube Arcanjos de Aço MC de Rio das 
 ### Mobile (390px)
 ![Mobile view](screenshots/mobile.png)
 
-## Funcionalidades
+## Funcionalidades (todas as versões)
 
-- Layout exclusivo **"Asfalto Infinito"** — navegação lateral numerada, hero cinematográfico, galeria filmstrip horizontal, bento assimétrico e formulário estilo ingresso
-- Design responsivo (mobile-first) com identidade visual de motoclube custom (preto asfalto, laranja chama, cromado, couro e latão)
-- Integração WhatsApp com formulário estruturado para interesse em fazer parte do clube
-- Animações ao scroll (AOS) + partículas, contadores, preloader e hover effects
-- Acessibilidade WCAG 2.1 AA (skip link, ARIA, foco visível, reduced motion)
-- SEO básico (meta description, HTML semântico)
-- Botão flutuante WhatsApp com pulse
-- FAQ accordion interativo
-- Galeria com lazy loading e crédito ao Instagram
-- Moldura iframe com preview desktop/tablet/mobile
+- Hero + estatísticas animadas (8 anos · 50 rolês · 30 irmãos)
+- História do clube (fundado 07/09/2017, Village/Rio das Ostras)
+- Valores: Respeito, Lealdade, Custom, Estrada
+- Como fazer parte (3 passos)
+- Galeria Instagram [@arcanjos_de_aco](https://www.instagram.com/arcanjos_de_aco/)
+- Depoimentos, FAQ (incluindo homônimos RO/ES/MG)
+- Formulário WhatsApp estruturado
+- Responsivo, acessível (skip link, ARIA, reduced motion)
+- HTML/CSS/JS puro — sem build step
 
-## Seções
-
-1. **Hero** — Headline, CTAs, estatísticas animadas e imagem impactante
-2. **Sobre o clube** — História, valores e sede em Rio das Ostras
-3. **Como fazer parte** — 3 passos: contato → encontro → integração
-4. **Eventos & rolês** — Rolês, churrascões, ações sociais e eventos MC
-5. **Galeria** — 12 fotos oficiais do [@arcanjos_de_aco](https://www.instagram.com/arcanjos_de_aco/) (carregadas via `instagram.json`)
-6. **Depoimentos** — 3 avaliações de irmãos
-7. **CTA** — Seção de conversão intermediária
-8. **FAQ** — Requisitos, sede, eventos e homônimos
-9. **Contato** — Formulário WhatsApp para fazer parte do clube
-10. **Footer** — Instagram, endereço e créditos
-
-## Tecnologias
-
-- HTML5 semântico
-- CSS3 (Flexbox/Grid, custom properties)
-- JavaScript vanilla (ES6+)
-- AOS (Animate On Scroll) v2.3.4
-- Font Awesome 6.4
-- Google Fonts (Staatliches + Barlow Condensed)
-
-## Testes de Responsividade
-
-| Dispositivo | Resolução | Status |
-|-------------|-----------|--------|
-| iPhone SE | 375×667 | ✅ |
-| iPhone 12 Pro | 390×844 | ✅ |
-| iPhone 14 Pro Max | 428×926 | ✅ |
-| iPad | 768×1024 | ✅ |
-| Desktop HD | 1280×720 | ✅ |
-| Desktop FHD | 1920×1080 | ✅ |
-
-## Acessibilidade
-
-- Semântica HTML5 adequada (`header`, `nav`, `main`, `section`, `footer`)
-- Atributos ARIA quando necessário (`aria-expanded`, `aria-label`)
-- Contraste WCAG AA (texto claro sobre fundo escuro)
-- Navegação por teclado (Escape fecha menu)
-- Focus states visíveis em todos os interativos
-- Alt text em imagens
-- Labels associados a inputs
-- Font-size mínimo 16px no mobile
-- Skip link para conteúdo principal
-- Respeita `prefers-reduced-motion`
-
-## Como usar
+## Desenvolvimento local
 
 ```bash
 git clone https://github.com/tofariasti/landing-arcanjos-de-aco.git
 cd landing-arcanjos-de-aco
-# Abrir index.html no navegador (preview com moldura iframe)
-# Ou abrir site/index.html para tela cheia
-python3 -m http.server 8080
+npm install
+
+# Atualizar fotos do Instagram
+npm run sync:instagram
+
+# Servidor local na porta 5500
+npm run dev
 ```
 
-## Personalização
+URLs locais:
 
-1. **WhatsApp:** altere `WHATSAPP_NUMBER` em `site/assets/js/main.js`
-2. **Cores:** edite as variáveis CSS em `:root` no `site/assets/css/style.css`
-3. **Textos e eventos:** edite `site/index.html`
-4. **Fotos do Instagram:** rode `npm run sync:instagram` para atualizar `site/assets/data/instagram.json` e as imagens em `site/assets/img/gallery/`. Hero, sobre e galeria usam fotos oficiais do perfil.
+- Hub: `http://localhost:5500/`
+- V1: `http://localhost:5500/v1-raca/`
+- V2: `http://localhost:5500/v2-territorio/`
+- V3: `http://localhost:5500/v3-aco-estrada/`
+
+### Screenshots
+
+```bash
+npm run screenshots
+```
+
+Gera previews em `assets/img/previews/` (cards do hub) e screenshots responsivos em `screenshots/`.
 
 ## Estrutura
 
 ```
 arcanjosdeaco/
-├── index.html              # Preview shell (moldura iframe)
-├── assets/css/preview.css
-├── assets/js/preview.js
-├── site/
-│   ├── index.html          # Landing page
-│   └── assets/
-│       ├── css/style.css
-│       ├── js/main.js
-│       └── img/
+├── index.html                 # Hub — seletor das 3 versões
+├── assets/css/hub.css
+├── assets/img/previews/       # Screenshots para cards do hub
+├── shared/
+│   ├── data/instagram.json    # Metadados das fotos IG
+│   ├── img/                   # hero, about, profile-pic, gallery/
+│   └── js/
+│       ├── instagram.js       # Galeria compartilhada
+│       └── whatsapp.js        # Formulário + número configurável
+├── v1-raca/                   # Versão 1 — RAÇA
+├── v2-territorio/             # Versão 2 — TERRITÓRIO
+├── v3-aco-estrada/            # Versão 3 — AÇO ESTRADA
+├── site/index.html            # Redirect → hub (compat. URL antiga)
 ├── screenshots/
 ├── scripts/
-│   ├── capture-screenshots.mjs
-│   └── test-responsive.mjs
-├── .github/workflows/deploy.yml
-└── README.md
+│   ├── sync-instagram.mjs
+│   └── capture-screenshots.mjs
+└── .github/workflows/deploy.yml
 ```
+
+**Paths de imagens:** cada versão referencia `../shared/img/...` para compatibilidade com subpath do GitHub Pages.
+
+## Personalização
+
+1. **WhatsApp do clube:** altere `WHATSAPP_NUMBER` em `shared/js/whatsapp.js`
+2. **Fotos do Instagram:** `npm run sync:instagram` atualiza `shared/data/instagram.json` e `shared/img/`
+3. **Textos:** edite o `index.html` de cada versão
+
+## Instagram
+
+Todas as versões consomem o mesmo `shared/data/instagram.json`. O script `sync-instagram.mjs` baixa até 20 fotos de [@arcanjos_de_aco](https://www.instagram.com/arcanjos_de_aco/).
 
 ## Redes sociais do clube
 
+URLs centralizadas em `shared/data/social.json`.
+
 - Instagram: [@arcanjos_de_aco](https://www.instagram.com/arcanjos_de_aco/)
+- Facebook: [Arcanjos de Aço MC](https://www.facebook.com/arcanjosdeacomc)
 
 ## Autor
 
@@ -132,6 +121,6 @@ arcanjosdeaco/
 ---
 
 <p align="center">
-  <a href="https://tofariasti.github.io/landing-arcanjos-de-aco/">🌐 Demo Online</a> ·
+  <a href="https://tofariasti.github.io/landing-arcanjos-de-aco/">🌐 Hub Online</a> ·
   <a href="https://fariasdigital.com.br/">🏢 Site Comercial</a>
 </p>

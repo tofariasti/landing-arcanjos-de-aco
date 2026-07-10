@@ -1,0 +1,421 @@
+{
+  "intro": "Merchan oficial A.A.M.C. Compre pelo WhatsApp ou direto no Mercado Livre — retirada na sede Village ou envio conforme o canal escolhido.",
+  "note": "Tamanhos e estoque podem variar por canal. Patches e itens exclusivos são vendidos apenas via sede/WhatsApp.",
+  "products": [
+    {
+      "id": "camiseta-oficial",
+      "name": "Camiseta A.A.M.C. Oficial",
+      "price": "89,90",
+      "description": "Algodão premium 30.1, estampa frontal e costas com logo do clube. Corte regular, ideal para rolê e sede.",
+      "image": "img/gallery/ig-DNa5_DqN6HB.jpg",
+      "badge": "Mais vendido",
+      "category": "Vestuário",
+      "sizes": [
+        "P",
+        "M",
+        "G",
+        "GG",
+        "XG"
+      ],
+      "purchase": {
+        "whatsapp": true,
+        "links": [
+          {
+            "platform": "mercadolivre",
+            "url": "https://produto.mercadolivre.com.br/MLB-2263441264-arcanjos-de-aco-camiseta-oficial",
+            "label": "Comprar no Mercado Livre"
+          }
+        ]
+      }
+    },
+    {
+      "id": "camiseta-preta",
+      "name": "Camiseta Preta — Raça em Extinção",
+      "price": "79,90",
+      "description": "Preta fosca, silk frontal discreto e frase nas costas. Edição limitada para irmãos e apoiadores.",
+      "image": "img/gallery/ig-DXsjXw_jBCp.jpg",
+      "category": "Vestuário",
+      "sizes": [
+        "P",
+        "M",
+        "G",
+        "GG",
+        "XG"
+      ],
+      "purchase": {
+        "whatsapp": true,
+        "links": [
+          {
+            "platform": "mercadolivre",
+            "url": "https://produto.mercadolivre.com.br/MLB-2775565119-arcanjos-de-aco-camiseta-preta",
+            "label": "Comprar no Mercado Livre"
+          }
+        ]
+      }
+    },
+    {
+      "id": "regata-estrada",
+      "name": "Regata Custom — Estrada",
+      "price": "69,90",
+      "description": "Malha leve para calor na estrada. Logo bordado no peito e rocker Rio das Ostras nas costas.",
+      "image": "img/gallery/ig-DZDcNdWyr9o.jpg",
+      "category": "Vestuário",
+      "sizes": [
+        "P",
+        "M",
+        "G",
+        "GG"
+      ],
+      "purchase": {
+        "whatsapp": true,
+        "links": [
+          {
+            "platform": "mercadolivre",
+            "url": "https://produto.mercadolivre.com.br/MLB-2245386276-arcanjos-de-aco-regata-estrada",
+            "label": "Comprar no Mercado Livre"
+          }
+        ]
+      }
+    },
+    {
+      "id": "polo-executiva",
+      "name": "Polo A.A.M.C. — Sede",
+      "price": "99,90",
+      "description": "Polo piquet com bordado no peito. Para eventos abertos, churrascões e representação do clube.",
+      "image": "img/gallery/ig-DZrzGZilit1.jpg",
+      "category": "Vestuário",
+      "sizes": [
+        "P",
+        "M",
+        "G",
+        "GG",
+        "XG"
+      ],
+      "purchase": {
+        "whatsapp": true
+      }
+    },
+    {
+      "id": "moletom",
+      "name": "Moletom Premium A.A.M.C.",
+      "price": "149,90",
+      "description": "Moletom flanelado com capuz, bolso canguru, silk frontal e bordado discreto no ombro.",
+      "image": "img/gallery/ig-DM0uORsPubC.jpg",
+      "category": "Vestuário",
+      "sizes": [
+        "P",
+        "M",
+        "G",
+        "GG",
+        "XG"
+      ],
+      "purchase": {
+        "whatsapp": true,
+        "links": [
+          {
+            "platform": "mercadolivre",
+            "url": "https://produto.mercadolivre.com.br/MLB-2434353368-arcanjos-de-aco-moletom",
+            "label": "Comprar no Mercado Livre"
+          }
+        ]
+      }
+    },
+    {
+      "id": "jaqueta-cortavento",
+      "name": "Jaqueta Corta-Vento A.A.M.C.",
+      "price": "189,90",
+      "description": "Tecido leve e respirável, ideal para rolês noturnos. Logo refletivo e zíper frontal.",
+      "image": "img/gallery/ig-DZL0IQQF8UH.jpg",
+      "badge": "Novo",
+      "category": "Vestuário",
+      "sizes": [
+        "P",
+        "M",
+        "G",
+        "GG",
+        "XG"
+      ],
+      "purchase": {
+        "whatsapp": true,
+        "links": [
+          {
+            "platform": "mercadolivre",
+            "url": "https://produto.mercadolivre.com.br/MLB-2659813695-arcanjos-de-aco-jaqueta-cortavento",
+            "label": "Comprar no Mercado Livre"
+          }
+        ]
+      }
+    },
+    {
+      "id": "colete-apoiador",
+      "name": "Colete Apoiador — Support 11",
+      "price": "129,90",
+      "description": "Colete sem mangas para apoiadores oficiais. Bordado Support 11 e costas com rocker do clube.",
+      "image": "img/gallery/ig-DZLIW4BOTm-.jpg",
+      "badge": "Apoiadores",
+      "category": "Vestuário",
+      "sizes": [
+        "P",
+        "M",
+        "G",
+        "GG"
+      ],
+      "purchase": {
+        "whatsapp": true
+      }
+    },
+    {
+      "id": "bone-curvo",
+      "name": "Boné Aba Curva A.A.M.C.",
+      "price": "59,90",
+      "description": "Aba curva, bordado frontal A.A.M.C. e ajuste metálico. Modelo clássico de motoclube.",
+      "image": "img/gallery/ig-DO8sIzHDRsm.jpg",
+      "category": "Bonés & Chapéus",
+      "purchase": {
+        "whatsapp": true,
+        "links": [
+          {
+            "platform": "mercadolivre",
+            "url": "https://produto.mercadolivre.com.br/MLB-2315036851-arcanjos-de-aco-bone-curvo",
+            "label": "Comprar no Mercado Livre"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bone-trucker",
+      "name": "Boné Trucker — Arcanjos",
+      "price": "64,90",
+      "description": "Frente em algodão e tela traseira. Bordado 3D e aba levemente curva.",
+      "image": "img/gallery/ig-DXpImOtFrNL.jpg",
+      "category": "Bonés & Chapéus",
+      "purchase": {
+        "whatsapp": true,
+        "links": [
+          {
+            "platform": "mercadolivre",
+            "url": "https://produto.mercadolivre.com.br/MLB-2224239432-arcanjos-de-aco-bone-trucker",
+            "label": "Comprar no Mercado Livre"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bandana",
+      "name": "Bandana Oficial A.A.M.C.",
+      "price": "29,90",
+      "description": "Bandana 55×55 cm com estampa completa do logo. Uso no pescoço, rosto ou guidão.",
+      "image": "img/gallery/ig-DX4_RgTjns_.jpg",
+      "category": "Acessórios",
+      "purchase": {
+        "whatsapp": true,
+        "links": [
+          {
+            "platform": "mercadolivre",
+            "url": "https://produto.mercadolivre.com.br/MLB-2757705603-arcanjos-de-aco-bandana",
+            "label": "Comprar no Mercado Livre"
+          }
+        ]
+      }
+    },
+    {
+      "id": "luva-meio-dedo",
+      "name": "Luva Meio Dedo — Custom",
+      "price": "49,90",
+      "description": "Luva em couro sintético com proteção nas junções. Logo bordado no dorso.",
+      "image": "img/gallery/ig-DZBorxelzFH.jpg",
+      "category": "Acessórios",
+      "sizes": [
+        "P",
+        "M",
+        "G"
+      ],
+      "purchase": {
+        "whatsapp": true,
+        "links": [
+          {
+            "platform": "mercadolivre",
+            "url": "https://produto.mercadolivre.com.br/MLB-2061149158-arcanjos-de-aco-luva-meio-dedo",
+            "label": "Comprar no Mercado Livre"
+          }
+        ]
+      }
+    },
+    {
+      "id": "meia-cano-alto",
+      "name": "Meia Cano Alto A.A.M.C. (par)",
+      "price": "34,90",
+      "description": "Par de meias cano alto com listras pretas e vermelhas e logo bordado. Conforto na estrada.",
+      "image": "img/hero.jpg",
+      "category": "Acessórios",
+      "sizes": [
+        "38–41",
+        "42–45"
+      ],
+      "purchase": {
+        "whatsapp": false,
+        "links": [
+          {
+            "platform": "mercadolivre",
+            "url": "https://produto.mercadolivre.com.br/MLB-2132833660-arcanjos-de-aco-meia-cano-alto",
+            "label": "Comprar no Mercado Livre"
+          }
+        ]
+      }
+    },
+    {
+      "id": "chaveiro-moto",
+      "name": "Chaveiro Moto + Logo",
+      "price": "19,90",
+      "description": "Chaveiro em metal com mini moto e plaquinha gravada Arcanjos de Aço MC.",
+      "image": "img/profile-pic.jpg",
+      "category": "Acessórios",
+      "purchase": {
+        "whatsapp": true,
+        "links": [
+          {
+            "platform": "mercadolivre",
+            "url": "https://produto.mercadolivre.com.br/MLB-2194335219-arcanjos-de-aco-chaveiro-moto",
+            "label": "Comprar no Mercado Livre"
+          }
+        ]
+      }
+    },
+    {
+      "id": "caneca-inox",
+      "name": "Caneca Inox 500ml",
+      "price": "39,90",
+      "description": "Inox térmico com logo gravado a laser. Ideal para café na sede antes do rolê.",
+      "image": "img/about.jpg",
+      "category": "Acessórios",
+      "purchase": {
+        "whatsapp": true,
+        "links": [
+          {
+            "platform": "mercadolivre",
+            "url": "https://produto.mercadolivre.com.br/MLB-2072532397-arcanjos-de-aco-caneca-inox",
+            "label": "Comprar no Mercado Livre"
+          }
+        ]
+      }
+    },
+    {
+      "id": "garrafa-termica",
+      "name": "Garrafa Térmica 750ml",
+      "price": "69,90",
+      "description": "Aço inox, mantém gelada por horas na estrada. Tampa com mosquetão e logo do clube.",
+      "image": "img/gallery/ig-DYhYuVFDYWFHgs1IiGFxS9-ASlldN--wI87ums0.jpg",
+      "category": "Acessórios",
+      "purchase": {
+        "whatsapp": true,
+        "links": [
+          {
+            "platform": "mercadolivre",
+            "url": "https://produto.mercadolivre.com.br/MLB-2195711441-arcanjos-de-aco-garrafa-termica",
+            "label": "Comprar no Mercado Livre"
+          }
+        ]
+      }
+    },
+    {
+      "id": "copo-sede",
+      "name": "Copo Personalizado — Sede",
+      "price": "24,90",
+      "description": "Copo acrílico 400ml com logo e frase \"Village — Rio das Ostras\". Uso exclusivo na base.",
+      "image": "img/about.jpg",
+      "category": "Acessórios",
+      "purchase": {
+        "whatsapp": false,
+        "links": [
+          {
+            "platform": "mercadolivre",
+            "url": "https://produto.mercadolivre.com.br/MLB-2373171062-arcanjos-de-aco-copo-sede",
+            "label": "Comprar no Mercado Livre"
+          }
+        ]
+      }
+    },
+    {
+      "id": "patch-costas",
+      "name": "Patch Bordado — Costas",
+      "price": "45,00",
+      "description": "Patch oficial grande para colete, bordado de alta densidade. Dimensão padrão MC.",
+      "image": "img/profile-pic.jpg",
+      "badge": "Exclusivo",
+      "category": "Patches",
+      "purchase": {
+        "whatsapp": true
+      }
+    },
+    {
+      "id": "patch-peito",
+      "name": "Patch Peito — Sigla A.A.M.C.",
+      "price": "28,00",
+      "description": "Patch pequeno para lado esquerdo do colete. Bordado com sigla e arco do clube.",
+      "image": "img/gallery/ig-DNa5_DqN6HB.jpg",
+      "category": "Patches",
+      "purchase": {
+        "whatsapp": true
+      }
+    },
+    {
+      "id": "patch-rocker",
+      "name": "Patch Rocker — Rio das Ostras",
+      "price": "32,00",
+      "description": "Rocker inferior com Rio das Ostras — RJ. Par curvo para base do colete.",
+      "image": "img/gallery/ig-DO8sIzHDRsm.jpg",
+      "category": "Patches",
+      "purchase": {
+        "whatsapp": true
+      }
+    },
+    {
+      "id": "kit-patches",
+      "name": "Kit Patches Completo (3 un.)",
+      "price": "95,00",
+      "description": "Conjunto peito + costas + rocker. Bordado oficial para customização de colete.",
+      "image": "img/gallery/ig-DM0uORsPubC.jpg",
+      "badge": "Kit",
+      "category": "Patches",
+      "purchase": {
+        "whatsapp": true
+      }
+    },
+    {
+      "id": "adesivos",
+      "name": "Kit Adesivos (5 un.)",
+      "price": "25,00",
+      "description": "Cinco adesivos oficiais — logo, sigla, rocker, Support 11 e \"Desde MMXVII\".",
+      "image": "img/hero.jpg",
+      "category": "Adesivos & Decoração",
+      "purchase": {
+        "whatsapp": false,
+        "links": [
+          {
+            "platform": "mercadolivre",
+            "url": "https://produto.mercadolivre.com.br/MLB-2705927013-arcanjos-de-aco-adesivos",
+            "label": "Comprar no Mercado Livre"
+          }
+        ]
+      }
+    },
+    {
+      "id": "adesivo-tanque",
+      "name": "Adesivo Tanque — Logo Grande",
+      "price": "18,00",
+      "description": "Adesivo vinil resistente a sol e chuva para tanque ou capacete. Aplicação a seco.",
+      "image": "img/gallery/ig-DZL0IQQF8UH.jpg",
+      "category": "Adesivos & Decoração",
+      "purchase": {
+        "whatsapp": false,
+        "links": [
+          {
+            "platform": "mercadolivre",
+            "url": "https://produto.mercadolivre.com.br/MLB-2681421213-arcanjos-de-aco-adesivo-tanque",
+            "label": "Comprar no Mercado Livre"
+          }
+        ]
+      }
+    }
+  ]
+}

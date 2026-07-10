@@ -1,87 +1,189 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arcanjos de Aço MC — Demo | Tiago O. de Farias</title>
-  <meta name="description" content="Demonstração de landing page para motoclube — concept demo desenvolvido por Tiago O. de Farias." />
-  <meta name="robots" content="noindex, nofollow" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/preview.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcanjos de Aço MC — Escolha sua versão</title>
+  <meta name="description" content="Três conceitos exclusivos de landing page para o Arcanjos de Aço MC. Escolha a versão ideal.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="shared/img/profile-pic.jpg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/hub.css">
+  <link rel="stylesheet" href="shared/css/footer-credit.css">
+  <link rel="stylesheet" href="shared/css/reveal.css">
 </head>
-<body class="preview-shell">
-  <header class="preview-bar">
-    <div class="preview-bar__brand">
-      <h1 class="preview-bar__title">Arcanjos de Aço MC — Motoclube</h1>
-      <span class="preview-bar__badge">Demo</span>
-    </div>
+<body>
+  <div class="hub-bg" aria-hidden="true">
+    <div class="hub-bg__gradient"></div>
+    <div class="hub-bg__noise"></div>
+  </div>
 
-    <p class="preview-bar__pitch">
-      Gostou do site? Publique no seu domínio
-      <span class="preview-bar__pitch-domain">.com.br</span><span class="preview-bar__pitch-sep" aria-hidden="true"> — </span><a
-        href="https://wa.me/5551991213724?text=Ol%C3%A1%20Tiago!%20Vi%20a%20demo%20do%20Arcanjos%20de%20A%C3%A7o%20MC%20e%20quero%20publicar%20no%20meu%20dom%C3%ADnio%20.com.br."
-        target="_blank"
-        rel="noopener noreferrer"
-        class="preview-bar__pitch-contact"
-      >fale comigo</a>
-    </p>
+  <a href="#versoes" class="skip-link">Ir para as versões</a>
 
-    <div class="preview-bar__devices" role="group" aria-label="Visualização por dispositivo">
-      <button type="button" class="preview-bar__device is-active" data-preview-device="desktop" aria-pressed="true" aria-label="Desktop" title="Desktop">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
-          <rect x="2" y="3" width="20" height="14" rx="2" />
-          <path d="M8 21h8M12 17v4" stroke-linecap="round" />
-        </svg>
-      </button>
-      <button type="button" class="preview-bar__device" data-preview-device="tablet" aria-pressed="false" aria-label="Tablet" title="Tablet">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
-          <rect x="4" y="2" width="16" height="20" rx="2" />
-          <path d="M10 18h4" stroke-linecap="round" />
-        </svg>
-      </button>
-      <button type="button" class="preview-bar__device" data-preview-device="mobile" aria-pressed="false" aria-label="Mobile" title="Mobile">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
-          <rect x="7" y="2" width="10" height="20" rx="2" />
-          <path d="M11 18h2" stroke-linecap="round" />
-        </svg>
-      </button>
-    </div>
-
-    <div class="preview-bar__actions">
-      <a href="https://tofariasti.github.io/" target="_blank" rel="noopener noreferrer" class="preview-bar__link preview-bar__link--icon" title="Portfólio">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        <span>Portfólio</span>
-      </a>
-      <a href="site/index.html" class="preview-bar__link" title="Abrir site sem moldura">Tela cheia</a>
-      <a
-        href="https://wa.me/5551991213724?text=Ol%C3%A1%20Tiago!%20Vi%20a%20demo%20do%20Arcanjos%20de%20A%C3%A7o%20MC%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto%20similar."
-        target="_blank"
-        rel="noopener noreferrer"
-        class="preview-bar__cta"
-      >
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-        </svg>
-        <span>Contratar</span>
-      </a>
+  <header class="hub-header">
+    <div class="hub-header__inner">
+      <div class="hub-header__brand">
+        <div class="hub-header__logo-wrap">
+          <img src="shared/img/profile-pic.jpg" alt="" width="56" height="56">
+        </div>
+        <div class="hub-header__titles">
+          <p class="hub-header__eyebrow">Motorcycle Club · Rio das Ostras, RJ</p>
+          <h1>Arcanjos de Aço MC</h1>
+          <p class="hub-header__tagline">Três conceitos · Uma identidade · Uma escolha</p>
+        </div>
+      </div>
     </div>
   </header>
 
-  <div class="preview-stage">
-    <div class="preview-frame-wrap" id="preview-frame-wrap">
-      <iframe
-        id="preview-iframe"
-        src="site/index.html"
-        title="Arcanjos de Aço MC — landing page demo"
-        loading="eager"
-      ></iframe>
-    </div>
-  </div>
+  <main id="versoes" class="hub-main">
+    <header class="section-intro">
+      <p class="section-intro__eyebrow">Versões disponíveis</p>
+      <h2 class="section-intro__title">Escolha o conceito</h2>
+      <p class="section-intro__desc">Cada versão apresenta a mesma essência do clube com uma abordagem visual distinta.</p>
+    </header>
 
-  <script src="assets/js/preview.js"></script>
+    <section class="version-grid" aria-label="Versões disponíveis">
+      <article class="version-card">
+        <a href="v1-raca/" class="version-card__preview">
+          <img src="assets/img/previews/v1.png" alt="Preview da versão RAÇA" width="640" height="360" loading="eager">
+          <span class="version-card__overlay">
+            <span class="version-card__view">Visualizar versão</span>
+          </span>
+        </a>
+        <div class="version-card__body">
+          <div class="version-card__head">
+            <span class="version-card__tag">V1</span>
+            <h3>RAÇA</h3>
+          </div>
+          <p class="version-card__tagline">Territorial. Imposto. Raça em extinção.</p>
+          <p class="version-card__desc">Inspirado em Abutres MC — preloader dramático, hero hostil, ticker de novidades, mapa Costa do Sol, ritual &amp; memorial, galeria masonry com lightbox, loja oficial e agenda de eventos.</p>
+          <ul class="version-card__features">
+            <li>Preloader + ticker + hero hostil</li>
+            <li>Memorial + masonry com lightbox</li>
+            <li>Loja oficial + eventos na agenda</li>
+          </ul>
+          <a href="v1-raca/" class="version-card__cta">
+            Ver versão
+            <span class="arrow" aria-hidden="true"></span>
+          </a>
+        </div>
+      </article>
+
+      <article class="version-card">
+        <a href="v2-territorio/" class="version-card__preview">
+          <img src="assets/img/previews/v2.png" alt="Preview da versão TERRITÓRIO" width="640" height="360" loading="lazy">
+          <span class="version-card__overlay">
+            <span class="version-card__view">Visualizar versão</span>
+          </span>
+        </a>
+        <div class="version-card__body">
+          <div class="version-card__head">
+            <span class="version-card__tag">V2</span>
+            <h3>TERRITÓRIO</h3>
+          </div>
+          <p class="version-card__tagline">Mapa. Manifesto. Presença marcada.</p>
+          <p class="version-card__desc">Split-screen com manifesto territorial e fotos IG rotativas, mapa interativo do RJ, garagem &amp; custom, capítulos com cortes diagonais, timeline 2017 – hoje, carrossel full-width, loja do clube e eventos com countdown.</p>
+          <ul class="version-card__features">
+            <li>Hero split + mapa RJ clicável</li>
+            <li>Garagem custom + timeline estrada</li>
+            <li>Loja + eventos com countdown</li>
+          </ul>
+          <a href="v2-territorio/" class="version-card__cta">
+            Ver versão
+            <span class="arrow" aria-hidden="true"></span>
+          </a>
+        </div>
+      </article>
+
+      <article class="version-card">
+        <a href="v3-aco-estrada/" class="version-card__preview">
+          <img src="assets/img/previews/v3.png" alt="Preview da versão AÇO ESTRADA" width="640" height="360" loading="lazy">
+          <span class="version-card__overlay">
+            <span class="version-card__view">Visualizar versão</span>
+          </span>
+        </a>
+        <div class="version-card__body">
+          <div class="version-card__head">
+            <span class="version-card__tag">V3</span>
+            <h3>AÇO ESTRADA</h3>
+          </div>
+          <p class="version-card__tagline">Cinemático. Imersivo. Fogo na estrada.</p>
+          <p class="version-card__desc">Hero Ken Burns, navegação por capítulos, textura noise, pilares com glow, filmstrip IG auto-scroll, loja integrada aos capítulos, agenda de eventos e CTAs agressivos "QUERO O COLETE".</p>
+          <ul class="version-card__features">
+            <li>Ken Burns + chapter dots</li>
+            <li>Filmstrip + pilares cinematográficos</li>
+            <li>Loja + eventos + CTAs ember</li>
+          </ul>
+          <a href="v3-aco-estrada/" class="version-card__cta">
+            Ver versão
+            <span class="arrow" aria-hidden="true"></span>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <section class="hub-info" aria-labelledby="hub-info-title">
+      <div class="hub-info__header">
+        <p class="hub-info__eyebrow">Incluso em todas as versões</p>
+        <h2 id="hub-info-title">Conteúdo completo do clube</h2>
+      </div>
+      <ul class="hub-info__grid">
+        <li class="hub-info__item">
+          <span class="hub-info__icon" aria-hidden="true"></span>
+          <span>Hero + estatísticas (8 anos · 50 rolês · 30 irmãos)</span>
+        </li>
+        <li class="hub-info__item">
+          <span class="hub-info__icon" aria-hidden="true"></span>
+          <span>História · Valores · Como entrar</span>
+        </li>
+        <li class="hub-info__item">
+          <span class="hub-info__icon" aria-hidden="true"></span>
+          <span>Galeria Instagram @arcanjos_de_aco</span>
+        </li>
+        <li class="hub-info__item">
+          <span class="hub-info__icon" aria-hidden="true"></span>
+          <span>Depoimentos · FAQ · WhatsApp</span>
+        </li>
+        <li class="hub-info__item">
+          <span class="hub-info__icon" aria-hidden="true"></span>
+          <span>Loja oficial — WhatsApp ou Mercado Livre</span>
+        </li>
+        <li class="hub-info__item">
+          <span class="hub-info__icon" aria-hidden="true"></span>
+          <span>Eventos &amp; agenda na estrada</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="hub-footer">
+    <div class="hub-footer__inner">
+      <div class="hub-footer__brand">
+        <img src="shared/img/profile-pic.jpg" alt="" width="32" height="32">
+        <div>
+          <p class="hub-footer__club-name">Arcanjos de Aço MC</p>
+          <p class="hub-footer__meta">Fundado 07/09/2017 · Village, Rio das Ostras — RJ</p>
+        </div>
+      </div>
+
+      <nav class="hub-footer__social" aria-label="Redes sociais">
+        <a href="https://www.instagram.com/arcanjos_de_aco/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @arcanjos_de_aco">
+          <i class="fab fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.facebook.com/arcanjosdeacomc" target="_blank" rel="noopener noreferrer" aria-label="Facebook Arcanjos de Aço MC">
+          <i class="fab fa-facebook-f" aria-hidden="true"></i>
+        </a>
+      </nav>
+
+      <div class="hub-footer__credit">
+        <p class="footer__credit">Site por <a href="https://fariasdigital.com.br/" target="_blank" rel="noopener noreferrer">Farias Digital</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="shared/js/reveal.js"></script>
 </body>
 </html>

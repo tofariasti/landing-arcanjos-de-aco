@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcanjos de Aço MC | TERRITÓRIO — Rio das Ostras</title>
+  <meta name="description" content="Arcanjos de Aço MC — presença territorial na Costa do Sol. A.A.M.C. desde MMXVII. Village, Rio das Ostras — RJ.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="../shared/img/profile-pic.jpg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="../shared/css/footer-credit.css">
+  <link rel="stylesheet" href="../shared/css/reveal.css">
+  <link rel="stylesheet" href="../shared/css/loja.css">
+</head>
+<body>
+  <a href="#contato" class="skip-link">Ir para formulário de contato</a>
+
+  <header class="header" id="top-nav">
+    <a href="#home" class="header__logo" aria-label="Arcanjos de Aço MC">
+      <img src="../shared/img/profile-pic.jpg" alt="" width="40" height="40">
+      <span>TERRITÓRIO</span>
+    </a>
+    <nav class="header__nav" id="nav-menu" aria-label="Seções principais">
+      <a href="#mapa">Mapa</a>
+      <a href="#capitulos">Capítulos</a>
+      <a href="#estrada">Estrada</a>
+      <a href="#garagem">Garagem</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#loja">Loja</a>
+      <a href="#eventos">Eventos</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contato" class="header__cta">Inscrição</a>
+    </nav>
+    <button class="header__burger" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero-split" id="home">
+      <div class="hero-split__manifesto">
+        <p class="hero-split__tag">A.A.M.C. · MMXVII</p>
+        <h1>TERRITÓRIO<br><span>MARCADO</span></h1>
+        <p class="hero-split__text">Este chão é nosso. Village, Rio das Ostras — coração da Costa do Sol. Fundado em <strong>07/09/2017</strong> por <strong>Zé Alex</strong>. Não é motoclube de vitrine. É presença na estrada.</p>
+        <div class="hero-split__stats" aria-label="Números do clube">
+          <div><strong data-count="8">0</strong><span>Anos</span></div>
+          <div><strong data-count="50">0</strong><span>Rolês</span></div>
+          <div><strong data-count="30">0</strong><span>Irmãos</span></div>
+        </div>
+        <a href="#contato" class="btn btn--red">Marcar presença</a>
+      </div>
+      <div class="hero-split__visual" aria-label="Fotos rotativas do clube">
+        <div class="hero-split__frame" id="hero-rotator">
+          <img src="../shared/img/hero.jpg" alt="Arcanjos de Aço MC" width="800" height="1200" fetchpriority="high">
+        </div>
+        <div class="hero-split__slash" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="mapa" id="mapa">
+      <div class="mapa__inner">
+        <header class="chapter-head">
+          <span class="chapter-head__slash">//</span>
+          <h2>Mapa de Presença</h2>
+          <p>Estado do Rio de Janeiro — região destacada</p>
+        </header>
+        <div class="mapa__interactive">
+          <svg class="mapa__svg" viewBox="0 0 500 400" role="img" aria-label="Mapa interativo do estado do Rio de Janeiro com destaque para Rio das Ostras">
+            <rect width="500" height="400" fill="#0a0a0a"/>
+            <path id="rj-outline" class="mapa__state" d="M80 350 L120 280 L100 200 L140 120 L200 80 L280 60 L360 90 L420 140 L440 220 L400 300 L320 360 L200 380 Z" fill="#151515" stroke="#333" stroke-width="2"/>
+            <path id="rj-coast" class="mapa__region mapa__region--active" data-region="costa" tabindex="0" role="button" aria-label="Costa do Sol — Rio das Ostras"
+              d="M280 120 L340 100 L380 130 L370 180 L320 200 L280 170 Z" fill="#3a0a0a" stroke="#c41e1e" stroke-width="2"/>
+            <circle cx="325" cy="155" r="6" fill="#c41e1e" class="mapa__pin"/>
+            <text x="325" y="140" text-anchor="middle" fill="#fff" font-family="Anton,sans-serif" font-size="10" letter-spacing="1">RIO DAS OSTRAS</text>
+            <path class="mapa__region" data-region="lagoa" tabindex="0" role="button" aria-label="Região dos Lagos"
+              d="M200 180 L260 160 L280 200 L240 240 L190 220 Z" fill="#1a1a1a" stroke="#444" stroke-width="1"/>
+            <text x="230" y="205" text-anchor="middle" fill="#666" font-family="Roboto Condensed,sans-serif" font-size="9">LAGOS</text>
+            <path class="mapa__region" data-region="metro" tabindex="0" role="button" aria-label="Região Metropolitana"
+              d="M140 240 L200 220 L220 280 L170 300 Z" fill="#1a1a1a" stroke="#444" stroke-width="1"/>
+            <text x="180" y="265" text-anchor="middle" fill="#666" font-family="Roboto Condensed,sans-serif" font-size="9">METRO</text>
+          </svg>
+          <div class="mapa__info" id="map-info">
+            <h3>Costa do Sol</h3>
+            <p><strong>Sede:</strong> Village, Rio das Ostras — RJ</p>
+            <p><strong>Fundador:</strong> Zé Alex · <strong>Desde:</strong> 07/09/2017</p>
+            <p>Base territorial do Arcanjos de Aço MC. Rolês pela orla, interior e estradas da região.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="capitulos" id="capitulos">
+      <article class="cap chapter-cut">
+        <div class="cap__content">
+          <span class="cap__num">01</span>
+          <h2>Respeito</h2>
+          <p>Na sede, na rua, no rolê. Sem exceção. Quem veste o colete carrega o nome de todos.</p>
+        </div>
+      </article>
+      <article class="cap chapter-cut chapter-cut--flip">
+        <div class="cap__content">
+          <span class="cap__num">02</span>
+          <h2>Lealdade</h2>
+          <p>Irmão nunca anda sozinho. A estrada testa, a irmandade sustenta.</p>
+        </div>
+      </article>
+      <article class="cap chapter-cut">
+        <div class="cap__content">
+          <span class="cap__num">03</span>
+          <h2>Custom</h2>
+          <p>Chopper, clássica, personalizada. A máquina é extensão da identidade.</p>
+        </div>
+      </article>
+      <article class="cap chapter-cut chapter-cut--flip">
+        <div class="cap__content">
+          <span class="cap__num">04</span>
+          <h2>Estrada</h2>
+          <p>O destino é o caminho. Cada quilômetro conta a história da raça.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="estrada" id="estrada">
+      <header class="chapter-head">
+        <span class="chapter-head__slash">//</span>
+        <h2>Presença na Estrada</h2>
+        <p>2017 → hoje</p>
+      </header>
+      <div class="timeline">
+        <div class="timeline__line" aria-hidden="true"></div>
+        <article class="timeline__item"><time datetime="2017-09-07">07·09·2017</time><h3>Fundação</h3><p>Zé Alex funda o Arcanjos de Aço como moto grupo em Rio das Ostras — MMXVII.</p></article>
+        <article class="timeline__item"><time datetime="2018">2018</time><h3>Sede Village</h3><p>Estabelecimento da base no bairro Village. Primeiros rolês pela Costa do Sol.</p></article>
+        <article class="timeline__item"><time datetime="2020">2020</time><h3>Consolidação</h3><p>Crescimento da irmandade. Ações sociais e presença na cena biker regional.</p></article>
+        <article class="timeline__item"><time datetime="2024">2024</time><h3>8 Anos de Raça</h3><p>50 rolês, 30 irmãos. A.A.M.C. — original de Rio das Ostras.</p></article>
+        <article class="timeline__item timeline__item--now"><time datetime="2026">2026</time><h3>Hoje</h3><p>Seguimos na estrada. Respeito, lealdade, custom, estrada — sempre.</p></article>
+      </div>
+    </section>
+
+    <section class="garagem" id="garagem">
+      <header class="chapter-head">
+        <span class="chapter-head__slash">//</span>
+        <h2>Garagem &amp; Custom</h2>
+        <p>Chopper, clássica, personalizada — a máquina carrega o nome do clube na estrada.</p>
+      </header>
+      <div class="garagem__inner">
+        <div class="garagem__grid" aria-label="Máquinas dos irmãos">
+          <article class="moto-card">
+            <div class="moto-card__media">
+              <img src="../shared/img/gallery/ig-DNa5_DqN6HB.jpg" alt="Harley custom preta do clube" loading="lazy" width="400" height="500">
+            </div>
+            <div class="moto-card__body">
+              <span class="moto-card__tag">Custom</span>
+              <h3>Harley Fat Bob</h3>
+              <p class="moto-card__owner">Irmão Zé · Village</p>
+              <p class="moto-card__desc">Escape aberto, guidão alto e pintura fosca. Presença na sede e nos rolês da Costa do Sol.</p>
+            </div>
+          </article>
+          <article class="moto-card">
+            <div class="moto-card__media">
+              <img src="../shared/img/gallery/ig-DO8sIzHDRsm.jpg" alt="Moto clássica em rolê" loading="lazy" width="400" height="500">
+            </div>
+            <div class="moto-card__body">
+              <span class="moto-card__tag">Clássica</span>
+              <h3>Sportster 883</h3>
+              <p class="moto-card__owner">Irmão Fábio · Rio das Ostras</p>
+              <p class="moto-card__desc">Motor V-Twin, visual limpo e confiável para estrada longa até os Lagos.</p>
+            </div>
+          </article>
+          <article class="moto-card">
+            <div class="moto-card__media">
+              <img src="../shared/img/gallery/ig-DM0uORsPubC.jpg" alt="Chopper em encontro do clube" loading="lazy" width="400" height="500">
+            </div>
+            <div class="moto-card__body">
+              <span class="moto-card__tag">Chopper</span>
+              <h3>Softail Custom</h3>
+              <p class="moto-card__owner">Irmão Ricardo · Região dos Lagos</p>
+              <p class="moto-card__desc">Roda dianteira fina, banco solo e identidade própria — estrada é extensão do colete.</p>
+            </div>
+          </article>
+        </div>
+        <aside class="estrada-ritual">
+          <h3>Ritual de Estrada</h3>
+          <p class="estrada-ritual__intro">Antes de girar a chave, cada irmão respeita o código. Sem atalho, sem vitrine.</p>
+          <ol class="estrada-ritual__list">
+            <li>
+              <span class="estrada-ritual__icon" aria-hidden="true"><i class="fas fa-hard-hat"></i></span>
+              <div>
+                <strong>Capacete e proteção</strong>
+                <p>Equipamento fechado, luvas e visão limpa. A estrada não perdoa.</p>
+              </div>
+            </li>
+            <li>
+              <span class="estrada-ritual__icon" aria-hidden="true"><i class="fas fa-gas-pump"></i></span>
+              <div>
+                <strong>Máquina revisada</strong>
+                <p>Pneus, freios, óleo e combustível. Moto pronta para o pelotão.</p>
+              </div>
+            </li>
+            <li>
+              <span class="estrada-ritual__icon" aria-hidden="true"><i class="fas fa-users"></i></span>
+              <div>
+                <strong>Pelotão fechado</strong>
+                <p>Ninguém fica para trás. Irmão espera irmão no ponto de encontro.</p>
+              </div>
+            </li>
+            <li>
+              <span class="estrada-ritual__icon" aria-hidden="true"><i class="fas fa-vest"></i></span>
+              <div>
+                <strong>Colete com respeito</strong>
+                <p>Quem veste o A.A.M.C. representa todos — na sede, na rua e no rolê.</p>
+              </div>
+            </li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <section class="admissao" id="admissao">
+      <header class="chapter-head">
+        <span class="chapter-head__slash">//</span>
+        <h2>Processo de Admissão</h2>
+      </header>
+      <ol class="admissao__steps">
+        <li><span>01</span><h3>Contato</h3><p>Formulário WhatsApp com seus dados e sua máquina.</p></li>
+        <li><span>02</span><h3>Sede</h3><p>Encontro em Village. Conhece os irmãos e participa de um rolê.</p></li>
+        <li><span>03</span><h3>Integração</h3><p>Período de observação. Valores alinhados, colete conquistado.</p></li>
+      </ol>
+    </section>
+
+    <section class="galeria" id="galeria">
+      <header class="chapter-head">
+        <span class="chapter-head__slash">//</span>
+        <h2>Registro Territorial</h2>
+        <p><a href="https://www.instagram.com/arcanjos_de_aco/" target="_blank" rel="noopener noreferrer">@arcanjos_de_aco</a></p>
+      </header>
+      <div class="galeria__carousel-wrap">
+        <button class="galeria__nav galeria__nav--prev" id="carousel-prev" aria-label="Foto anterior"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+        <div class="galeria__carousel" id="ig-carousel"></div>
+        <button class="galeria__nav galeria__nav--next" id="carousel-next" aria-label="Próxima foto"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+      </div>
+    </section>
+
+    <section class="loja" id="loja">
+      <header class="chapter-head">
+        <span class="chapter-head__slash">//</span>
+        <h2>Loja Oficial</h2>
+        <p>Merchan A.A.M.C. — pedido direto no WhatsApp.</p>
+      </header>
+      <div class="loja__shell">
+        <p class="loja__intro">Merchan oficial A.A.M.C. Pedidos via WhatsApp — retirada na sede Village ou envio sob consulta.</p>
+        <div class="loja__grid" id="loja-grid" aria-live="polite"></div>
+        <p class="loja__note">Tamanhos e disponibilidade confirmados na sede. Produtos sujeitos a estoque.</p>
+      </div>
+    </section>
+
+    <section class="eventos" id="eventos">
+      <header class="chapter-head">
+        <span class="chapter-head__slash">//</span>
+        <h2>Eventos &amp; Viagens</h2>
+        <p>Rolês, churrascões e encontros na estrada. Confirme presença na sede ou pelo WhatsApp.</p>
+      </header>
+
+      <div class="eventos__hero">
+        <div class="eventos__countdown" id="event-countdown" data-target="2026-07-19T08:00:00-03:00" aria-live="polite">
+          <p class="eventos__countdown-eyebrow">Próximo rolê</p>
+          <h3 class="eventos__countdown-title">Costa do Sol — Cabo Frio a Búzios</h3>
+          <p class="eventos__countdown-meta"><i class="fas fa-lock" aria-hidden="true"></i> Interno · Saída Sede Village · 19 Jul 2026</p>
+          <div class="eventos__countdown-units" role="group" aria-label="Contagem regressiva">
+            <div class="eventos__countdown-unit"><strong data-countdown="days">--</strong><span>dias</span></div>
+            <div class="eventos__countdown-unit"><strong data-countdown="hours">--</strong><span>horas</span></div>
+            <div class="eventos__countdown-unit"><strong data-countdown="mins">--</strong><span>min</span></div>
+            <div class="eventos__countdown-unit"><strong data-countdown="secs">--</strong><span>seg</span></div>
+          </div>
+          <a href="#contato" class="btn btn--red eventos__countdown-cta" data-event-prefill="Quero confirmar presença no rolê Costa do Sol — Cabo Frio a Búzios (19/07).">Confirmar presença</a>
+        </div>
+
+        <ul class="eventos__legend" aria-label="Legenda dos tipos de evento">
+          <li><span class="eventos__legend-dot eventos__legend-dot--interno" aria-hidden="true"></span><strong>Interno</strong> — irmãos e convidados autorizados</li>
+          <li><span class="eventos__legend-dot eventos__legend-dot--open" aria-hidden="true"></span><strong>Aberto</strong> — quem quer conhecer a raça</li>
+          <li><span class="eventos__legend-dot eventos__legend-dot--viagem" aria-hidden="true"></span><strong>Viagem</strong> — expedición com pernoite</li>
+        </ul>
+      </div>
+
+      <div class="eventos__agenda">
+        <article class="evento-card evento-card--destaque">
+          <div class="evento-card__date" aria-label="19 de julho de 2026">
+            <span class="evento-card__day">19</span>
+            <span class="evento-card__month">Jul</span>
+          </div>
+          <div class="evento-card__body">
+            <span class="evento-card__type evento-card__type--interno"><i class="fas fa-lock" aria-hidden="true"></i> Interno</span>
+            <h3>Costa do Sol — Cabo Frio a Búzios</h3>
+            <p class="evento-card__loc"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Saída: Sede Village · Rio das Ostras</p>
+            <p class="evento-card__desc">Rolê interno pela orla da Região dos Lagos. Parada no point dos irmãos em Búzios. Confirme presença até quarta-feira.</p>
+            <a href="#contato" class="evento-card__cta" data-event-prefill="Quero confirmar presença no rolê Costa do Sol — Cabo Frio a Búzios (19/07).">Confirmar presença <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+        <article class="evento-card">
+          <div class="evento-card__date" aria-label="26 de julho de 2026">
+            <span class="evento-card__day">26</span>
+            <span class="evento-card__month">Jul</span>
+          </div>
+          <div class="evento-card__body">
+            <span class="evento-card__type evento-card__type--open">Aberto</span>
+            <h3>Churrascão de Integração</h3>
+            <p class="evento-card__loc"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Sede A.A.M.C. — Village, Rio das Ostras</p>
+            <p class="evento-card__desc">Encontro na base para quem quer conhecer a raça. Churrasco, música e conversa de estrada. Traga sua máquina.</p>
+            <a href="#contato" class="evento-card__cta" data-event-prefill="Tenho interesse no Churrascão de Integração (26/07).">Quero participar <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+        <article class="evento-card">
+          <div class="evento-card__date" aria-label="15 a 17 de agosto de 2026">
+            <span class="evento-card__day">15–17</span>
+            <span class="evento-card__month">Ago</span>
+          </div>
+          <div class="evento-card__body">
+            <span class="evento-card__type evento-card__type--viagem">Viagem</span>
+            <h3>Expedição Região dos Lagos</h3>
+            <p class="evento-card__loc"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Arraial do Cabo · Búzios · Cabo Frio</p>
+            <p class="evento-card__desc">Três dias de estrada com pernoite. Roteiro fechado para irmãos e convidados. Detalhes e valores na sede.</p>
+            <a href="#contato" class="evento-card__cta" data-event-prefill="Quero saber mais sobre a Expedição Região dos Lagos (15–17/08).">Saiba mais <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+        <article class="evento-card">
+          <div class="evento-card__date" aria-label="7 de setembro de 2026">
+            <span class="evento-card__day">07</span>
+            <span class="evento-card__month">Set</span>
+          </div>
+          <div class="evento-card__body">
+            <span class="evento-card__type">Comemoração</span>
+            <h3>Aniversário A.A.M.C. — 9 Anos</h3>
+            <p class="evento-card__loc"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Sede Village · Rio das Ostras</p>
+            <p class="evento-card__desc">Desde MMXVII. Celebração dos nove anos de estrada, irmandade e custom. Programação completa em breve.</p>
+            <a href="https://www.instagram.com/arcanjos_de_aco/" target="_blank" rel="noopener noreferrer" class="evento-card__cta">Acompanhar no Instagram <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+        <article class="evento-card">
+          <div class="evento-card__date" aria-label="12 de outubro de 2026">
+            <span class="evento-card__day">12</span>
+            <span class="evento-card__month">Out</span>
+          </div>
+          <div class="evento-card__body">
+            <span class="evento-card__type evento-card__type--open">Aberto</span>
+            <h3>Ação Social — Doação de Alimentos</h3>
+            <p class="evento-card__loc"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Rio das Ostras e região</p>
+            <p class="evento-card__desc">Campanha de arrecadação e entrega às famílias da comunidade. Toda ajuda conta — participe ou doe.</p>
+            <a href="#contato" class="evento-card__cta" data-event-prefill="Quero ajudar na Ação Social de Doação de Alimentos (12/10).">Quero ajudar <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="eventos__ultimo-role">
+        <div class="eventos__ultimo-role__head">
+          <h3>Último rolê registrado</h3>
+          <p>Fotos oficiais do pelotão — <a href="https://www.instagram.com/arcanjos_de_aco/" target="_blank" rel="noopener noreferrer">@arcanjos_de_aco</a></p>
+        </div>
+        <div class="eventos__ultimo-role__grid" id="ultimo-role-gallery" aria-label="Galeria do último rolê"></div>
+      </div>
+
+      <p class="eventos__note">Datas sujeitas a alteração. Rolês internos são exclusivos para irmãos e convidados — consulte a sede.</p>
+    </section>
+
+    <section class="vozes">
+      <div class="vozes__grid">
+        <blockquote><p>"Desde que entrei, minha visão do motoclubismo mudou. Lealdade, estrada e respeito mútuo."</p><footer>— André L.</footer></blockquote>
+        <blockquote><p>"A sede em Village é nosso point. Churrascão, música e os melhores rolês da região."</p><footer>— Fábio S.</footer></blockquote>
+        <blockquote><p>"Encontrei família de verdade. Cada rolê é único. O respeito aqui não se compara."</p><footer>— Ricardo M.</footer></blockquote>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <header class="chapter-head"><h2>Dúvidas</h2></header>
+      <div class="faq__list">
+        <div class="faq-item"><button class="faq-item__q" aria-expanded="false"><span>Como entrar no Arcanjos de Aço MC?</span><i class="fas fa-plus" aria-hidden="true"></i></button><div class="faq-item__a" hidden><p>Formulário WhatsApp → encontro na sede → rolê → período de observação → integração.</p></div></div>
+        <div class="faq-item"><button class="faq-item__q" aria-expanded="false"><span>Preciso ter moto?</span><i class="fas fa-plus" aria-hidden="true"></i></button><div class="faq-item__a" hidden><p>Sim. Moto própria, habilitação válida e presença ativa nos rolês.</p></div></div>
+        <div class="faq-item"><button class="faq-item__q" aria-expanded="false"><span>Onde fica a sede?</span><i class="fas fa-plus" aria-hidden="true"></i></button><div class="faq-item__a" hidden><p>Bairro Village, Rio das Ostras — RJ. Endereço completo após primeiro contato.</p></div></div>
+        <div class="faq-item"><button class="faq-item__q" aria-expanded="false"><span>Não confundir com outros "Arcanjos"</span><i class="fas fa-plus" aria-hidden="true"></i></button><div class="faq-item__a" hidden><p>Arcanjos de Aço MC é de Rio das Ostras, RJ, fundado em 2017. Homônimos em RO, ES e MG são clubes diferentes.</p></div></div>
+      </div>
+    </section>
+
+    <section class="contato" id="contato">
+      <div class="contato__wrap">
+        <div class="contato__header">
+          <span class="chapter-head__slash">//</span>
+          <h2>Inscrição Territorial</h2>
+          <p>Pedido de admissão — preenche e envia no WhatsApp.</p>
+        </div>
+        <form class="contato__form" id="whatsapp-form" novalidate>
+          <div class="field"><label for="nome">Nome completo *</label><input type="text" id="nome" name="nome" required autocomplete="name"></div>
+          <div class="field-row">
+            <div class="field"><label for="cidade">Cidade/UF *</label><input type="text" id="cidade" name="cidade" required placeholder="Rio das Ostras, RJ"></div>
+            <div class="field"><label for="moto">Sua moto *</label><input type="text" id="moto" name="moto" required placeholder="Harley Sportster 2019"></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="tempo-estrada">Tempo de estrada *</label>
+              <select id="tempo-estrada" name="tempo-estrada" required>
+                <option value="">Selecione</option>
+                <option>Menos de 1 ano</option><option>1 a 3 anos</option><option>3 a 5 anos</option><option>5 a 10 anos</option><option>Mais de 10 anos</option>
+              </select>
+            </div>
+            <div class="field"><label for="como-conheceu">Como conheceu *</label>
+              <select id="como-conheceu" name="como-conheceu" required>
+                <option value="">Selecione</option>
+                <option>Instagram</option><option>Indicação de irmão</option><option>Evento / rolê</option><option>Google / internet</option><option>Outro</option>
+              </select>
+            </div>
+          </div>
+          <div class="field"><label for="mensagem">Mensagem</label><textarea id="mensagem" name="mensagem" rows="3" placeholder="Conte sobre você e por que quer marcar presença..."></textarea></div>
+          <button type="submit" class="btn btn--red btn--full"><i class="fab fa-whatsapp" aria-hidden="true"></i> Enviar Inscrição</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img src="../shared/img/profile-pic.jpg" alt="" width="32" height="32">
+    <p>&copy; 2026 Arcanjos de Aço MC · Village, Rio das Ostras — RJ</p>
+    <nav class="footer__social" aria-label="Redes sociais">
+      <a href="https://www.instagram.com/arcanjos_de_aco/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @arcanjos_de_aco"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+      <a href="https://www.facebook.com/arcanjosdeacomc" target="_blank" rel="noopener noreferrer" aria-label="Facebook Arcanjos de Aço MC"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+    </nav>
+    <p class="footer__credit">Site por <a href="https://fariasdigital.com.br/" target="_blank" rel="noopener noreferrer">Farias Digital</a></p>
+  </footer>
+
+  <a href="#contato" class="wa-float" id="whatsapp-float" aria-label="Inscrição pelo WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+
+  <script src="../shared/js/whatsapp.js"></script>
+  <script src="../shared/js/instagram.js"></script>
+  <script src="../shared/js/reveal.js"></script>
+  <script src="../shared/js/loja.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>ArcanjosLoja.init();</script>
+</body>
+</html>

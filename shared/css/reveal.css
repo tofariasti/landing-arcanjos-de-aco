@@ -1,0 +1,133 @@
+/* ── Scroll reveal ── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(1.75rem);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal--left {
+  transform: translateX(-1.5rem);
+}
+
+.reveal--right {
+  transform: translateX(1.5rem);
+}
+
+.reveal--left.is-visible,
+.reveal--right.is-visible {
+  transform: translateX(0);
+}
+
+.reveal--scale {
+  transform: scale(0.96);
+}
+
+.reveal--scale.is-visible {
+  transform: scale(1);
+}
+
+/* ── Hero entrance (on load) ── */
+
+.hero-enter {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  animation: heroEnter 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--hero-delay, 0s);
+}
+
+@keyframes heroEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Nav scroll state ── */
+
+.nav,
+.header,
+.hub-header,
+.chapter-nav {
+  transition: background 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+.nav.is-scrolled,
+.header.is-scrolled {
+  background: rgba(0, 0, 0, 0.92);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+.hub-header.is-scrolled .hub-header__inner {
+  padding-block: 0.75rem;
+}
+
+.chapter-nav.is-scrolled {
+  opacity: 0.92;
+}
+
+/* ── WhatsApp float pulse ── */
+
+.wa-float {
+  animation: waFloatPulse 2.8s ease-in-out infinite;
+}
+
+@keyframes waFloatPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); }
+  50% { box-shadow: 0 4px 28px rgba(37, 211, 102, 0.45); }
+}
+
+/* ── Card hover lift (shared) ── */
+
+.pilar,
+.pillar-card,
+.cap,
+.hub-info__item,
+.version-card {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pilar:hover,
+.pillar-card:hover,
+.cap:hover,
+.hub-info__item:hover {
+  transform: translateY(-4px);
+}
+
+/* ── Reduced motion ── */
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal--left,
+  .reveal--right,
+  .reveal--scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero-enter {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .wa-float {
+    animation: none;
+  }
+
+  .pilar:hover,
+  .pillar-card:hover,
+  .cap:hover,
+  .hub-info__item:hover {
+    transform: none;
+  }
+}

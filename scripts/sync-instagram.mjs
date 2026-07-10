@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
  * Baixa fotos públicas do @arcanjos_de_aco via API web do Instagram.
- * Uso: node scripts/sync-instagram.mjs
+ * Output: shared/img/ + shared/data/instagram.json
+ * Uso: npm run sync:instagram
  */
 import { mkdir, writeFile } from 'fs/promises';
 import path from 'path';
@@ -9,12 +10,12 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
-const OUT_DIR = path.join(ROOT, 'site/assets/img');
+const OUT_DIR = path.join(ROOT, 'shared/img');
 const GALLERY_DIR = path.join(OUT_DIR, 'gallery');
-const DATA_FILE = path.join(ROOT, 'site/assets/data/instagram.json');
+const DATA_FILE = path.join(ROOT, 'shared/data/instagram.json');
 const USERNAME = 'arcanjos_de_aco';
 const IG_APP_ID = '936619743392459';
-const MAX_IMAGES = 16;
+const MAX_IMAGES = 20;
 
 const HEADERS = {
   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
@@ -92,8 +93,8 @@ async function main() {
       await downloadFile(post.url, dest);
       console.log(`✓ ${name}`);
       gallery.push({
-        file: `assets/img/gallery/${name}`,
-        alt: post.caption || `Arcanjos de Aço MC — foto do Instagram`,
+        file: `../shared/img/gallery/${name}`,
+        alt: post.caption || 'Arcanjos de Aço MC — foto do Instagram',
         caption: post.caption.slice(0, 60) || 'Arcanjos de Aço',
         permalink: post.permalink,
       });
@@ -107,7 +108,6 @@ async function main() {
     process.exit(1);
   }
 
-  // Profile pic as logo reference
   try {
     const profile = await fetchJson(
       `https://www.instagram.com/api/v1/users/web_profile_info/?username=${USERNAME}`
@@ -121,16 +121,16 @@ async function main() {
 
   await writeFile(DATA_FILE, JSON.stringify(gallery, null, 2) + '\n');
 
-  // Hero + about from best posts (road photo + history)
-  var heroPost = posts.find(function (p) {
+  const heroPost = posts.find(function (p) {
     return /estrada|rodando|rio de janeiro/i.test(p.caption);
   }) || posts[4] || posts[0];
-  var aboutPost = posts.find(function (p) {
+  const aboutPost = posts.find(function (p) {
     return /fundado|2017|moto grupo/i.test(p.caption);
   }) || posts[2] || posts[0];
 
   await downloadFile(heroPost.url, path.join(OUT_DIR, 'hero.jpg')).catch(function () {});
   await downloadFile(aboutPost.url, path.join(OUT_DIR, 'about.jpg')).catch(function () {});
+  console.log('✓ hero.jpg, about.jpg');
 
   console.log(`\n${gallery.length} fotos em ${GALLERY_DIR}`);
   console.log(`Manifest: ${DATA_FILE}`);
