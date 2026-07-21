@@ -3,7 +3,7 @@
 
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var regionData = {
-    costa: { title: 'Costa do Sol', html: '<p><strong>Sede:</strong> Village, Rio das Ostras — RJ</p><p><strong>Fundador:</strong> Zé Alex · <strong>Desde:</strong> 07/09/2017</p><p>Base territorial do Arcanjos de Aço MC. Rolês pela orla, interior e estradas da região.</p>' },
+    costa: { title: 'Costa do Sol', html: '<p><strong>Sede:</strong> Minas Gerais — MG</p><p><strong>Fundador:</strong> Zé Alex · <strong>Desde:</strong> 07/09/2017</p><p>Base territorial do Arcanjos de Aço MC. Rolês pela região e pelas estradas do estado.</p>' },
     lagoa: { title: 'Região dos Lagos', html: '<p><strong>Presença:</strong> Rolês regulares por Cabo Frio, Búzios, Araruama.</p><p>Conexão com a cena biker dos Lagos fluminenses.</p>' },
     metro: { title: 'Região Metropolitana', html: '<p><strong>Presença:</strong> Participação em eventos e encontros na capital e Baixada.</p><p>A.A.M.C. representado onde a estrada leva.</p>' }
   };
@@ -16,13 +16,9 @@
     initHeroRotator();
     initMap();
     initGallery();
+    initMovimentoBg();
     initEventCountdown();
     initUltimoRole();
-    initEventPrefill();
-    if (window.ArcanjosWhatsApp) {
-      ArcanjosWhatsApp.initForm('whatsapp-form', { theme: 'red' });
-      ArcanjosWhatsApp.initFloatButton('#whatsapp-float');
-    }
   });
 
   function initNav() {
@@ -153,6 +149,136 @@
     }).catch(function () {});
   }
 
+  function initMovimentoBg() {
+    var section = document.getElementById('movimento');
+    var media = document.getElementById('movimento-media');
+    if (!section || !media) return;
+
+    var prefersReducedData = false;
+    try {
+      prefersReducedData = window.matchMedia('(prefers-reduced-data: reduce)').matches;
+    } catch (_) { /* unsupported */ }
+
+    var useStatic = prefersReducedMotion || prefersReducedData;
+    var clipMs = 9000;
+    var activeIndex = 0;
+    var layers = [];
+    var timer = null;
+    var inView = false;
+
+    function showLayer(index) {
+      if (!layers.length) return;
+      activeIndex = (index + layers.length) % layers.length;
+      layers.forEach(function (layer, i) {
+        var on = i === activeIndex;
+        layer.classList.toggle('is-active', on);
+        if (layer.tagName === 'VIDEO') {
+          if (on && inView && !useStatic) {
+            layer.currentTime = 0;
+            var playPromise = layer.play();
+            if (playPromise && typeof playPromise.catch === 'function') {
+              playPromise.catch(function () {
+                section.classList.add('is-static');
+              });
+            }
+          } else {
+            layer.pause();
+          }
+        }
+      });
+    }
+
+    function startCycle() {
+      if (useStatic || layers.length < 2 || timer) return;
+      timer = setInterval(function () {
+        if (!inView) return;
+        showLayer(activeIndex + 1);
+      }, clipMs);
+    }
+
+    function stopCycle() {
+      if (!timer) return;
+      clearInterval(timer);
+      timer = null;
+    }
+
+    fetch('assets/data/instagram-reels.json')
+      .then(function (res) {
+        if (!res.ok) throw new Error('reels json missing');
+        return res.json();
+      })
+      .then(function (items) {
+        if (!items || !items.length) {
+          section.hidden = true;
+          return;
+        }
+
+        section.hidden = false;
+        media.innerHTML = '';
+        layers = [];
+
+        items.slice(0, 4).forEach(function (item, index) {
+          if (useStatic || !item.video) {
+            if (!item.poster) return;
+            var img = document.createElement('img');
+            img.src = item.poster;
+            img.alt = '';
+            img.decoding = 'async';
+            if (index === 0) img.classList.add('is-active');
+            media.appendChild(img);
+            layers.push(img);
+            return;
+          }
+
+          var video = document.createElement('video');
+          video.muted = true;
+          video.playsInline = true;
+          video.setAttribute('playsinline', '');
+          video.preload = index === 0 ? 'metadata' : 'none';
+          video.loop = items.length === 1;
+          if (item.poster) video.poster = item.poster;
+          var source = document.createElement('source');
+          source.src = item.video;
+          source.type = 'video/mp4';
+          video.appendChild(source);
+          if (index === 0) video.classList.add('is-active');
+          media.appendChild(video);
+          layers.push(video);
+        });
+
+        if (!layers.length) {
+          section.hidden = true;
+          return;
+        }
+
+        if (useStatic) {
+          section.classList.add('is-static');
+          showLayer(0);
+          return;
+        }
+
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            inView = entry.isIntersecting && entry.intersectionRatio >= 0.25;
+            if (inView) {
+              showLayer(activeIndex);
+              startCycle();
+            } else {
+              stopCycle();
+              layers.forEach(function (layer) {
+                if (layer.tagName === 'VIDEO') layer.pause();
+              });
+            }
+          });
+        }, { threshold: [0, 0.25, 0.5] });
+
+        observer.observe(section);
+      })
+      .catch(function () {
+        section.hidden = true;
+      });
+  }
+
   function initEventCountdown() {
     var block = document.getElementById('event-countdown');
     if (!block) return;
@@ -215,15 +341,4 @@
     }).catch(function () {});
   }
 
-  function initEventPrefill() {
-    var mensagem = document.getElementById('mensagem');
-    if (!mensagem) return;
-
-    document.querySelectorAll('[data-event-prefill]').forEach(function (link) {
-      link.addEventListener('click', function () {
-        var text = link.getAttribute('data-event-prefill');
-        if (text) mensagem.value = text;
-      });
-    });
-  }
 })();
