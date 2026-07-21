@@ -20,16 +20,27 @@
   <a href="#catalogo" class="skip-link">Ir para o catálogo</a>
 
   <header class="loja-nav">
-    <a href="../" class="loja-nav__brand" aria-label="Arcanjos de Aço MC — hub">
+    <a href="../v2-territorio/" class="loja-nav__brand" aria-label="Arcanjos de Aço MC — TERRITÓRIO">
       <img src="../shared/img/profile-pic.jpg" alt="" width="40" height="40">
       <span>A.A.M.C.</span>
     </a>
-    <nav class="loja-nav__links" aria-label="Páginas">
-      <a href="./" class="is-current" aria-current="page">Loja</a>
-      <a href="../membros/">Irmãos</a>
-      <a href="../" class="loja-nav__back"><i class="fas fa-arrow-left" aria-hidden="true"></i> Voltar</a>
-    </nav>
+    <button class="loja-nav__burger" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span>
+    </button>
   </header>
+  <nav class="loja-nav__links" id="nav-menu" aria-label="Seções principais">
+    <a href="../v2-territorio/#mapa">Mapa</a>
+    <a href="../v2-territorio/#capitulos">Capítulos</a>
+    <a href="../v2-territorio/#movimento">Em movimento</a>
+    <a href="../v2-territorio/#historia">História</a>
+    <a href="../v2-territorio/#garagem">Garagem</a>
+    <a href="../membros/">Irmãos</a>
+    <a href="../v2-territorio/#galeria">Galeria</a>
+    <a href="./" class="is-current" aria-current="page">Loja</a>
+    <a href="../v2-territorio/#eventos">Eventos</a>
+    <a href="../v2-territorio/#faq">FAQ</a>
+    <a href="../v2-territorio/#admissao" class="loja-nav__cta">Admissão</a>
+  </nav>
 
   <main>
     <section class="loja-hero" aria-labelledby="loja-brand">
@@ -63,6 +74,7 @@
     <p class="footer__credit">Site por <a href="https://fariasdigital.com.br/" target="_blank" rel="noopener noreferrer">Farias Digital</a></p>
   </footer>
 
+  <script src="../shared/js/nav-toggle.js"></script>
   <script src="../shared/js/whatsapp.js"></script>
   <script src="../shared/js/reveal.js"></script>
   <script src="../shared/js/loja.js"></script>

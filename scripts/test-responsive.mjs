@@ -22,6 +22,8 @@ const PAGES = [
   { name: 'V1 RAÇA', path: '/v1-raca/' },
   { name: 'V2 TERRITÓRIO', path: '/v2-territorio/' },
   { name: 'V3 AÇO ESTRADA', path: '/v3-aco-estrada/' },
+  { name: 'Loja', path: '/loja/' },
+  { name: 'Irmãos', path: '/membros/' },
 ];
 
 function startServer() {
@@ -129,7 +131,11 @@ async function testViewport(browser, pageEntry, viewport) {
 }
 
 const server = await startServer();
-const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] });
+const browser = await puppeteer.launch({
+  headless: true,
+  executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
+  args: ['--no-sandbox', '--disable-setuid-sandbox'],
+});
 
 const results = [];
 let allPassed = true;
