@@ -33,8 +33,26 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   display: flex; align-items: center; justify-content: space-between;
   padding: 0.75rem 2rem; background: rgba(0,0,0,0.9); border-bottom: 2px solid var(--red);
 }
-.header__logo { display: flex; align-items: center; gap: 0.75rem; color: var(--white); font-family: var(--font-display); font-size: 1.2rem; letter-spacing: 0.1em; }
-.header__logo img { border-radius: 50%; border: 2px solid var(--red); }
+.header__logo,
+.header__logo:visited {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.header__logo:hover { color: var(--white); }
+.header__logo img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 0;
+  border: 1px solid rgba(196, 30, 30, 0.4);
+}
 .header__nav {
   display: flex;
   position: fixed; top: 56px; right: 0; bottom: 0; width: min(280px, 85vw);
@@ -135,12 +153,14 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
 .mapa { padding: 2rem; background: var(--charcoal); }
 .mapa__inner { max-width: 1000px; margin: 0 auto; }
 .mapa__interactive { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: start; margin-top: 1rem; }
-.mapa__svg { width: 100%; border: 2px solid #333; cursor: default; }
+.mapa__svg { width: 100%; max-height: min(72vh, 640px); border: 2px solid #333; cursor: default; }
+.mapa__states path { pointer-events: none; }
 .mapa__region { cursor: pointer; transition: fill 0.3s, stroke 0.3s; }
 .mapa__region:hover, .mapa__region:focus { fill: #4a1010; stroke: var(--red); outline: none; }
-.mapa__region--active { fill: #3a0a0a !important; stroke: var(--red) !important; }
+.mapa__region--active { fill: #3a0a0a !important; stroke: var(--red) !important; stroke-width: 2 !important; }
 .mapa__pin { animation: pinPulse 2s ease infinite; }
 @keyframes pinPulse { 0%,100%{r:6} 50%{r:9} }
+.mapa__pins text { pointer-events: none; paint-order: stroke fill; stroke: #0a0a0a; stroke-width: 3px; }
 .mapa__info { background: var(--black); border-left: 4px solid var(--red); padding: 1.5rem; }
 .mapa__info h3 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.75rem; color: var(--red); }
 .mapa__info p { color: var(--muted); margin-bottom: 0.5rem; font-size: 0.95rem; }

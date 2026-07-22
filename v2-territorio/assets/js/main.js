@@ -3,9 +3,10 @@
 
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var regionData = {
-    costa: { title: 'Costa do Sol', html: '<p><strong>Sede:</strong> Minas Gerais — MG</p><p><strong>Fundador:</strong> Zé Alex · <strong>Desde:</strong> 07/09/2017</p><p>Base territorial do Arcanjos de Aço MC. Rolês pela região e pelas estradas do estado.</p>' },
-    lagoa: { title: 'Região dos Lagos', html: '<p><strong>Presença:</strong> Rolês regulares por Cabo Frio, Búzios, Araruama.</p><p>Conexão com a cena biker dos Lagos fluminenses.</p>' },
-    metro: { title: 'Região Metropolitana', html: '<p><strong>Presença:</strong> Participação em eventos e encontros na capital e Baixada.</p><p>A.A.M.C. representado onde a estrada leva.</p>' }
+    mg: { title: 'Minas Gerais', html: '<p><strong>Sede:</strong> Minas Gerais — MG</p><p><strong>Fundador:</strong> Zé Alex · <strong>Desde:</strong> 07/09/2017</p><p>Base territorial do Arcanjos de Aço MC. Presença marcada no mapa do Brasil.</p>' },
+    rj: { title: 'Rio de Janeiro', html: '<p><strong>Presença:</strong> Rio de Janeiro — RJ</p><p>Origem e estradas do litoral fluminense. A.A.M.C. representado onde a irmandade roda.</p>' },
+    rs: { title: 'Rio Grande do Sul', html: '<p><strong>Presença:</strong> Rio Grande do Sul — RS</p><p>Irmãos e rolês no Sul. A estrada não tem fronteira para o colete.</p>' },
+    ap: { title: 'Amapá', html: '<p><strong>Presença:</strong> Amapá — AP</p><p>Presença no Norte. A.A.M.C. marcado no mapa do Brasil.</p>' }
   };
 
   document.addEventListener('DOMContentLoaded', function () {
