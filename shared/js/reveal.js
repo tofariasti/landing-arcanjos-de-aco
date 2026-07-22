@@ -19,6 +19,7 @@
     '.eventos__ultimo-role__grid > .role-thumb',
     '.loja__grid > .loja-card',
     '.membros__list > .membro',
+    '.registro-grid > .masonry-item',
     '.steps > li',
     '.faq__list > .faq-item',
     '.origem__grid > *',
@@ -27,7 +28,7 @@
 
   var SECTION_HEADERS = '.section-head, .chapter-head, .kicker, .eventos__intro, .contato__header, .estrada-ritual__intro, .eventos__ultimo-role__head';
 
-  var ASYNC_SECTION_SELECTORS = ['#masonry-gallery', '#ig-carousel', '#filmstrip-gallery', '#loja-grid', '#membros-list'];
+  var ASYNC_SECTION_SELECTORS = ['#masonry-gallery', '#ig-carousel', '#filmstrip-gallery', '#loja-grid', '#membros-list', '#registro-grid', '#galeria-preview'];
 
   var BLOCK_TARGETS = [
     'main .section-intro',
@@ -68,7 +69,7 @@
     section.querySelectorAll('.section-inner > h2, .section-inner > p.kicker, .galeria__sub, .loja__intro, .loja__note, .galeria__shell > .galeria__meta, .galeria__cta').forEach(function (el) {
       if (!el.closest('.has-stagger-children')) markReveal(el);
     });
-    section.querySelectorAll('.masonry, .galeria__carousel, .filmstrip, #masonry-gallery, #ig-carousel, #filmstrip-gallery, #loja-grid').forEach(function (el) {
+    section.querySelectorAll('.masonry, .galeria__carousel, .registro-grid, .filmstrip, #masonry-gallery, #ig-carousel, #filmstrip-gallery, #loja-grid, #registro-grid, #galeria-preview').forEach(function (el) {
       el.classList.remove('reveal', 'is-visible');
     });
   }
