@@ -288,8 +288,26 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
 .admissao__steps h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
 .admissao__steps p { color: var(--muted); font-size: 0.9rem; }
 
-/* Garagem & custom */
-.garagem { padding: 2rem; background: var(--black); border-top: 2px solid rgba(196, 30, 30, 0.15); }
+/* Garagem */
+.garagem {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 2.5rem 2rem 3rem;
+  background: var(--black);
+  border-top: 2px solid rgba(196, 30, 30, 0.15);
+}
+.garagem::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(105deg, rgba(0, 0, 0, 0.94) 0%, rgba(0, 0, 0, 0.82) 38%, rgba(0, 0, 0, 0.58) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, transparent 28%, rgba(0, 0, 0, 0.75) 100%),
+    url("../../../shared/img/gallery/ig-DXsjXw_jBCp.jpg") center 40% / cover no-repeat;
+}
+.garagem > * { position: relative; z-index: 1; }
 .garagem__inner {
   max-width: 1100px;
   margin: 0 auto;
@@ -342,8 +360,9 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
 .moto-card__desc { color: #999; font-size: 0.92rem; line-height: 1.55; }
 
 .estrada-ritual {
-  background: linear-gradient(135deg, #1a0505 0%, var(--charcoal) 100%);
-  border: 2px solid rgba(196, 30, 30, 0.25);
+  background: linear-gradient(135deg, rgba(26, 5, 5, 0.92) 0%, rgba(17, 17, 17, 0.88) 100%);
+  border: 2px solid rgba(196, 30, 30, 0.35);
+  backdrop-filter: blur(6px);
   padding: 1.75rem 1.5rem;
 }
 .estrada-ritual h3 {
@@ -793,8 +812,11 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
 }
 .garagem__teaser .membros__teaser {
   margin: 0;
-  max-width: none;
+  max-width: 36rem;
   text-align: left;
+}
+.garagem__teaser .membros__teaser-text {
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.75);
 }
 
 /* Responsive — mobile first */
