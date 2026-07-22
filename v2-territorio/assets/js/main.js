@@ -91,22 +91,34 @@
   }
 
   function initHeroRotator() {
-    var frame = document.getElementById('hero-rotator');
-    if (!frame || !window.ArcanjosInstagram || prefersReducedMotion) return;
-    var img = frame.querySelector('img');
-    ArcanjosInstagram.load().then(function (items) {
-      if (!items.length) return;
-      var idx = 0;
-      setInterval(function () {
-        idx = (idx + 1) % items.length;
-        img.classList.add('is-fading');
-        setTimeout(function () {
-          img.src = items[idx].file;
-          img.alt = items[idx].alt || 'Arcanjos de Aço MC';
-          img.classList.remove('is-fading');
-        }, 400);
-      }, 4000);
-    }).catch(function () {});
+    var left = document.getElementById('hero-rotator-left');
+    var right = document.getElementById('hero-rotator-right');
+    if ((!left && !right) || !window.ArcanjosInstagram || prefersReducedMotion) return;
+
+    function bindFrame(frame, startIndex, step) {
+      if (!frame) return;
+      var img = frame.querySelector('img');
+      if (!img) return;
+      ArcanjosInstagram.load().then(function (items) {
+        if (!items.length) return;
+        var idx = startIndex % items.length;
+        setInterval(function () {
+          idx = (idx + step) % items.length;
+          img.classList.add('is-fading');
+          setTimeout(function () {
+            img.src = items[idx].file;
+            if (frame.id === 'hero-rotator-right') {
+              img.alt = items[idx].alt || 'Arcanjos de Aço MC';
+            }
+            img.classList.remove('is-fading');
+          }, 400);
+        }, 4500);
+      }).catch(function () {});
+    }
+
+    /* Offset indices so left/right rarely show the same frame */
+    bindFrame(left, 1, 2);
+    bindFrame(right, 0, 2);
   }
 
   function initMovimentoBg() {
