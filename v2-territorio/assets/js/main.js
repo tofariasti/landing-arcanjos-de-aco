@@ -2,13 +2,6 @@
   'use strict';
 
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var regionData = {
-    mg: { title: 'Minas Gerais', html: '<p><strong>Sede:</strong> Minas Gerais — MG</p><p><strong>Presidência:</strong> Matheus Damasceno · <strong>Desde:</strong> 2025</p><p>Base territorial do Arcanjos de Aço MC. Presença marcada no mapa do Brasil.</p>' },
-    rj: { title: 'Rio de Janeiro', html: '<p><strong>Presença:</strong> Rio de Janeiro — RJ</p><p><strong>Origem:</strong> fundação em 07/09/2017 por Zé Alex</p><p>Estradas do litoral fluminense. A.A.M.C. representado onde a irmandade roda.</p>' },
-    rs: { title: 'Rio Grande do Sul', html: '<p><strong>Presença:</strong> Rio Grande do Sul — RS</p><p>Irmãos e rolês no Sul. A estrada não tem fronteira para o colete.</p>' },
-    ap: { title: 'Amapá', html: '<p><strong>Presença:</strong> Amapá — AP</p><p>Presença no Norte. A.A.M.C. marcado no mapa do Brasil.</p>' },
-    ch: { title: 'Suíça', html: '<p><strong>Presença internacional:</strong> Suíça</p><p><strong>Fundador:</strong> Zé Alex · <strong>Desde:</strong> 07/09/2017</p><p>O fundador do Arcanjos de Aço MC vive na Suíça. A estrada não tem fronteira para o colete.</p>' }
-  };
 
   document.addEventListener('DOMContentLoaded', function () {
     initNav();
@@ -16,8 +9,6 @@
     initCounters();
     initFaq();
     initHeroRotator();
-    initMap();
-    initGallery();
     initMovimentoBg();
     initEventCountdown();
     initUltimoRole();
@@ -115,39 +106,6 @@
           img.classList.remove('is-fading');
         }, 400);
       }, 4000);
-    }).catch(function () {});
-  }
-
-  function initMap() {
-    var info = document.getElementById('map-info');
-    if (!info) return;
-    document.querySelectorAll('.mapa__region').forEach(function (region) {
-      function activate() {
-        document.querySelectorAll('.mapa__region').forEach(function (r) {
-          r.classList.remove('mapa__region--active');
-        });
-        region.classList.add('mapa__region--active');
-        var key = region.getAttribute('data-region');
-        var data = regionData[key];
-        if (data) {
-          info.innerHTML = '<h3>' + data.title + '</h3>' + data.html;
-        }
-      }
-      region.addEventListener('click', activate);
-      region.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
-      });
-    });
-  }
-
-  function initGallery() {
-    var container = document.getElementById('ig-carousel');
-    if (!container || !window.ArcanjosInstagram) return;
-    ArcanjosInstagram.load().then(function (items) {
-      ArcanjosInstagram.renderHorizontalPanels(container, items, {
-        prevId: 'carousel-prev',
-        nextId: 'carousel-next'
-      });
     }).catch(function () {});
   }
 
