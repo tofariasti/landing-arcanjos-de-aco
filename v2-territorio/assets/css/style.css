@@ -156,7 +156,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   animation: brand-in 0.9s ease-out both;
 }
 .hero-split__logo {
-  width: min(92%, 28rem);
+  width: min(100%, 34rem);
   height: auto;
   margin: 0 auto 0.35rem;
 }
@@ -1007,10 +1007,15 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
     min-height: calc(100vh - 60px);
     justify-content: center;
   }
-  .hero-split__logo {
-    width: min(108%, 34rem);
+  .hero-split__manifesto {
+    overflow: visible;
+    z-index: 3;
   }
-  .hero-split__copy { max-width: 34rem; }
+  .hero-split__visual { z-index: 1; }
+  .hero-split__logo {
+    width: min(130%, 44rem);
+  }
+  .hero-split__copy { max-width: 44rem; }
   .hero-split__brand { font-size: clamp(1.45rem, 2.1vw, 2.1rem); }
   .hero-split__quote { max-width: 20rem; }
   .hero-split__visual {
