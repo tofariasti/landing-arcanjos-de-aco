@@ -1,0 +1,11 @@
+# Arcanjos de Aço MC — https://tofariasti.github.io/landing-arcanjos-de-aco/
+User-agent: *
+Allow: /
+
+# Conceitos de demo / arquivo
+Disallow: /v1-raca/
+Disallow: /v3-aco-estrada/
+Disallow: /site/
+Disallow: /screenshots/
+
+Sitemap: https://tofariasti.github.io/landing-arcanjos-de-aco/sitemap.xml
