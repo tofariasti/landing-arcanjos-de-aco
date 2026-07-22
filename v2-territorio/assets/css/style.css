@@ -92,7 +92,32 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
 .header__burger span { display: block; width: 28px; height: 3px; background: var(--white); }
 
 /* Hero split */
-.hero-split { display: grid; grid-template-columns: 1fr; min-height: 100vh; padding-top: 60px; }
+.hero-split {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+  padding-top: 60px;
+}
+/* Soft exit into the next chapter — photos meet in black, not edge-to-edge */
+.hero-split::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 6.5rem;
+  z-index: 4;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(5, 5, 5, 0.4) 42%,
+    rgba(5, 5, 5, 0.88) 78%,
+    #050505 100%
+  );
+}
 .hero-split__manifesto {
   position: relative;
   display: flex;
@@ -243,17 +268,65 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
 
 /* Background Reels — Em movimento */
 .movimento {
+  --movimento-mask: linear-gradient(
+    172deg,
+    transparent 0%,
+    transparent 5%,
+    rgba(0, 0, 0, 0.28) 10%,
+    rgba(0, 0, 0, 0.78) 15%,
+    #000 21%,
+    #000 100%
+  );
   position: relative;
   isolation: isolate;
+  z-index: 2;
   min-height: min(78vh, 720px);
   display: flex;
   align-items: flex-end;
   overflow: hidden;
   background: #050505;
-  border-top: 2px solid rgba(255, 255, 255, 0.15);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+  margin-top: -4rem;
+  -webkit-mask-image: var(--movimento-mask);
+  mask-image: var(--movimento-mask);
 }
 .movimento[hidden] { display: none !important; }
+/* Dark pillow + whisper steel — softens the seam without a hard graphic */
+.movimento::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8rem;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    #050505 0%,
+    rgba(5, 5, 5, 0.82) 34%,
+    rgba(5, 5, 5, 0.28) 68%,
+    transparent 100%
+  );
+}
+.movimento::after {
+  content: "";
+  position: absolute;
+  top: 3.1rem;
+  left: 50%;
+  width: min(18rem, 52%);
+  height: 1px;
+  z-index: 4;
+  pointer-events: none;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(232, 232, 232, 0.18) 22%,
+    rgba(232, 232, 232, 0.38) 50%,
+    rgba(232, 232, 232, 0.18) 78%,
+    transparent 100%
+  );
+}
 .movimento__media {
   position: absolute;
   inset: 0;
@@ -890,10 +963,26 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   .garagem__grid { grid-template-columns: repeat(2, 1fr); }
   .eventos__ultimo-role__grid { grid-template-columns: repeat(4, 1fr); }
   .movimento__content { padding: 4.5rem 3rem; }
+  .movimento {
+    --movimento-mask: linear-gradient(
+      170deg,
+      transparent 0%,
+      transparent 4%,
+      rgba(0, 0, 0, 0.3) 9%,
+      rgba(0, 0, 0, 0.8) 14%,
+      #000 20%,
+      #000 100%
+    );
+    margin-top: -4.75rem;
+  }
+  .movimento::before { height: 9rem; }
+  .movimento::after { top: 3.4rem; width: min(20rem, 42%); }
 }
+
 
 @media (min-width: 901px) {
   .hero-split { grid-template-columns: 1.05fr 0.95fr; }
+  .hero-split::after { height: 7.5rem; }
   .hero-split__manifesto {
     padding: 2.5rem 3rem 3rem;
     clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
@@ -910,6 +999,20 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
     min-height: 0;
     align-self: stretch;
   }
+  .movimento {
+    --movimento-mask: linear-gradient(
+      168deg,
+      transparent 0%,
+      transparent 3%,
+      rgba(0, 0, 0, 0.25) 8%,
+      rgba(0, 0, 0, 0.75) 13%,
+      #000 19%,
+      #000 100%
+    );
+    margin-top: -5.5rem;
+  }
+  .movimento::before { height: 10rem; }
+  .movimento::after { top: 3.75rem; width: min(22rem, 36%); }
   .chapter-cut { clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%); margin-top: -2rem; padding-top: 5rem; padding-bottom: 5rem; }
   .chapter-cut--flip { clip-path: polygon(0 0, 100% 8%, 100% 100%, 0 92%); }
   .admissao__steps { grid-template-columns: repeat(3, 1fr); }
