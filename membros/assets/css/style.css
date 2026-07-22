@@ -75,7 +75,8 @@ h1, h2, h3 {
   backdrop-filter: blur(10px);
 }
 
-.page-nav__brand {
+.page-nav__brand,
+.page-nav__brand:visited {
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -83,6 +84,8 @@ h1, h2, h3 {
   font-family: var(--font-display);
   font-size: 1.1rem;
   letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 .page-nav__brand:hover { color: #fff; }
