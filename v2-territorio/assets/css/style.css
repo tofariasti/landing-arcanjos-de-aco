@@ -153,7 +153,9 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
 .mapa { padding: 2rem; background: var(--charcoal); }
 .mapa__inner { max-width: 1000px; margin: 0 auto; }
 .mapa__interactive { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: start; margin-top: 1rem; }
+.mapa__visual { display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: stretch; }
 .mapa__svg { width: 100%; max-height: min(72vh, 640px); border: 2px solid #333; cursor: default; }
+.mapa__svg--ch { max-height: none; aspect-ratio: 160 / 210; max-width: 180px; justify-self: start; }
 .mapa__states path { pointer-events: none; }
 .mapa__region { cursor: pointer; transition: fill 0.3s, stroke 0.3s; }
 .mapa__region:hover, .mapa__region:focus { fill: #4a1010; stroke: var(--red); outline: none; }
@@ -165,6 +167,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
 .mapa__info h3 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.75rem; color: var(--red); }
 .mapa__info p { color: var(--muted); margin-bottom: 0.5rem; font-size: 0.95rem; }
 .mapa__info strong { color: var(--white); }
+.mapa__info-note { margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid #333; font-size: 0.9rem; }
 
 /* Capítulos diagonal */
 .capitulos { padding: 0; }
@@ -862,6 +865,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
     background: var(--red); transform: skewX(-8deg); opacity: 0.9;
   }
   .mapa__interactive { grid-template-columns: 1.3fr 1fr; }
+  .mapa__visual { grid-template-columns: 1fr 160px; align-items: start; }
+  .mapa__svg--ch { max-width: none; width: 100%; }
   .chapter-cut { clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%); margin-top: -2rem; padding-top: 5rem; padding-bottom: 5rem; }
   .chapter-cut--flip { clip-path: polygon(0 0, 100% 8%, 100% 100%, 0 92%); }
   .admissao__steps { grid-template-columns: repeat(3, 1fr); }
