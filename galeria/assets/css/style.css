@@ -74,9 +74,18 @@ h1, h2, h3 {
   gap: 1rem;
   height: var(--nav-h);
   padding: 0 1.25rem;
-  background: rgba(0, 0, 0, 0.9);
   border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.page-nav::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  pointer-events: none;
 }
 
 .page-nav__brand,

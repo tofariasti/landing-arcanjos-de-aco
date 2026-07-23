@@ -72,9 +72,18 @@ h1, h2, h3 {
   gap: 1rem;
   height: var(--nav-h);
   padding: 0 1.25rem;
-  background: rgba(8, 8, 8, 0.92);
   border-bottom: 1px solid rgba(196, 30, 30, 0.2);
+}
+
+.loja-nav::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(8, 8, 8, 0.92);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  pointer-events: none;
 }
 
 .loja-nav__brand,
