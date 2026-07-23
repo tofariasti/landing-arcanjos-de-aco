@@ -11,6 +11,18 @@
   --app-font-body: var(--font-body, 'Roboto Condensed', sans-serif);
 }
 
+/* Keep <picture> wrappers layout-transparent so existing img selectors still apply */
+.header__logo > picture,
+.nav__brand > picture,
+.loja-nav__brand > picture,
+.hub-header__logo-wrap > picture,
+.hub-footer__brand > picture,
+.footer > picture,
+.hero__content > picture,
+.preloader > picture {
+  display: contents;
+}
+
 html {
   scroll-padding-top: calc(var(--app-header-h) + var(--safe-top) + 0.5rem);
   scroll-padding-bottom: calc(var(--app-tabbar-h) + var(--safe-bottom) + 0.5rem);

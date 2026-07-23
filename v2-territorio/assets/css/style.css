@@ -91,6 +91,9 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   cursor: pointer;
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
 }
+.hero-split__copy > picture {
+  display: contents;
+}
 .header__logo:hover { color: var(--signal); }
 .header__logo img {
   width: 30px;
