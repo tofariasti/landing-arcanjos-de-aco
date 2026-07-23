@@ -131,7 +131,12 @@
       prefersReducedData = window.matchMedia('(prefers-reduced-data: reduce)').matches;
     } catch (_) { /* unsupported */ }
 
-    var useStatic = prefersReducedMotion || prefersReducedData;
+    /* No poster slideshow — hide when motion/data should stay light */
+    if (prefersReducedMotion || prefersReducedData) {
+      section.hidden = true;
+      return;
+    }
+
     var clipMs = 9000;
     var activeIndex = 0;
     var layers = [];
@@ -139,24 +144,26 @@
     var inView = false;
     var warmed = Object.create(null);
 
-    function fallBackToPoster(video) {
-      if (!video || video.dataset.fallback === '1') return;
-      video.dataset.fallback = '1';
-      var poster = video.getAttribute('poster') || video.dataset.poster || '';
-      if (!poster) {
-        section.classList.add('is-static');
+    function dropFailedVideo(video) {
+      if (!video || video.dataset.dropped === '1') return;
+      video.dataset.dropped = '1';
+      var wasActive = video.classList.contains('is-active');
+      var idx = layers.indexOf(video);
+      if (idx >= 0) layers.splice(idx, 1);
+      if (video.parentNode) video.parentNode.removeChild(video);
+      if (!layers.length) {
+        stopCycle();
+        section.hidden = true;
         return;
       }
-      var img = document.createElement('img');
-      img.src = poster;
-      img.alt = '';
-      img.decoding = 'async';
-      if (video.classList.contains('is-active')) img.classList.add('is-active');
-      video.replaceWith(img);
-      var idx = layers.indexOf(video);
-      if (idx >= 0) layers[idx] = img;
-      var stillHasVideo = layers.some(function (layer) { return layer.tagName === 'VIDEO'; });
-      if (!stillHasVideo) section.classList.add('is-static');
+      if (wasActive) {
+        if (idx >= layers.length) idx = 0;
+        showLayer(idx);
+      }
+      if (layers.length < 2) {
+        stopCycle();
+        layers[0].loop = true;
+      }
     }
 
     function warmVideo(video) {
@@ -169,11 +176,11 @@
     }
 
     function playWhenReady(video) {
-      if (!video || !inView || useStatic || video.dataset.fallback === '1') return;
+      if (!video || !inView || video.dataset.dropped === '1') return;
       warmVideo(video);
 
       var tryPlay = function () {
-        if (!inView || !video.classList.contains('is-active') || video.dataset.fallback === '1') return;
+        if (!inView || !video.classList.contains('is-active') || video.dataset.dropped === '1') return;
         if (video.readyState < 2) return;
         if (video.currentTime > 0.15) {
           try { video.currentTime = 0; } catch (_) { /* ignore */ }
@@ -181,7 +188,13 @@
         var playPromise = video.play();
         if (playPromise && typeof playPromise.catch === 'function') {
           playPromise.catch(function () {
-            fallBackToPoster(video);
+            window.setTimeout(function () {
+              if (!inView || !video.classList.contains('is-active') || video.dataset.dropped === '1') return;
+              var retry = video.play();
+              if (retry && typeof retry.catch === 'function') {
+                retry.catch(function () { dropFailedVideo(video); });
+              }
+            }, 400);
           });
         }
       };
@@ -206,7 +219,7 @@
       window.setTimeout(function () {
         video.dataset.waiting = '';
         if (video.readyState < 2 && video.classList.contains('is-active')) {
-          fallBackToPoster(video);
+          dropFailedVideo(video);
         }
       }, 8000);
     }
@@ -217,11 +230,10 @@
       layers.forEach(function (layer, i) {
         var on = i === activeIndex;
         layer.classList.toggle('is-active', on);
-        if (layer.tagName !== 'VIDEO') return;
-        if (on && inView && !useStatic) {
+        if (on && inView) {
           playWhenReady(layer);
           var next = layers[(activeIndex + 1) % layers.length];
-          if (next && next.tagName === 'VIDEO') warmVideo(next);
+          if (next) warmVideo(next);
         } else {
           layer.pause();
         }
@@ -229,7 +241,7 @@
     }
 
     function startCycle() {
-      if (useStatic || layers.length < 2 || timer) return;
+      if (layers.length < 2 || timer) return;
       timer = setInterval(function () {
         if (!inView) return;
         showLayer(activeIndex + 1);
@@ -257,19 +269,13 @@
         media.innerHTML = '';
         layers = [];
 
-        items.slice(0, 4).forEach(function (item, index) {
-          if (useStatic || !item.video) {
-            if (!item.poster) return;
-            var img = document.createElement('img');
-            img.src = item.poster;
-            img.alt = '';
-            img.decoding = 'async';
-            if (index === 0) img.classList.add('is-active');
-            media.appendChild(img);
-            layers.push(img);
-            return;
-          }
+        var videoItems = items.filter(function (item) { return item && item.video; }).slice(0, 4);
+        if (!videoItems.length) {
+          section.hidden = true;
+          return;
+        }
 
+        videoItems.forEach(function (item, index) {
           var video = document.createElement('video');
           video.muted = true;
           video.defaultMuted = true;
@@ -278,36 +284,21 @@
           video.setAttribute('playsinline', '');
           video.setAttribute('webkit-playsinline', '');
           video.preload = 'none';
-          video.loop = items.length === 1;
-          if (item.poster) {
-            video.poster = item.poster;
-            video.dataset.poster = item.poster;
-          }
+          video.loop = videoItems.length === 1;
+          /* No poster — avoids static JPG flashes between clips */
           video.src = item.video;
           video.addEventListener('error', function () {
-            fallBackToPoster(video);
+            dropFailedVideo(video);
           });
           if (index === 0) video.classList.add('is-active');
           media.appendChild(video);
           layers.push(video);
         });
 
-        if (!layers.length) {
-          section.hidden = true;
-          return;
-        }
-
-        if (useStatic) {
-          section.classList.add('is-static');
-          showLayer(0);
-          return;
-        }
-
         var nearObserver = new IntersectionObserver(function (entries) {
           entries.forEach(function (entry) {
             if (!entry.isIntersecting) return;
-            var first = layers[0];
-            if (first && first.tagName === 'VIDEO') warmVideo(first);
+            warmVideo(layers[0]);
             nearObserver.disconnect();
           });
         }, { rootMargin: '280px 0px', threshold: 0 });
@@ -320,9 +311,7 @@
               startCycle();
             } else {
               stopCycle();
-              layers.forEach(function (layer) {
-                if (layer.tagName === 'VIDEO') layer.pause();
-              });
+              layers.forEach(function (layer) { layer.pause(); });
             }
           });
         }, { threshold: [0, 0.15, 0.35] });
