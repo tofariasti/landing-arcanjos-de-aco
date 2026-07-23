@@ -90,9 +90,10 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
 .header__nav a,
 .header__nav a:visited {
   color: var(--white);
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   text-decoration: none;
   opacity: 0.8;
@@ -967,8 +968,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   .header__nav a:visited {
     padding: 0;
     border-bottom: none;
-    font-size: 0.68rem;
-    letter-spacing: 0.06em;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
     white-space: nowrap;
     flex-shrink: 0;
   }
@@ -1013,8 +1014,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   .header__nav { gap: 1.25rem; }
   .header__nav a,
   .header__nav a:visited {
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
   }
 }
 
