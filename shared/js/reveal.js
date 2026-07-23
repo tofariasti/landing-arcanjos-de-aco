@@ -12,7 +12,6 @@
     '.timeline > .timeline__item',
     '.capitulos > .cap',
     '.ritual-steps > li',
-    '.admissao__steps > li',
     '.garagem__grid > .moto-card',
     '.estrada-ritual__list > li',
     '.eventos__legend > li',

@@ -119,7 +119,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
 .header__burger { display: flex; flex-direction: column; gap: 6px; background: none; border: none; cursor: pointer; padding: 4px; }
 .header__burger span { display: block; width: 28px; height: 3px; background: var(--white); }
 
-/* Hero triptych — foto | logo | foto (mobile: manifesto + stacked full-bleed) */
+/* Hero — manifesto + continuous photo strip */
 .hero-split {
   position: relative;
   z-index: 1;
@@ -127,32 +127,16 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   grid-template-columns: 1fr;
   grid-template-areas:
     "manifesto"
-    "left"
-    "right";
+    "strip";
   column-gap: 0;
   row-gap: 0;
   min-height: 100vh;
   padding-top: 56px;
   background: #050505;
 }
-/* Soft exit — dissolve into the next section instead of a hard black bar */
+/* Mobile: let the strip + movimento handle the dissolve (no hard black bar) */
 .hero-split::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 8rem;
-  z-index: 4;
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(5, 5, 5, 0.18) 28%,
-    rgba(5, 5, 5, 0.55) 58%,
-    rgba(5, 5, 5, 0.88) 82%,
-    #050505 100%
-  );
+  content: none;
 }
 .hero-split__manifesto {
   position: relative;
@@ -166,6 +150,15 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   background: #050505;
   overflow: hidden;
   text-align: center;
+}
+.hero-split__strip {
+  grid-area: strip;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  background: #050505;
+  isolation: isolate;
 }
 .hero-split__scrim {
   position: absolute;
@@ -248,87 +241,22 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   background: transparent;
   aspect-ratio: 16 / 10;
   min-height: 11.5rem;
+  width: 100%;
+  flex-shrink: 0;
 }
+/*
+ * Mobile fade: upper image dissolves over the lower image (which stays opaque).
+ * Mask is on the <img>, not the box — avoids the hairline seam from dual container masks.
+ */
 .hero-split__visual--left {
-  grid-area: left;
-  z-index: 1;
-  /* Fade out into the photo below — single continuous panel */
-  -webkit-mask-image: linear-gradient(
-    180deg,
-    #000 0%,
-    #000 42%,
-    rgba(0, 0, 0, 0.92) 58%,
-    rgba(0, 0, 0, 0.55) 74%,
-    rgba(0, 0, 0, 0.18) 90%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    180deg,
-    #000 0%,
-    #000 42%,
-    rgba(0, 0, 0, 0.92) 58%,
-    rgba(0, 0, 0, 0.55) 74%,
-    rgba(0, 0, 0, 0.18) 90%,
-    transparent 100%
-  );
+  z-index: 2;
+  margin-bottom: -6.5rem;
 }
 .hero-split__visual--right {
-  grid-area: right;
-  z-index: 2;
-  margin-top: -5.5rem;
-  /* Fade in from the photo above */
-  -webkit-mask-image: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(0, 0, 0, 0.2) 10%,
-    rgba(0, 0, 0, 0.65) 24%,
-    rgba(0, 0, 0, 0.92) 38%,
-    #000 52%,
-    #000 100%
-  );
-  mask-image: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(0, 0, 0, 0.2) 10%,
-    rgba(0, 0, 0, 0.65) 24%,
-    rgba(0, 0, 0, 0.92) 38%,
-    #000 52%,
-    #000 100%
-  );
+  z-index: 1;
 }
 .hero-split__visual::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(5, 5, 5, 0.12) 0%,
-    transparent 28%,
-    transparent 55%,
-    rgba(5, 5, 5, 0.45) 78%,
-    rgba(5, 5, 5, 0.92) 100%
-  );
-}
-/* Upper frame: no hard bottom veil — the mask handles the blend */
-.hero-split__visual--left::after {
-  background: linear-gradient(
-    180deg,
-    rgba(5, 5, 5, 0.14) 0%,
-    transparent 28%,
-    transparent 100%
-  );
-}
-/* Lower frame: only dissolve into the next section */
-.hero-split__visual--right::after {
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    transparent 48%,
-    rgba(5, 5, 5, 0.35) 74%,
-    rgba(5, 5, 5, 0.9) 100%
-  );
+  content: none;
 }
 .hero-split__frame {
   position: absolute;
@@ -346,8 +274,43 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   display: block;
   transition: opacity 0.8s ease;
 }
-.hero-split__visual--left .hero-split__frame img { object-position: 55% 40%; }
-.hero-split__visual--right .hero-split__frame img { object-position: 50% 35%; }
+.hero-split__visual--left .hero-split__frame img {
+  object-position: 55% 40%;
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 45%,
+    rgba(0, 0, 0, 0.85) 62%,
+    rgba(0, 0, 0, 0.4) 80%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 45%,
+    rgba(0, 0, 0, 0.85) 62%,
+    rgba(0, 0, 0, 0.4) 80%,
+    transparent 100%
+  );
+}
+.hero-split__visual--right .hero-split__frame img {
+  object-position: 50% 35%;
+  /* Soft exit into movimento / next section — still fully opaque under the upper fade */
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 72%,
+    rgba(0, 0, 0, 0.55) 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 72%,
+    rgba(0, 0, 0, 0.55) 88%,
+    transparent 100%
+  );
+}
 .hero-split__frame img.is-fading { opacity: 0; }
 
 .btn {
@@ -384,10 +347,10 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   --movimento-mask: linear-gradient(
     180deg,
     transparent 0%,
-    rgba(0, 0, 0, 0.18) 8%,
-    rgba(0, 0, 0, 0.48) 18%,
-    rgba(0, 0, 0, 0.85) 32%,
-    #000 46%,
+    rgba(0, 0, 0, 0.15) 12%,
+    rgba(0, 0, 0, 0.45) 26%,
+    rgba(0, 0, 0, 0.82) 42%,
+    #000 58%,
     #000 100%
   );
   position: relative;
@@ -398,12 +361,12 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   align-items: flex-end;
   overflow: hidden;
   background: #050505;
-  margin-top: -8rem;
+  margin-top: -9rem;
   -webkit-mask-image: var(--movimento-mask);
   mask-image: var(--movimento-mask);
 }
 .movimento[hidden] { display: none !important; }
-/* Soft pillow — shorter so more of the reel subject stays visible */
+/* Soft pillow — no solid black cap against the photo strip */
 .movimento::before {
   content: "";
   position: absolute;
@@ -415,10 +378,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   pointer-events: none;
   background: linear-gradient(
     180deg,
-    #050505 0%,
-    rgba(5, 5, 5, 0.88) 16%,
-    rgba(5, 5, 5, 0.5) 40%,
-    rgba(5, 5, 5, 0.18) 68%,
+    rgba(5, 5, 5, 0.4) 0%,
+    rgba(5, 5, 5, 0.18) 35%,
     transparent 100%
   );
 }
@@ -450,7 +411,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   z-index: 1;
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.45) 48%, rgba(0, 0, 0, 0.35) 100%),
-    linear-gradient(180deg, rgba(5, 5, 5, 0.78) 0%, rgba(5, 5, 5, 0.35) 22%, transparent 48%),
+    linear-gradient(180deg, rgba(5, 5, 5, 0.28) 0%, rgba(5, 5, 5, 0.1) 20%, transparent 42%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, transparent 42%);
   pointer-events: none;
 }
@@ -1034,15 +995,38 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   .header__logo-name { display: inline; }
   /* Tablet: manifesto + side-by-side territory strip */
   .hero-split {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-areas:
-      "manifesto manifesto"
-      "left right";
-    column-gap: 0.5rem;
+      "manifesto"
+      "strip";
+    column-gap: 0;
     row-gap: 0;
     padding-top: 60px;
   }
-  .hero-split::after { height: 11rem; }
+  .hero-split::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 11rem;
+    z-index: 4;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(5, 5, 5, 0.18) 28%,
+      rgba(5, 5, 5, 0.55) 58%,
+      rgba(5, 5, 5, 0.88) 82%,
+      #050505 100%
+    );
+  }
+  .hero-split__strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0.5rem;
+    isolation: auto;
+  }
   .hero-split__manifesto {
     padding: 1.75rem 1.5rem 2.25rem;
   }
@@ -1056,15 +1040,19 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
     aspect-ratio: 4 / 5;
     min-height: 16rem;
     background: #000;
+    margin-bottom: 0;
   }
   .hero-split__visual--left,
   .hero-split__visual--right {
-    margin-top: 0;
-    -webkit-mask-image: none;
-    mask-image: none;
+    margin-bottom: 0;
+    z-index: auto;
   }
-  .hero-split__visual--left::after,
-  .hero-split__visual--right::after {
+  .hero-split__visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
     background: linear-gradient(
       180deg,
       rgba(5, 5, 5, 0.12) 0%,
@@ -1073,6 +1061,27 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
       rgba(5, 5, 5, 0.45) 78%,
       rgba(5, 5, 5, 0.92) 100%
     );
+  }
+  .hero-split__visual--left .hero-split__frame img,
+  .hero-split__visual--right .hero-split__frame img {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .movimento::before {
+    background: linear-gradient(
+      180deg,
+      #050505 0%,
+      rgba(5, 5, 5, 0.88) 16%,
+      rgba(5, 5, 5, 0.5) 40%,
+      rgba(5, 5, 5, 0.18) 68%,
+      transparent 100%
+    );
+  }
+  .movimento__overlay {
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.45) 48%, rgba(0, 0, 0, 0.35) 100%),
+      linear-gradient(180deg, rgba(5, 5, 5, 0.78) 0%, rgba(5, 5, 5, 0.35) 22%, transparent 48%),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, transparent 42%);
   }
   .header__nav {
     position: static;
@@ -1168,11 +1177,36 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
     row-gap: 0;
     align-items: stretch;
   }
-  .hero-split::after { height: 13rem; }
-  .hero-split__visual--left,
-  .hero-split__visual--right,
+  .hero-split::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 13rem;
+    z-index: 4;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(5, 5, 5, 0.18) 28%,
+      rgba(5, 5, 5, 0.55) 58%,
+      rgba(5, 5, 5, 0.88) 82%,
+      #050505 100%
+    );
+  }
+  .hero-split__strip,
   .hero-split__manifesto {
     grid-area: stack;
+  }
+  .hero-split__strip {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    min-height: calc(100vh - 60px);
+    isolation: auto;
+    background: transparent;
+    column-gap: 0;
   }
   .hero-split__manifesto {
     padding: 1.5rem 1rem 5rem;
@@ -1219,10 +1253,12 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
     z-index: 1;
     background: transparent;
     margin: 0;
+    grid-row: 1;
+    grid-column: 1;
   }
   .hero-split__visual--left {
     justify-self: start;
-    /* Crossfade into the other photo — keep enough opacity so black never forms a column */
+    margin-bottom: 0;
     -webkit-mask-image: linear-gradient(
       90deg,
       #000 0%,
@@ -1268,9 +1304,20 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
       transparent 100%
     );
   }
+  .hero-split__visual--left .hero-split__frame img,
+  .hero-split__visual--right .hero-split__frame img {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
   /* Keep only the bottom dissolve on photos — no vertical black wipe */
+  .hero-split__visual::after,
   .hero-split__visual--left::after,
   .hero-split__visual--right::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
     background: linear-gradient(
       180deg,
       rgba(5, 5, 5, 0.1) 0%,
