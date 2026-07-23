@@ -362,7 +362,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   animation: brand-in 0.9s ease-out both;
 }
 .hero-split__logo {
-  width: min(48%, 10.5rem);
+  width: min(78%, 17.5rem);
   height: auto;
   margin: 0 auto 0.15rem;
   filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.65));
