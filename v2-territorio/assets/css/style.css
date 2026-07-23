@@ -311,16 +311,16 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   --movimento-mask: linear-gradient(
     180deg,
     transparent 0%,
-    rgba(0, 0, 0, 0.2) 12%,
-    rgba(0, 0, 0, 0.55) 24%,
-    rgba(0, 0, 0, 0.88) 38%,
-    #000 52%,
+    rgba(0, 0, 0, 0.18) 8%,
+    rgba(0, 0, 0, 0.48) 18%,
+    rgba(0, 0, 0, 0.85) 32%,
+    #000 46%,
     #000 100%
   );
   position: relative;
   isolation: isolate;
   z-index: 2;
-  min-height: min(78vh, 720px);
+  min-height: min(88vh, 860px);
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -330,22 +330,22 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   mask-image: var(--movimento-mask);
 }
 .movimento[hidden] { display: none !important; }
-/* Long soft pillow — no hard seam with the hero */
+/* Soft pillow — shorter so more of the reel subject stays visible */
 .movimento::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 14rem;
+  height: 11rem;
   z-index: 3;
   pointer-events: none;
   background: linear-gradient(
     180deg,
     #050505 0%,
-    rgba(5, 5, 5, 0.9) 18%,
-    rgba(5, 5, 5, 0.55) 42%,
-    rgba(5, 5, 5, 0.22) 68%,
+    rgba(5, 5, 5, 0.88) 16%,
+    rgba(5, 5, 5, 0.5) 40%,
+    rgba(5, 5, 5, 0.18) 68%,
     transparent 100%
   );
 }
@@ -361,6 +361,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Prefer upper third of vertical Reels (faces / helmets / bikes) */
+  object-position: center 30%;
   opacity: 0;
   transition: opacity 1s ease;
 }
@@ -375,7 +377,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   z-index: 1;
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.45) 48%, rgba(0, 0, 0, 0.35) 100%),
-    linear-gradient(180deg, rgba(5, 5, 5, 0.92) 0%, rgba(5, 5, 5, 0.45) 28%, transparent 55%),
+    linear-gradient(180deg, rgba(5, 5, 5, 0.78) 0%, rgba(5, 5, 5, 0.35) 22%, transparent 48%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, transparent 42%);
   pointer-events: none;
 }
@@ -994,15 +996,16 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
     --movimento-mask: linear-gradient(
       180deg,
       transparent 0%,
-      rgba(0, 0, 0, 0.18) 10%,
-      rgba(0, 0, 0, 0.5) 22%,
-      rgba(0, 0, 0, 0.85) 36%,
-      #000 50%,
+      rgba(0, 0, 0, 0.16) 7%,
+      rgba(0, 0, 0, 0.45) 16%,
+      rgba(0, 0, 0, 0.82) 30%,
+      #000 44%,
       #000 100%
     );
     margin-top: -9.5rem;
+    min-height: min(88vh, 900px);
   }
-  .movimento::before { height: 16rem; }
+  .movimento::before { height: 12rem; }
 }
 
 @media (min-width: 1100px) {
@@ -1137,15 +1140,15 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
     --movimento-mask: linear-gradient(
       180deg,
       transparent 0%,
-      rgba(0, 0, 0, 0.15) 8%,
-      rgba(0, 0, 0, 0.45) 20%,
-      rgba(0, 0, 0, 0.82) 34%,
-      #000 48%,
+      rgba(0, 0, 0, 0.14) 6%,
+      rgba(0, 0, 0, 0.42) 14%,
+      rgba(0, 0, 0, 0.8) 28%,
+      #000 42%,
       #000 100%
     );
     margin-top: -11rem;
   }
-  .movimento::before { height: 18rem; }
+  .movimento::before { height: 13rem; }
   .chapter-cut { clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%); margin-top: -2rem; padding-top: 5rem; padding-bottom: 5rem; }
   .chapter-cut--flip { clip-path: polygon(0 0, 100% 8%, 100% 100%, 0 92%); }
   .admissao__steps { grid-template-columns: repeat(3, 1fr); }
