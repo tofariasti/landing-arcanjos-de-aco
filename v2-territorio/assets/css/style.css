@@ -361,8 +361,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Prefer upper third of vertical Reels (faces / helmets / bikes) */
-  object-position: center 30%;
+  /* Slight top bias for vertical Reels — keep feet/road in frame */
+  object-position: center 40%;
   opacity: 0;
   transition: opacity 1s ease;
 }
