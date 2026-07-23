@@ -130,7 +130,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
     "left"
     "right";
   column-gap: 0;
-  row-gap: 0.4rem;
+  row-gap: 0;
   min-height: 100vh;
   padding-top: 56px;
   background: #050505;
@@ -245,12 +245,57 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
 .hero-split__visual {
   position: relative;
   overflow: hidden;
-  background: #000;
+  background: transparent;
   aspect-ratio: 16 / 10;
   min-height: 11.5rem;
 }
-.hero-split__visual--left { grid-area: left; }
-.hero-split__visual--right { grid-area: right; }
+.hero-split__visual--left {
+  grid-area: left;
+  z-index: 1;
+  /* Fade out into the photo below — single continuous panel */
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 42%,
+    rgba(0, 0, 0, 0.92) 58%,
+    rgba(0, 0, 0, 0.55) 74%,
+    rgba(0, 0, 0, 0.18) 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 42%,
+    rgba(0, 0, 0, 0.92) 58%,
+    rgba(0, 0, 0, 0.55) 74%,
+    rgba(0, 0, 0, 0.18) 90%,
+    transparent 100%
+  );
+}
+.hero-split__visual--right {
+  grid-area: right;
+  z-index: 2;
+  margin-top: -5.5rem;
+  /* Fade in from the photo above */
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.2) 10%,
+    rgba(0, 0, 0, 0.65) 24%,
+    rgba(0, 0, 0, 0.92) 38%,
+    #000 52%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.2) 10%,
+    rgba(0, 0, 0, 0.65) 24%,
+    rgba(0, 0, 0, 0.92) 38%,
+    #000 52%,
+    #000 100%
+  );
+}
 .hero-split__visual::after {
   content: "";
   position: absolute;
@@ -266,14 +311,23 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
     rgba(5, 5, 5, 0.92) 100%
   );
 }
-/* Stacked mobile: keep the upper frame open so the pair reads as one strip */
+/* Upper frame: no hard bottom veil — the mask handles the blend */
 .hero-split__visual--left::after {
   background: linear-gradient(
     180deg,
-    rgba(5, 5, 5, 0.1) 0%,
-    transparent 35%,
-    transparent 88%,
-    rgba(5, 5, 5, 0.28) 100%
+    rgba(5, 5, 5, 0.14) 0%,
+    transparent 28%,
+    transparent 100%
+  );
+}
+/* Lower frame: only dissolve into the next section */
+.hero-split__visual--right::after {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 48%,
+    rgba(5, 5, 5, 0.35) 74%,
+    rgba(5, 5, 5, 0.9) 100%
   );
 }
 .hero-split__frame {
@@ -1001,8 +1055,16 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   .hero-split__visual {
     aspect-ratio: 4 / 5;
     min-height: 16rem;
+    background: #000;
   }
-  .hero-split__visual--left::after {
+  .hero-split__visual--left,
+  .hero-split__visual--right {
+    margin-top: 0;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .hero-split__visual--left::after,
+  .hero-split__visual--right::after {
     background: linear-gradient(
       180deg,
       rgba(5, 5, 5, 0.12) 0%,
