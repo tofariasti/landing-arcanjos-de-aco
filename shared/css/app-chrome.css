@@ -1,0 +1,237 @@
+/* Shared mobile app chrome — tab bar + Mais sheet (≤640px) */
+:root {
+  --app-header-h: 3.25rem;
+  --app-tabbar-h: 4.25rem;
+  --app-gutter: 1.15rem;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --app-signal: var(--signal, #c41e1e);
+  --app-white: var(--white, #f5f5f5);
+  --app-font-display: var(--font-display, 'Anton', sans-serif);
+  --app-font-body: var(--font-body, 'Roboto Condensed', sans-serif);
+}
+
+html {
+  scroll-padding-top: calc(var(--app-header-h) + var(--safe-top) + 0.5rem);
+  scroll-padding-bottom: calc(var(--app-tabbar-h) + var(--safe-bottom) + 0.5rem);
+}
+
+.app-body {
+  padding-bottom: calc(var(--app-tabbar-h) + var(--safe-bottom));
+  -webkit-tap-highlight-color: transparent;
+}
+.app-body.is-menu-open {
+  overflow: hidden;
+}
+
+/* Hide legacy mobile drawers — Mais sheet replaces them */
+@media (max-width: 640px) {
+  .header__burger,
+  .page-nav__burger,
+  .loja-nav__burger,
+  .nav__toggle {
+    display: none !important;
+  }
+
+  .wa-float {
+    bottom: calc(var(--app-tabbar-h) + var(--safe-bottom) + 1rem) !important;
+  }
+}
+
+/* Mais sheet */
+.app-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+.app-sheet[hidden] { display: none !important; }
+.app-sheet.is-open { pointer-events: auto; }
+.app-sheet__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.68);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.32s ease;
+}
+.app-sheet.is-open .app-sheet__backdrop { opacity: 1; }
+.app-sheet__panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-height: min(78dvh, 36rem);
+  padding: 0.35rem var(--app-gutter) calc(0.85rem + var(--safe-bottom));
+  background: linear-gradient(180deg, #121212 0%, #0a0a0a 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 -18px 40px rgba(0, 0, 0, 0.45);
+  transform: translateY(110%);
+  transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.app-sheet.is-open .app-sheet__panel { transform: translateY(0); }
+.app-sheet__handle {
+  width: 2.35rem;
+  height: 0.28rem;
+  margin: 0.25rem auto 0.65rem;
+  background: rgba(255, 255, 255, 0.28);
+}
+.app-sheet__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.15rem 0 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.15rem;
+}
+.app-sheet__title {
+  font-family: var(--app-font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--app-white);
+  margin: 0;
+}
+.app-sheet__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  color: var(--app-white);
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.app-sheet__close:hover,
+.app-sheet__close:active {
+  color: var(--app-signal);
+  border-color: var(--app-signal);
+  background: rgba(196, 30, 30, 0.08);
+}
+.app-sheet__links {
+  display: flex;
+  flex-direction: column;
+}
+.app-sheet__links a,
+.app-sheet__links a:visited {
+  display: flex;
+  align-items: center;
+  min-height: 3.25rem;
+  padding: 0.9rem 0.1rem;
+  color: var(--app-white);
+  font-family: var(--app-font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  opacity: 0.9;
+  transition: color 0.2s, opacity 0.2s, padding-left 0.2s;
+}
+.app-sheet__links a:hover,
+.app-sheet__links a:active,
+.app-sheet__links a.is-current {
+  color: var(--app-signal);
+  opacity: 1;
+}
+.app-sheet__links a:hover,
+.app-sheet__links a:active {
+  padding-left: 0.35rem;
+}
+.app-sheet__links a:last-child { border-bottom: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .app-sheet__backdrop,
+  .app-sheet__panel { transition: none; }
+}
+
+/* Bottom tab bar */
+.app-tabbar {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 1100;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  height: calc(var(--app-tabbar-h) + var(--safe-bottom));
+  padding: 0.3rem 0.2rem var(--safe-bottom);
+  background: rgba(8, 8, 8, 0.94);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: saturate(1.25) blur(20px);
+  -webkit-backdrop-filter: saturate(1.25) blur(20px);
+  box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.35);
+}
+.app-tabbar__item {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: rgba(245, 245, 245, 0.48);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.28rem;
+  min-height: 3.1rem;
+  padding: 0.25rem 0.15rem 0.15rem;
+  font-family: var(--app-font-body);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.15s;
+  position: relative;
+}
+.app-tabbar__item,
+.app-tabbar__item:visited { color: rgba(245, 245, 245, 0.48); }
+.app-tabbar__item i {
+  font-size: 1.08rem;
+  line-height: 1;
+  transition: color 0.2s, transform 0.2s;
+}
+.app-tabbar__item::after {
+  content: "";
+  width: 0.85rem;
+  height: 2px;
+  background: transparent;
+  transition: background 0.2s, width 0.2s;
+}
+.app-tabbar__item.is-active,
+.app-tabbar__item:hover,
+.app-tabbar__item[aria-expanded="true"] {
+  color: var(--app-white);
+}
+.app-tabbar__item.is-active i,
+.app-tabbar__item[aria-expanded="true"] i { color: var(--app-signal); }
+.app-tabbar__item.is-active::after,
+.app-tabbar__item[aria-expanded="true"]::after {
+  width: 1.15rem;
+  background: var(--app-signal);
+}
+.app-tabbar__item:active { transform: scale(0.94); }
+.app-tabbar__item:focus-visible {
+  outline: 2px solid var(--app-signal);
+  outline-offset: -2px;
+}
+
+@media (min-width: 641px) {
+  .app-body { padding-bottom: 0; }
+  .app-sheet,
+  .app-tabbar { display: none !important; }
+  html {
+    scroll-padding-top: 5rem;
+    scroll-padding-bottom: 0;
+  }
+}

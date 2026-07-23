@@ -42,6 +42,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../shared/css/app-chrome.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="../shared/css/footer-credit.css">
   <link rel="stylesheet" href="../shared/css/reveal.css">
@@ -128,7 +129,7 @@
   }
   </script>
 </head>
-<body class="app-body">
+<body class="app-body" data-app-home="./" data-app-root="../" data-app-active="home">
   <a href="#home" class="skip-link">Ir para o conteúdo principal</a>
 
   <header class="header" id="top-nav">
@@ -155,57 +156,11 @@
         <a href="https://www.instagram.com/arcanjos_de_aco/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @arcanjos_de_aco"><i class="fab fa-instagram" aria-hidden="true"></i></a>
         <a href="https://www.facebook.com/arcanjosdeacomc" target="_blank" rel="noopener noreferrer" aria-label="Facebook Arcanjos de Aço MC"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
       </nav>
-      <button class="header__burger" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+      <button class="header__burger" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="app-sheet">
         <span></span><span></span>
       </button>
     </div>
   </header>
-
-  <div class="app-sheet" id="nav-menu" hidden>
-    <button type="button" class="app-sheet__backdrop" id="nav-backdrop" aria-label="Fechar menu" tabindex="-1"></button>
-    <nav class="app-sheet__panel" aria-label="Mais seções">
-      <header class="app-sheet__head">
-        <p class="app-sheet__title">Mais</p>
-        <button type="button" class="app-sheet__close" id="nav-close" aria-label="Fechar menu">
-          <i class="fas fa-xmark" aria-hidden="true"></i>
-        </button>
-      </header>
-      <div class="app-sheet__links">
-        <a href="#movimento">Em movimento</a>
-        <a href="#capitulos">Capítulos</a>
-        <a href="#historia">História</a>
-        <a href="#garagem">Garagem</a>
-        <a href="../membros/">Irmãos</a>
-        <a href="../galeria/">Galeria</a>
-        <a href="../loja/">Loja</a>
-        <a href="#eventos">Eventos</a>
-        <a href="#faq">FAQ</a>
-      </div>
-    </nav>
-  </div>
-
-  <nav class="app-tabbar" id="app-tabbar" aria-label="Navegação rápida">
-    <a href="#home" class="app-tabbar__item is-active" data-app-tab="home">
-      <i class="fas fa-home" aria-hidden="true"></i>
-      <span>Início</span>
-    </a>
-    <a href="#capitulos" class="app-tabbar__item" data-app-tab="capitulos">
-      <i class="fas fa-shield-halved" aria-hidden="true"></i>
-      <span>Valores</span>
-    </a>
-    <a href="#historia" class="app-tabbar__item" data-app-tab="historia">
-      <i class="fas fa-road" aria-hidden="true"></i>
-      <span>História</span>
-    </a>
-    <a href="#eventos" class="app-tabbar__item" data-app-tab="eventos">
-      <i class="fas fa-calendar-day" aria-hidden="true"></i>
-      <span>Eventos</span>
-    </a>
-    <button type="button" class="app-tabbar__item" id="app-more" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
-      <i class="fas fa-ellipsis" aria-hidden="true"></i>
-      <span>Mais</span>
-    </button>
-  </nav>
 
   <main>
     <section class="hero-split" id="home">
@@ -217,6 +172,7 @@
           <h1 class="hero-split__brand">Arcanjos de Aço</h1>
           <p class="hero-split__quote">Não é adrenalina. É a certeza de que o amanhã não está garantido — e o hoje, sim.</p>
         </div>
+        <div class="hero-split__cue" aria-hidden="true"><span></span></div>
       </div>
       <div class="hero-split__strip">
         <div class="hero-split__visual hero-split__visual--left" aria-hidden="true">
@@ -484,6 +440,7 @@
 
   <script src="../shared/js/instagram.js"></script>
   <script src="../shared/js/reveal.js"></script>
+  <script src="../shared/js/app-chrome.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

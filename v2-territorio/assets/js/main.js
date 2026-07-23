@@ -4,8 +4,6 @@
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   document.addEventListener('DOMContentLoaded', function () {
-    initNav();
-    initAppTabbar();
     initSmoothScroll();
     initCounters();
     initFaq();
@@ -14,112 +12,6 @@
     initEventCountdown();
     initUltimoRole();
   });
-
-  function setMenuOpen(open) {
-    var toggle = document.getElementById('nav-toggle');
-    var more = document.getElementById('app-more');
-    var menu = document.getElementById('nav-menu');
-    if (!menu) return;
-
-    if (open) {
-      menu.hidden = false;
-      // Force reflow so the open transition runs after un-hiding
-      void menu.offsetWidth;
-      menu.classList.add('is-open');
-    } else {
-      menu.classList.remove('is-open');
-      var onEnd = function (e) {
-        if (e.target !== menu.querySelector('.app-sheet__panel')) return;
-        menu.removeEventListener('transitionend', onEnd);
-        if (!menu.classList.contains('is-open')) menu.hidden = true;
-      };
-      menu.addEventListener('transitionend', onEnd);
-      window.setTimeout(function () {
-        if (!menu.classList.contains('is-open')) menu.hidden = true;
-      }, 350);
-    }
-
-    document.body.classList.toggle('is-menu-open', open);
-    if (toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    if (more) more.setAttribute('aria-expanded', open ? 'true' : 'false');
-  }
-
-  function initNav() {
-    var toggle = document.getElementById('nav-toggle');
-    var more = document.getElementById('app-more');
-    var close = document.getElementById('nav-close');
-    var backdrop = document.getElementById('nav-backdrop');
-    var menu = document.getElementById('nav-menu');
-    if (!menu) return;
-
-    function onToggle() {
-      setMenuOpen(!menu.classList.contains('is-open'));
-    }
-
-    if (toggle) toggle.addEventListener('click', onToggle);
-    if (more) more.addEventListener('click', onToggle);
-    if (close) close.addEventListener('click', function () { setMenuOpen(false); });
-    if (backdrop) backdrop.addEventListener('click', function () { setMenuOpen(false); });
-
-    menu.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        setMenuOpen(false);
-      });
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && menu.classList.contains('is-open')) {
-        setMenuOpen(false);
-      }
-    });
-  }
-
-  function initAppTabbar() {
-    var tabbar = document.getElementById('app-tabbar');
-    if (!tabbar) return;
-
-    var tabs = Array.prototype.slice.call(tabbar.querySelectorAll('[data-app-tab]'));
-    if (!tabs.length) return;
-
-    var sections = tabs.map(function (tab) {
-      var id = tab.getAttribute('data-app-tab');
-      return {
-        tab: tab,
-        el: document.getElementById(id)
-      };
-    }).filter(function (item) { return item.el; });
-
-    function setActive(id) {
-      tabs.forEach(function (tab) {
-        var on = tab.getAttribute('data-app-tab') === id;
-        tab.classList.toggle('is-active', on);
-        if (on) tab.setAttribute('aria-current', 'page');
-        else tab.removeAttribute('aria-current');
-      });
-    }
-
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        setMenuOpen(false);
-        setActive(tab.getAttribute('data-app-tab'));
-      });
-    });
-
-    if (!('IntersectionObserver' in window)) return;
-
-    var observer = new IntersectionObserver(function (entries) {
-      var visible = entries
-        .filter(function (entry) { return entry.isIntersecting; })
-        .sort(function (a, b) { return b.intersectionRatio - a.intersectionRatio; });
-      if (!visible.length) return;
-      setActive(visible[0].target.id);
-    }, {
-      rootMargin: '-35% 0px -50% 0px',
-      threshold: [0.08, 0.2, 0.4]
-    });
-
-    sections.forEach(function (item) { observer.observe(item.el); });
-  }
 
   function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(function (link) {
