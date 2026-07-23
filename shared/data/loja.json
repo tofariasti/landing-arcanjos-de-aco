@@ -1,13 +1,13 @@
 {
-  "intro": "Merchan oficial A.A.M.C. Compre pelo WhatsApp ou direto no Mercado Livre — retirada na sede Village ou envio conforme o canal escolhido.",
-  "note": "Tamanhos e estoque podem variar por canal. Patches e itens exclusivos são vendidos apenas via sede/WhatsApp.",
+  "intro": "Catálogo demonstrativo A.A.M.C.: itens, valores e imagens são meramente ilustrativos/fictícios. Todos os produtos deste e-commerce foram criados com uso de IA.",
+  "note": "Itens e preços fictícios — sem oferta real de venda. Imagens geradas por IA. Em uma loja oficial, tamanhos e estoque seriam confirmados na sede.",
   "products": [
     {
       "id": "camiseta-oficial",
       "name": "Camiseta A.A.M.C. Oficial",
       "price": "89,90",
       "description": "Algodão premium 30.1, estampa frontal e costas com logo do clube. Corte regular, ideal para rolê e sede.",
-      "image": "img/gallery/ig-DNa5_DqN6HB.jpg",
+      "image": "img/loja/camiseta-oficial.jpg",
       "badge": "Mais vendido",
       "category": "Vestuário",
       "sizes": [
@@ -33,7 +33,7 @@
       "name": "Camiseta Preta — Raça em Extinção",
       "price": "79,90",
       "description": "Preta fosca, silk frontal discreto e frase nas costas. Edição limitada para irmãos e apoiadores.",
-      "image": "img/gallery/ig-DXsjXw_jBCp.jpg",
+      "image": "img/loja/camiseta-preta.jpg",
       "category": "Vestuário",
       "sizes": [
         "P",
@@ -58,7 +58,7 @@
       "name": "Regata Custom — Estrada",
       "price": "69,90",
       "description": "Malha leve para calor na estrada. Logo bordado no peito e rocker Rio das Ostras nas costas.",
-      "image": "img/gallery/ig-DZDcNdWyr9o.jpg",
+      "image": "img/loja/regata-estrada.jpg",
       "category": "Vestuário",
       "sizes": [
         "P",
@@ -82,7 +82,7 @@
       "name": "Polo A.A.M.C. — Sede",
       "price": "99,90",
       "description": "Polo piquet com bordado no peito. Para eventos abertos, churrascões e representação do clube.",
-      "image": "img/gallery/ig-DZrzGZilit1.jpg",
+      "image": "img/loja/polo-sede.jpg",
       "category": "Vestuário",
       "sizes": [
         "P",
@@ -100,7 +100,7 @@
       "name": "Moletom Premium A.A.M.C.",
       "price": "149,90",
       "description": "Moletom flanelado com capuz, bolso canguru, silk frontal e bordado discreto no ombro.",
-      "image": "img/gallery/ig-DalXZHTmLh6.jpg",
+      "image": "img/loja/moletom.jpg",
       "category": "Vestuário",
       "sizes": [
         "P",
@@ -125,7 +125,7 @@
       "name": "Jaqueta Corta-Vento A.A.M.C.",
       "price": "189,90",
       "description": "Tecido leve e respirável, ideal para rolês noturnos. Logo refletivo e zíper frontal.",
-      "image": "img/gallery/ig-DZL0IQQF8UH.jpg",
+      "image": "img/loja/jaqueta-cortavento.jpg",
       "badge": "Novo",
       "category": "Vestuário",
       "sizes": [
@@ -151,7 +151,7 @@
       "name": "Colete Apoiador — Support 11",
       "price": "129,90",
       "description": "Colete sem mangas para apoiadores oficiais. Bordado Support 11 e costas com rocker do clube.",
-      "image": "img/gallery/ig-DZLIW4BOTm-.jpg",
+      "image": "img/loja/colete-apoiador.jpg",
       "badge": "Apoiadores",
       "category": "Vestuário",
       "sizes": [
@@ -169,7 +169,7 @@
       "name": "Boné Aba Curva A.A.M.C.",
       "price": "59,90",
       "description": "Aba curva, bordado frontal A.A.M.C. e ajuste metálico. Modelo clássico de motoclube.",
-      "image": "img/gallery/ig-DXpImOtFrNL.jpg",
+      "image": "img/loja/bone-curvo.jpg",
       "category": "Bonés & Chapéus",
       "purchase": {
         "whatsapp": true,
@@ -187,7 +187,7 @@
       "name": "Boné Trucker — Arcanjos",
       "price": "64,90",
       "description": "Frente em algodão e tela traseira. Bordado 3D e aba levemente curva.",
-      "image": "img/gallery/ig-DXpImOtFrNL.jpg",
+      "image": "img/loja/bone-trucker.jpg",
       "category": "Bonés & Chapéus",
       "purchase": {
         "whatsapp": true,
@@ -205,7 +205,7 @@
       "name": "Bandana Oficial A.A.M.C.",
       "price": "29,90",
       "description": "Bandana 55×55 cm com estampa completa do logo. Uso no pescoço, rosto ou guidão.",
-      "image": "img/gallery/ig-DX4_RgTjns_.jpg",
+      "image": "img/loja/bandana.jpg",
       "category": "Acessórios",
       "purchase": {
         "whatsapp": true,
@@ -223,7 +223,7 @@
       "name": "Luva Meio Dedo — Custom",
       "price": "49,90",
       "description": "Luva em couro sintético com proteção nas junções. Logo bordado no dorso.",
-      "image": "img/gallery/ig-DZBorxelzFH.jpg",
+      "image": "img/loja/luva-meio-dedo.jpg",
       "category": "Acessórios",
       "sizes": [
         "P",
@@ -246,7 +246,7 @@
       "name": "Meia Cano Alto A.A.M.C. (par)",
       "price": "34,90",
       "description": "Par de meias cano alto com listras pretas e vermelhas e logo bordado. Conforto na estrada.",
-      "image": "img/hero.jpg",
+      "image": "img/loja/meia-cano-alto.jpg",
       "category": "Acessórios",
       "sizes": [
         "38–41",
@@ -268,7 +268,7 @@
       "name": "Chaveiro Moto + Logo",
       "price": "19,90",
       "description": "Chaveiro em metal com mini moto e plaquinha gravada Arcanjos de Aço MC.",
-      "image": "img/profile-pic.jpg",
+      "image": "img/loja/chaveiro-moto.jpg",
       "category": "Acessórios",
       "purchase": {
         "whatsapp": true,
@@ -286,7 +286,7 @@
       "name": "Caneca Inox 500ml",
       "price": "39,90",
       "description": "Inox térmico com logo gravado a laser. Ideal para café na sede antes do rolê.",
-      "image": "img/about.jpg",
+      "image": "img/loja/caneca-inox.jpg",
       "category": "Acessórios",
       "purchase": {
         "whatsapp": true,
@@ -304,7 +304,7 @@
       "name": "Garrafa Térmica 750ml",
       "price": "69,90",
       "description": "Aço inox, mantém gelada por horas na estrada. Tampa com mosquetão e logo do clube.",
-      "image": "img/gallery/ig-DYhYuVFDYWFHgs1IiGFxS9-ASlldN--wI87ums0.jpg",
+      "image": "img/loja/garrafa-termica.jpg",
       "category": "Acessórios",
       "purchase": {
         "whatsapp": true,
@@ -322,7 +322,7 @@
       "name": "Copo Personalizado — Sede",
       "price": "24,90",
       "description": "Copo acrílico 400ml com logo e frase \"Village — Rio das Ostras\". Uso exclusivo na base.",
-      "image": "img/about.jpg",
+      "image": "img/loja/copo-sede.jpg",
       "category": "Acessórios",
       "purchase": {
         "whatsapp": false,
@@ -340,7 +340,7 @@
       "name": "Patch Bordado — Costas",
       "price": "45,00",
       "description": "Patch oficial grande para colete, bordado de alta densidade. Dimensão padrão MC.",
-      "image": "img/profile-pic.jpg",
+      "image": "img/loja/patch-costas.jpg",
       "badge": "Exclusivo",
       "category": "Patches",
       "purchase": {
@@ -352,7 +352,7 @@
       "name": "Patch Peito — Sigla A.A.M.C.",
       "price": "28,00",
       "description": "Patch pequeno para lado esquerdo do colete. Bordado com sigla e arco do clube.",
-      "image": "img/gallery/ig-DNa5_DqN6HB.jpg",
+      "image": "img/loja/patch-peito.jpg",
       "category": "Patches",
       "purchase": {
         "whatsapp": true
@@ -363,7 +363,7 @@
       "name": "Patch Rocker — Rio das Ostras",
       "price": "32,00",
       "description": "Rocker inferior com Rio das Ostras — RJ. Par curvo para base do colete.",
-      "image": "img/gallery/ig-DZLIW4BOTm-.jpg",
+      "image": "img/loja/patch-rocker.jpg",
       "category": "Patches",
       "purchase": {
         "whatsapp": true
@@ -374,7 +374,7 @@
       "name": "Kit Patches Completo (3 un.)",
       "price": "95,00",
       "description": "Conjunto peito + costas + rocker. Bordado oficial para customização de colete.",
-      "image": "img/gallery/ig-DZBorxelzFH.jpg",
+      "image": "img/loja/kit-patches.jpg",
       "badge": "Kit",
       "category": "Patches",
       "purchase": {
@@ -386,7 +386,7 @@
       "name": "Kit Adesivos (5 un.)",
       "price": "25,00",
       "description": "Cinco adesivos oficiais — logo, sigla, rocker, Support 11 e \"Desde MMXVII\".",
-      "image": "img/hero.jpg",
+      "image": "img/loja/kit-adesivos.jpg",
       "category": "Adesivos & Decoração",
       "purchase": {
         "whatsapp": false,
@@ -404,7 +404,7 @@
       "name": "Adesivo Tanque — Logo Grande",
       "price": "18,00",
       "description": "Adesivo vinil resistente a sol e chuva para tanque ou capacete. Aplicação a seco.",
-      "image": "img/gallery/ig-DZL0IQQF8UH.jpg",
+      "image": "img/loja/adesivo-tanque.jpg",
       "category": "Adesivos & Decoração",
       "purchase": {
         "whatsapp": false,
@@ -415,6 +415,72 @@
             "label": "Comprar no Mercado Livre"
           }
         ]
+      }
+    },
+    {
+      "id": "bandeira",
+      "name": "Bandeira Oficial A.A.M.C.",
+      "price": "79,90",
+      "description": "Bandeira preta com logo do clube em branco. Ideal para sede, rolê e eventos.",
+      "image": "img/loja/bandeira.jpg",
+      "badge": "Novo",
+      "category": "Adesivos & Decoração",
+      "purchase": {
+        "whatsapp": true,
+        "links": []
+      }
+    },
+    {
+      "id": "bracelete",
+      "name": "Bracelete Couro — Skull",
+      "price": "44,90",
+      "description": "Bracelete em couro com plaquinha do logo e charm de caveira. Ajuste por pressão.",
+      "image": "img/loja/bracelete.jpg",
+      "category": "Acessórios",
+      "purchase": {
+        "whatsapp": true
+      }
+    },
+    {
+      "id": "corrente",
+      "name": "Corrente Aço — Pingente A.A.M.C.",
+      "price": "69,90",
+      "description": "Corrente em aço inox com pingente do logo do clube. Acabamento escovado, uso diário.",
+      "image": "img/loja/corrente.jpg",
+      "badge": "Novo",
+      "category": "Acessórios",
+      "purchase": {
+        "whatsapp": true
+      }
+    },
+    {
+      "id": "taco-baseball",
+      "name": "Taco de Baseball — Colecionável",
+      "price": "159,90",
+      "description": "Taco decorativo com logo gravado. Item meramente ilustrativo para coleção e ambientação.",
+      "image": "img/loja/taco-baseball.jpg",
+      "badge": "Coleção",
+      "category": "Acessórios",
+      "purchase": {
+        "whatsapp": true
+      }
+    },
+    {
+      "id": "pijama",
+      "name": "Pijama A.A.M.C. — Conjunto",
+      "price": "119,90",
+      "description": "Conjunto camiseta + calça em malha macia, logo discreto no peito. Conforto pós-rolê.",
+      "image": "img/loja/pijama.jpg",
+      "category": "Vestuário",
+      "sizes": [
+        "P",
+        "M",
+        "G",
+        "GG",
+        "XG"
+      ],
+      "purchase": {
+        "whatsapp": true
       }
     }
   ]

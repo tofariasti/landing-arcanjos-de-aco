@@ -33,10 +33,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="../shared/css/app-chrome.css">
-  <link rel="stylesheet" href="../shared/css/loja.css">
+  <link rel="stylesheet" href="../shared/css/loja.css?v=20260723f">
   <link rel="stylesheet" href="../shared/css/footer-credit.css">
   <link rel="stylesheet" href="../shared/css/reveal.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=20260722h">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260723c">
 
   <script type="application/ld+json">
   {
@@ -87,6 +87,12 @@
       </picture>
       <span>A.A.M.C.</span>
     </a>
+    <form class="loja-nav__search" role="search" id="loja-search-form" action="#catalogo">
+      <label class="visually-hidden" for="loja-search">Buscar na loja</label>
+      <i class="fas fa-search" aria-hidden="true"></i>
+      <input type="search" id="loja-search" name="q" placeholder="Buscar camiseta, boné, patch…" autocomplete="off" enterkeyhint="search">
+      <button type="submit" class="loja-nav__search-btn">Buscar</button>
+    </form>
     <nav class="loja-nav__links" id="nav-menu" aria-label="Seções principais">
       <a href="../v2-territorio/#movimento">Em movimento</a>
       <a href="../v2-territorio/#capitulos">Capítulos</a>
@@ -110,6 +116,15 @@
   </header>
 
   <main>
+    <div class="loja-trust" role="region" aria-label="Informações da loja">
+      <ul class="loja-trust__list">
+        <li><i class="fas fa-info-circle" aria-hidden="true"></i> Itens e valores ilustrativos</li>
+        <li><i class="fas fa-robot" aria-hidden="true"></i> Produtos criados com IA</li>
+        <li><i class="fas fa-store" aria-hidden="true"></i> Catálogo demonstrativo</li>
+        <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Conceito A.A.M.C. — MG</li>
+      </ul>
+    </div>
+
     <section class="loja-hero" aria-labelledby="loja-brand">
       <div class="loja-hero__bg" aria-hidden="true">
         <img src="../shared/img/hero.jpg" alt="" width="1920" height="1080">
@@ -117,16 +132,35 @@
       <div class="loja-hero__content">
         <p class="loja-hero__brand" id="loja-brand">Arcanjos de Aço</p>
         <h1 class="loja-hero__title">Loja Oficial</h1>
-        <p class="loja-hero__text">Merchan A.A.M.C. — vista o nome na estrada. Pedidos via WhatsApp ou Mercado Livre.</p>
-        <a href="#catalogo" class="loja-hero__cta">Ver catálogo <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
+        <p class="loja-hero__text">Catálogo demonstrativo — itens e valores ilustrativos.</p>
       </div>
     </section>
 
     <section class="loja loja-page" id="catalogo">
       <div class="loja__shell">
-        <p class="loja__intro">Merchan oficial A.A.M.C. Pedidos via WhatsApp — retirada na sede (MG) ou envio sob consulta.</p>
-        <div class="loja__grid" id="loja-grid" aria-live="polite"></div>
-        <p class="loja__note">Tamanhos e disponibilidade confirmados na sede. Produtos sujeitos a estoque.</p>
+        <div class="loja-toolbar">
+          <div class="loja-toolbar__filters" id="loja-filters" role="tablist" aria-label="Categorias"></div>
+          <div class="loja-toolbar__meta">
+            <p class="loja-toolbar__count" id="loja-count" aria-live="polite">Carregando…</p>
+            <label class="loja-toolbar__sort">
+              <span class="visually-hidden">Ordenar por</span>
+              <select id="loja-sort" aria-label="Ordenar produtos">
+                <option value="featured">Destaques</option>
+                <option value="price-asc">Menor preço</option>
+                <option value="price-desc">Maior preço</option>
+                <option value="name-asc">A–Z</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <aside class="loja__ai-notice" role="note">
+          <p><strong>Atenção:</strong> itens e valores são meramente ilustrativos/fictícios. Todos os itens deste e-commerce foram criados com uso de IA.</p>
+        </aside>
+        <p class="loja__intro" id="loja-intro">Catálogo demonstrativo A.A.M.C.: itens, valores e imagens são meramente ilustrativos/fictícios. Todos os produtos deste e-commerce foram criados com uso de IA.</p>
+        <div class="loja__grid loja__grid--market" id="loja-grid" aria-live="polite"></div>
+        <p class="loja__empty" id="loja-empty" hidden>Nenhum produto encontrado. Tente outra busca ou categoria.</p>
+        <p class="loja__note">Itens e preços fictícios — sem oferta real de venda. Imagens geradas por IA.</p>
       </div>
     </section>
   </main>
@@ -148,7 +182,7 @@
   <script src="../shared/js/nav-toggle.js?v=20260722b"></script>
   <script src="../shared/js/whatsapp.js"></script>
   <script src="../shared/js/reveal.js"></script>
-  <script src="../shared/js/loja.js"></script>
-  <script>ArcanjosLoja.init();</script>
+  <script src="../shared/js/loja.js?v=20260723g"></script>
+  <script>ArcanjosLoja.init({ marketplace: true });</script>
 </body>
 </html>

@@ -4,6 +4,17 @@
 window.ArcanjosLoja = (function () {
   'use strict';
 
+  var PURCHASE_LINKS_ENABLED = false;
+
+  var state = {
+    products: [],
+    category: 'all',
+    query: '',
+    sort: 'featured',
+    marketplace: false,
+    sharedBase: '../shared/'
+  };
+
   function escapeHtml(str) {
     return String(str || '')
       .replace(/&/g, '&amp;')
@@ -15,13 +26,13 @@ window.ArcanjosLoja = (function () {
   function getDataUrl() {
     var script = document.querySelector('script[src*="shared/js/loja.js"]');
     if (!script) return '../shared/data/loja.json';
-    return script.getAttribute('src').replace('js/loja.js', 'data/loja.json');
+    return script.getAttribute('src').replace(/js\/loja\.js.*$/, 'data/loja.json');
   }
 
   function getSharedBase() {
     var script = document.querySelector('script[src*="shared/js/loja.js"]');
     if (!script) return '../shared/';
-    return script.getAttribute('src').replace('js/loja.js', '');
+    return script.getAttribute('src').replace(/js\/loja\.js.*$/, '');
   }
 
   function getWhatsAppNumber() {
@@ -29,6 +40,22 @@ window.ArcanjosLoja = (function () {
       return ArcanjosWhatsApp.WHATSAPP_NUMBER;
     }
     return '5522999999999';
+  }
+
+  function parsePrice(price) {
+    return parseFloat(String(price || '0').replace(/\./g, '').replace(',', '.')) || 0;
+  }
+
+  function formatMoney(value) {
+    return value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function installmentHint(priceStr) {
+    var value = parsePrice(priceStr);
+    if (value < 40) return '';
+    var n = value >= 120 ? 3 : 2;
+    var parcel = value / n;
+    return 'em até ' + n + 'x de R$ ' + formatMoney(parcel);
   }
 
   function buildOrderMessage(product, size) {
@@ -60,46 +87,55 @@ window.ArcanjosLoja = (function () {
       });
     }
 
-    var whatsapp = purchase.whatsapp !== false;
-    if (!whatsapp && !links.length) whatsapp = true;
+    var mlLink = links.find(function (link) {
+      return link && link.platform === 'mercadolivre' && link.url;
+    }) || null;
 
-    return { whatsapp: whatsapp, links: links };
+    return {
+      whatsapp: true,
+      mercadolivre: true,
+      mlUrl: mlLink ? mlLink.url : '',
+      links: links
+    };
   }
 
   function renderPurchaseActions(product) {
     var options = normalizePurchase(product);
     var parts = ['<div class="loja-card__actions">'];
+    var inertAttrs = PURCHASE_LINKS_ENABLED
+      ? ''
+      : ' aria-disabled="true" title="Catálogo demonstrativo — link desativado"';
+    var demoClass = PURCHASE_LINKS_ENABLED ? '' : ' is-demo';
 
-    if (options.whatsapp) {
+    // Always show both channels on every product card
+    parts.push(
+      '<button type="button" class="loja-card__buy loja-card__buy--whatsapp' + demoClass +
+        '" data-loja-buy-wa' + inertAttrs + '>' +
+        '<i class="fab fa-whatsapp" aria-hidden="true"></i> Pedir no WhatsApp' +
+      '</button>'
+    );
+
+    if (PURCHASE_LINKS_ENABLED && options.mlUrl) {
       parts.push(
-        '<button type="button" class="loja-card__buy loja-card__buy--whatsapp" data-loja-buy-wa>' +
-          '<i class="fab fa-whatsapp" aria-hidden="true"></i> Pedir no WhatsApp' +
+        '<a href="' + escapeHtml(options.mlUrl) + '" class="loja-card__buy loja-card__buy--mercadolivre"' +
+          ' target="_blank" rel="noopener noreferrer" data-loja-buy-external>' +
+          '<span class="loja-card__ml-icon" aria-hidden="true">ML</span> Mercado Livre' +
+        '</a>'
+      );
+    } else {
+      parts.push(
+        '<button type="button" class="loja-card__buy loja-card__buy--mercadolivre' + demoClass +
+          '" data-loja-buy-external' + inertAttrs + '>' +
+          '<span class="loja-card__ml-icon" aria-hidden="true">ML</span> Mercado Livre' +
         '</button>'
       );
     }
-
-    options.links.forEach(function (link) {
-      if (!link.url) return;
-
-      var platform = link.platform || 'external';
-      var label = link.label || 'Comprar online';
-      var icon = platform === 'mercadolivre'
-        ? '<span class="loja-card__ml-icon" aria-hidden="true">ML</span>'
-        : '<i class="fas fa-external-link-alt" aria-hidden="true"></i>';
-
-      parts.push(
-        '<a href="' + escapeHtml(link.url) + '" class="loja-card__buy loja-card__buy--' + escapeHtml(platform) + '"' +
-          ' target="_blank" rel="noopener noreferrer" data-loja-buy-external>' +
-          icon + ' ' + escapeHtml(label) +
-        '</a>'
-      );
-    });
 
     parts.push('</div>');
     return parts.join('');
   }
 
-  function renderProduct(product, sharedBase) {
+  function renderProduct(product, sharedBase, marketplace) {
     var imgSrc = sharedBase + product.image;
     var badge = product.badge
       ? '<span class="loja-card__badge">' + escapeHtml(product.badge) + '</span>'
@@ -119,22 +155,131 @@ window.ArcanjosLoja = (function () {
         '</div>';
     }
 
+    var installments = marketplace ? installmentHint(product.price) : '';
+    var priceExtra = installments
+      ? '<span class="loja-card__installments">' + escapeHtml(installments) + '</span>'
+      : '<small>/ un.</small>';
+
+    var shipping = marketplace
+      ? '<p class="loja-card__shipping"><i class="fas fa-truck" aria-hidden="true"></i> Frete sob consulta</p>'
+      : '';
+
+    var desc = '<p class="loja-card__desc">' + escapeHtml(product.description) + '</p>';
+    var disclaimer =
+      '<p class="loja-card__disclaimer">' +
+        'Item e valor meramente ilustrativos/fictícios. Imagem criada com IA.' +
+      '</p>';
+
     return (
-      '<article class="loja-card" data-product-id="' + escapeHtml(product.id) + '">' +
+      '<article class="loja-card' + (marketplace ? ' loja-card--market' : '') + '" data-product-id="' + escapeHtml(product.id) + '">' +
         '<div class="loja-card__media">' +
           badge +
-          '<img src="' + escapeHtml(imgSrc) + '" alt="' + escapeHtml(product.name) + '" loading="lazy" width="400" height="300">' +
+          '<img src="' + escapeHtml(imgSrc) + '" alt="' + escapeHtml(product.name) + ' (ilustrativo)" loading="lazy" width="400" height="400">' +
         '</div>' +
         '<div class="loja-card__body">' +
           '<span class="loja-card__cat">' + escapeHtml(product.category || 'Oficial') + '</span>' +
           '<h3 class="loja-card__name">' + escapeHtml(product.name) + '</h3>' +
-          '<p class="loja-card__desc">' + escapeHtml(product.description) + '</p>' +
-          '<p class="loja-card__price">R$ ' + escapeHtml(product.price) + ' <small>/ un.</small></p>' +
+          desc +
+          '<div class="loja-card__pricing">' +
+            '<p class="loja-card__price">R$ ' + escapeHtml(product.price) + ' ' + priceExtra + '</p>' +
+            shipping +
+          '</div>' +
           sizeBlock +
+          disclaimer +
           renderPurchaseActions(product) +
         '</div>' +
       '</article>'
     );
+  }
+
+  function uniqueCategories(products) {
+    var seen = {};
+    var cats = [];
+    products.forEach(function (p) {
+      var cat = p.category || 'Oficial';
+      if (!seen[cat]) {
+        seen[cat] = true;
+        cats.push(cat);
+      }
+    });
+    return cats;
+  }
+
+  function filterAndSort() {
+    var q = state.query.trim().toLowerCase();
+    var list = state.products.filter(function (p) {
+      var cat = p.category || 'Oficial';
+      if (state.category !== 'all' && cat !== state.category) return false;
+      if (!q) return true;
+      var hay = [p.name, p.description, cat, p.badge || ''].join(' ').toLowerCase();
+      return hay.indexOf(q) !== -1;
+    });
+
+    if (state.sort === 'price-asc') {
+      list.sort(function (a, b) { return parsePrice(a.price) - parsePrice(b.price); });
+    } else if (state.sort === 'price-desc') {
+      list.sort(function (a, b) { return parsePrice(b.price) - parsePrice(a.price); });
+    } else if (state.sort === 'name-asc') {
+      list.sort(function (a, b) { return a.name.localeCompare(b.name, 'pt-BR'); });
+    } else {
+      list.sort(function (a, b) {
+        var ba = a.badge ? 1 : 0;
+        var bb = b.badge ? 1 : 0;
+        return bb - ba;
+      });
+    }
+
+    return list;
+  }
+
+  function renderFilters() {
+    var wrap = document.getElementById('loja-filters');
+    if (!wrap) return;
+
+    var cats = uniqueCategories(state.products);
+    var html = '<button type="button" class="loja-filter' + (state.category === 'all' ? ' is-active' : '') + '" data-loja-cat="all" role="tab" aria-selected="' + (state.category === 'all') + '">Todos</button>';
+    cats.forEach(function (cat) {
+      var active = state.category === cat;
+      html +=
+        '<button type="button" class="loja-filter' + (active ? ' is-active' : '') + '" data-loja-cat="' + escapeHtml(cat) + '" role="tab" aria-selected="' + active + '">' +
+          escapeHtml(cat) +
+        '</button>';
+    });
+    wrap.innerHTML = html;
+
+    wrap.querySelectorAll('[data-loja-cat]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        state.category = btn.getAttribute('data-loja-cat');
+        paintCatalog();
+        renderFilters();
+      });
+    });
+  }
+
+  function updateCount(n) {
+    var el = document.getElementById('loja-count');
+    if (!el) return;
+    if (n === 0) {
+      el.textContent = 'Nenhum produto';
+    } else if (n === 1) {
+      el.textContent = '1 produto';
+    } else {
+      el.textContent = n + ' produtos';
+    }
+  }
+
+  function showDemoToast(message) {
+    if (window.ArcanjosWhatsApp && ArcanjosWhatsApp.showToast) {
+      ArcanjosWhatsApp.showToast(message || 'Catálogo demonstrativo — link desativado', 'store');
+      return;
+    }
+    var existing = document.querySelector('.wa-toast');
+    if (existing) existing.remove();
+    var toast = document.createElement('div');
+    toast.className = 'wa-toast wa-toast--store';
+    toast.textContent = message || 'Catálogo demonstrativo — link desativado';
+    document.body.appendChild(toast);
+    setTimeout(function () { toast.remove(); }, 2600);
   }
 
   function bindPurchaseActions(container, products) {
@@ -145,26 +290,91 @@ window.ArcanjosLoja = (function () {
 
       var waBtn = card.querySelector('[data-loja-buy-wa]');
       if (waBtn) {
-        waBtn.addEventListener('click', function () {
+        waBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          if (!PURCHASE_LINKS_ENABLED) {
+            showDemoToast('Catálogo demonstrativo — WhatsApp desativado');
+            return;
+          }
           var sizeEl = card.querySelector('[data-loja-size]');
           var size = sizeEl ? sizeEl.value : '';
           var url = 'https://wa.me/' + getWhatsAppNumber() + '?text=' +
             encodeURIComponent(buildOrderMessage(product, size));
           window.open(url, '_blank');
-          if (window.ArcanjosWhatsApp && ArcanjosWhatsApp.showToast) {
-            ArcanjosWhatsApp.showToast('Abrindo WhatsApp…', 'store');
-          }
+          showDemoToast('Abrindo WhatsApp…');
         });
       }
 
       card.querySelectorAll('[data-loja-buy-external]').forEach(function (link) {
-        link.addEventListener('click', function () {
-          if (window.ArcanjosWhatsApp && ArcanjosWhatsApp.showToast) {
-            ArcanjosWhatsApp.showToast('Abrindo loja online…', 'store');
+        link.addEventListener('click', function (e) {
+          if (!PURCHASE_LINKS_ENABLED) {
+            e.preventDefault();
+            showDemoToast('Catálogo demonstrativo — link desativado');
+            return;
           }
+          showDemoToast('Abrindo loja online…');
         });
       });
     });
+  }
+
+  function paintCatalog() {
+    var container = document.getElementById('loja-grid');
+    if (!container) return;
+
+    var list = filterAndSort();
+    var empty = document.getElementById('loja-empty');
+
+    updateCount(list.length);
+
+    if (!list.length) {
+      container.innerHTML = '';
+      if (empty) empty.hidden = false;
+      return;
+    }
+
+    if (empty) empty.hidden = true;
+    container.innerHTML = list.map(function (p) {
+      return renderProduct(p, state.sharedBase, state.marketplace);
+    }).join('');
+
+    bindPurchaseActions(container, list);
+
+    if (window.ArcanjosReveal && typeof ArcanjosReveal.refresh === 'function') {
+      ArcanjosReveal.refresh();
+    }
+  }
+
+  function bindMarketplaceControls() {
+    var form = document.getElementById('loja-search-form');
+    var input = document.getElementById('loja-search');
+    var sort = document.getElementById('loja-sort');
+
+    if (form && input) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        state.query = input.value || '';
+        paintCatalog();
+        var catalog = document.getElementById('catalogo');
+        if (catalog) catalog.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      var debounce;
+      input.addEventListener('input', function () {
+        clearTimeout(debounce);
+        debounce = setTimeout(function () {
+          state.query = input.value || '';
+          paintCatalog();
+        }, 220);
+      });
+    }
+
+    if (sort) {
+      sort.addEventListener('change', function () {
+        state.sort = sort.value;
+        paintCatalog();
+      });
+    }
   }
 
   function render(containerId, options) {
@@ -172,7 +382,11 @@ window.ArcanjosLoja = (function () {
     var container = document.getElementById(containerId || 'loja-grid');
     if (!container) return Promise.resolve();
 
-    var sharedBase = getSharedBase();
+    state.marketplace = !!options.marketplace;
+    state.sharedBase = getSharedBase();
+    state.category = 'all';
+    state.query = '';
+    state.sort = 'featured';
 
     return fetch(getDataUrl())
       .then(function (res) { return res.json(); })
@@ -182,23 +396,28 @@ window.ArcanjosLoja = (function () {
         if (intro && data.intro) intro.textContent = data.intro;
         if (note && data.note) note.textContent = data.note;
 
-        var products = data.products || [];
-        container.innerHTML = products.map(function (p) {
-          return renderProduct(p, sharedBase);
-        }).join('');
+        state.products = data.products || [];
 
-        bindPurchaseActions(container, products);
-
-        if (window.ArcanjosReveal && typeof ArcanjosReveal.refresh === 'function') {
-          ArcanjosReveal.refresh();
+        if (state.marketplace) {
+          renderFilters();
+          bindMarketplaceControls();
         }
+
+        paintCatalog();
       })
       .catch(function () {
         container.innerHTML = '<p class="loja__intro">Catálogo temporariamente indisponível. Chame no WhatsApp para consultar produtos.</p>';
+        updateCount(0);
       });
   }
 
   function init(containerId, options) {
+    if (typeof containerId === 'object' && containerId !== null) {
+      options = containerId;
+      containerId = 'loja-grid';
+    }
+    options = options || {};
+
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', function () {
         render(containerId, options);
