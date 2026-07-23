@@ -41,15 +41,21 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  max-width: min(42vw, 28rem);
   min-width: 0;
+  overflow: hidden;
   color: var(--white);
   font-family: var(--font-display);
   font-size: 1.1rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
+  cursor: pointer;
 }
-.header__logo:hover { color: var(--white); }
+.header__logo:hover { color: var(--signal); }
 .header__logo img {
   width: 40px;
   height: 40px;
@@ -953,6 +959,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
     top: auto; right: auto; bottom: auto;
     width: auto;
     flex: 1;
+    min-width: 0;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;

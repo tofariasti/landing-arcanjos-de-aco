@@ -86,6 +86,8 @@ h1, h2, h3 {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  position: relative;
+  z-index: 2;
   flex-shrink: 0;
   color: #f5f5f5;
   font-family: 'Anton', sans-serif;
@@ -94,9 +96,10 @@ h1, h2, h3 {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
+  cursor: pointer;
 }
 
-.page-nav__brand:hover { color: #fff; }
+.page-nav__brand:hover { color: var(--blood); }
 
 .page-nav__brand img {
   width: 40px;
