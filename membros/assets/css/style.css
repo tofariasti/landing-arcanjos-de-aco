@@ -370,6 +370,8 @@ h1, h2, h3 {
   transition: filter 0.2s, transform 0.2s;
 }
 
+.membros-hero__cta:visited { color: #fff; }
+
 .membros-hero__cta:hover {
   color: #fff;
   filter: brightness(1.12);
