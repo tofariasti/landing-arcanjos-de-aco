@@ -222,7 +222,10 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   height: auto;
   margin: 0 auto 0.35rem;
   filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.72));
-  animation: brand-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  opacity: 1;
+  animation:
+    brand-in-logo 0.85s cubic-bezier(0.22, 1, 0.36, 1) both,
+    logo-float 3.6s ease-in-out 0.9s infinite;
 }
 .hero-split__tag {
   font-family: var(--font-display);
@@ -259,6 +262,14 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
 @keyframes brand-in {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
+}
+@keyframes brand-in-logo {
+  from { opacity: 0; transform: translateY(16px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes logo-float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-12px) scale(1.06); }
 }
 @keyframes hero-drift {
   from { transform: scale(1); }
@@ -1226,10 +1237,12 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
 
   .hero-split__cue { display: none; }
   .hero-split__visual--right .hero-split__frame img { animation: none; }
-  .hero-split__logo,
   .hero-split__tag,
   .hero-split__brand,
   .hero-split__quote { animation: none; }
+  .hero-split__logo {
+    animation: logo-float 3.6s ease-in-out infinite;
+  }
 
   .chapter-head::before { display: none; }
   .chapter-head__slash { display: inline; }
