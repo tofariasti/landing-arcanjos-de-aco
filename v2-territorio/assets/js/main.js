@@ -4,6 +4,7 @@
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   document.addEventListener('DOMContentLoaded', function () {
+    initLogoImpact();
     initSmoothScroll();
     initCounters();
     initFaq();
@@ -12,6 +13,38 @@
     initEventCountdown();
     initUltimoRole();
   });
+
+  function initLogoImpact() {
+    var copy = document.querySelector('.hero-split__copy');
+    var logo = document.querySelector('.hero-split__logo');
+    if (!copy || !logo) return;
+
+    function ready() {
+      if (copy.classList.contains('is-logo-ready')) return;
+      copy.classList.add('is-logo-ready');
+    }
+
+    if (prefersReducedMotion) {
+      ready();
+      return;
+    }
+
+    var img = logo.tagName === 'IMG' ? logo : logo.querySelector('img');
+    if (!img) {
+      ready();
+      return;
+    }
+
+    if (img.complete && img.naturalWidth > 0) {
+      ready();
+      return;
+    }
+
+    img.addEventListener('load', ready, { once: true });
+    img.addEventListener('error', ready, { once: true });
+    // Fallback if decode stalls on mobile
+    window.setTimeout(ready, 2500);
+  }
 
   function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(function (link) {
