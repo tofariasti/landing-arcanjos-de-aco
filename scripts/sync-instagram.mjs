@@ -5,7 +5,7 @@
  * Também baixa até 4 Reels/vídeos só para v2-territorio/assets/
  * Uso: npm run sync:instagram
  */
-import { mkdir, writeFile } from 'fs/promises';
+import { mkdir, rename, unlink, writeFile } from 'fs/promises';
 import { execFile } from 'child_process';
 import { promisify } from 'util';
 import path from 'path';
@@ -28,6 +28,9 @@ const USERNAME = 'arcanjos_de_aco';
 const IG_APP_ID = '936619743392459';
 const MAX_IMAGES = 20;
 const MAX_REELS = 4;
+/** Background clips only need a short, muted, fast-start MP4 */
+const REEL_CLIP_SECONDS = 12;
+const REEL_CRF = '28';
 
 const HEADERS = {
   'User-Agent':
@@ -118,6 +121,57 @@ async function downloadFile(url, dest) {
   if (!res.ok) throw new Error(`Download failed ${res.status}`);
   const buf = Buffer.from(await res.arrayBuffer());
   await writeFile(dest, buf);
+}
+
+async function findFfmpeg() {
+  for (const bin of ['ffmpeg', '/tmp/ffmpeg-static/ffmpeg', '/usr/bin/ffmpeg']) {
+    try {
+      await execFileAsync(bin, ['-version'], { timeout: 5000 });
+      return bin;
+    } catch (_) {
+      /* try next */
+    }
+  }
+  return null;
+}
+
+/**
+ * Trim + compress Instagram reels for landing-page backgrounds.
+ * Full-length IG downloads are often 40–70MB; web clips should stay ~2–4MB.
+ */
+async function compressReelForWeb(videoPath) {
+  const ffmpeg = await findFfmpeg();
+  if (!ffmpeg) {
+    console.warn('⚠ ffmpeg não encontrado — reel mantido sem compressão (pode ficar pesado no mobile).');
+    return false;
+  }
+
+  const tmpPath = `${videoPath}.web.tmp.mp4`;
+  try {
+    await execFileAsync(
+      ffmpeg,
+      [
+        '-y',
+        '-i', videoPath,
+        '-t', String(REEL_CLIP_SECONDS),
+        '-an',
+        '-vf', 'scale=720:-2',
+        '-c:v', 'libx264',
+        '-preset', 'slow',
+        '-crf', REEL_CRF,
+        '-pix_fmt', 'yuv420p',
+        '-movflags', '+faststart',
+        tmpPath,
+      ],
+      { maxBuffer: 20 * 1024 * 1024 }
+    );
+    await rename(tmpPath, videoPath);
+    return true;
+  } catch (err) {
+    console.warn(`⚠ compressão falhou (${err.message}) — mantendo original`);
+    try { await unlink(tmpPath); } catch (_) { /* ignore */ }
+    return false;
+  }
 }
 
 function captionOf(node) {
@@ -262,7 +316,8 @@ async function collectAndDownloadReels(videoPosts) {
     try {
       await downloadFile(videoUrl, videoDest);
       if (post.url) await downloadFile(post.url, posterDest);
-      console.log(`✓ reel ${videoName}`);
+      const compressed = await compressReelForWeb(videoDest);
+      console.log(`✓ reel ${videoName}${compressed ? ' (web)' : ''}`);
 
       const caption = post.caption || '';
       reels.push({
