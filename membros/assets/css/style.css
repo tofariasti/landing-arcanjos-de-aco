@@ -241,12 +241,22 @@ h1, h2, h3 {
 
   .page-nav__links a,
   .page-nav__links a:visited {
+    display: inline-flex;
+    align-items: center;
     padding: 0;
     border-bottom: none;
     font-size: 0.8rem;
     letter-spacing: 0.04em;
     white-space: nowrap;
     flex-shrink: 0;
+  }
+
+  .page-nav__links a:not(:last-child)::after {
+    content: "|";
+    margin-left: 0.7rem;
+    color: rgba(255, 255, 255, 0.35);
+    font-weight: 400;
+    pointer-events: none;
   }
 
   .page-nav__end {
@@ -256,13 +266,17 @@ h1, h2, h3 {
 
 @media (min-width: 1100px) {
   .page-nav__links {
-    gap: 1.25rem;
+    gap: 1.1rem;
   }
 
   .page-nav__links a,
   .page-nav__links a:visited {
     font-size: 0.85rem;
     letter-spacing: 0.04em;
+  }
+
+  .page-nav__links a:not(:last-child)::after {
+    margin-left: 1.1rem;
   }
 }
 
