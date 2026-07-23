@@ -225,7 +225,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   opacity: 1;
   animation:
     brand-in-logo 0.85s cubic-bezier(0.22, 1, 0.36, 1) both,
-    logo-float 3.6s ease-in-out 0.9s infinite;
+    logo-float 5s ease-in-out 0.9s infinite;
 }
 .hero-split__tag {
   font-family: var(--font-display);
@@ -269,7 +269,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
 }
 @keyframes logo-float {
   0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-12px) scale(1.06); }
+  50% { transform: translateY(-5px) scale(1.02); }
 }
 @keyframes hero-drift {
   from { transform: scale(1); }
@@ -1241,7 +1241,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-transform:
   .hero-split__brand,
   .hero-split__quote { animation: none; }
   .hero-split__logo {
-    animation: logo-float 3.6s ease-in-out infinite;
+    animation: logo-float 5s ease-in-out infinite;
   }
 
   .chapter-head::before { display: none; }
