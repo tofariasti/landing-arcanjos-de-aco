@@ -4,7 +4,7 @@
  * Body attributes:
  *   data-app-home   — path to v2 home (default "./")
  *   data-app-root   — site root for membros/loja/galeria (auto from home if omitted)
- *   data-app-active — home | capitulos | historia | eventos | more
+ *   data-app-active — home | capitulos | historia | loja | more
  *   data-app-chrome="off" — disable
  */
 (function (global) {
@@ -26,15 +26,24 @@
     return h + '#' + hash;
   }
 
+  /** Page section id → tab bar key (home | capitulos | historia | loja | more) */
+  var SECTION_TO_TAB = {
+    home: 'home',
+    movimento: 'more',
+    capitulos: 'capitulos',
+    historia: 'historia',
+    garagem: 'more',
+    loja: 'loja',
+    eventos: 'more',
+    faq: 'more'
+  };
+
   function detectActive() {
     var path = (global.location.pathname || '').replace(/\/+$/, '');
-    if (/\/membros$/i.test(path) || /\/galeria$/i.test(path) || /\/loja$/i.test(path)) {
-      return 'more';
-    }
+    if (/\/loja$/i.test(path)) return 'loja';
+    if (/\/membros$/i.test(path) || /\/galeria$/i.test(path)) return 'more';
     var hash = (global.location.hash || '').replace(/^#/, '');
-    if (hash === 'capitulos' || hash === 'historia' || hash === 'eventos' || hash === 'home') {
-      return hash;
-    }
+    if (SECTION_TO_TAB[hash]) return SECTION_TO_TAB[hash];
     return 'home';
   }
 
@@ -73,11 +82,11 @@
       { href: sectionHref(home, 'capitulos'), label: 'Capítulos' },
       { href: sectionHref(home, 'historia'), label: 'História' },
       { href: sectionHref(home, 'garagem'), label: 'Garagem' },
-      { href: root + 'membros/', label: 'Irmãos', page: /\/membros$/i },
-      { href: root + 'galeria/', label: 'Galeria', page: /\/galeria$/i },
       { href: root + 'loja/', label: 'Loja', page: /\/loja$/i },
       { href: sectionHref(home, 'eventos'), label: 'Eventos' },
-      { href: sectionHref(home, 'faq'), label: 'FAQ' }
+      { href: sectionHref(home, 'faq'), label: 'FAQ' },
+      { href: root + 'membros/', label: 'Irmãos', page: /\/membros$/i },
+      { href: root + 'galeria/', label: 'Galeria', page: /\/galeria$/i }
     ];
 
     var sheetLinks = links.map(function (item) {
@@ -111,8 +120,8 @@
           '<i class="fas fa-shield-halved" aria-hidden="true"></i><span>Valores</span></a>' +
         '<a href="' + sectionHref(home, 'historia') + '" class="app-tabbar__item' + (active === 'historia' ? ' is-active' : '') + '" data-app-tab="historia">' +
           '<i class="fas fa-road" aria-hidden="true"></i><span>História</span></a>' +
-        '<a href="' + sectionHref(home, 'eventos') + '" class="app-tabbar__item' + (active === 'eventos' ? ' is-active' : '') + '" data-app-tab="eventos">' +
-          '<i class="fas fa-calendar-day" aria-hidden="true"></i><span>Eventos</span></a>' +
+        '<a href="' + root + 'loja/" class="app-tabbar__item' + (active === 'loja' ? ' is-active' : '') + '" data-app-tab="loja">' +
+          '<i class="fas fa-shirt" aria-hidden="true"></i><span>Loja</span></a>' +
         '<button type="button" class="app-tabbar__item' + (active === 'more' ? ' is-active' : '') + '" id="app-more" aria-label="Abrir menu" aria-expanded="false" aria-controls="app-sheet">' +
           '<i class="fas fa-ellipsis" aria-hidden="true"></i><span>Mais</span></button>' +
       '</nav>';
@@ -151,24 +160,29 @@
     if (!tabbar || !global.matchMedia(MOBILE_MQ).matches) return;
 
     var tabs = Array.prototype.slice.call(tabbar.querySelectorAll('[data-app-tab]'));
+    var moreBtn = document.getElementById('app-more');
     if (!tabs.length) return;
 
-    var sections = tabs.map(function (tab) {
-      var id = tab.getAttribute('data-app-tab');
-      return { tab: tab, el: document.getElementById(id) };
-    }).filter(function (item) { return item.el; });
+    var sections = Object.keys(SECTION_TO_TAB).map(function (id) {
+      var el = document.getElementById(id);
+      return el ? { id: id, el: el, tab: SECTION_TO_TAB[id] } : null;
+    }).filter(Boolean);
 
     if (!sections.length) return;
 
-    function setActive(id) {
+    function setActive(tabId) {
       tabs.forEach(function (tab) {
-        var on = tab.getAttribute('data-app-tab') === id;
+        var on = tab.getAttribute('data-app-tab') === tabId;
         tab.classList.toggle('is-active', on);
         if (on) tab.setAttribute('aria-current', 'page');
         else tab.removeAttribute('aria-current');
       });
-      var more = document.getElementById('app-more');
-      if (more) more.classList.remove('is-active');
+      if (moreBtn) {
+        var moreOn = tabId === 'more';
+        moreBtn.classList.toggle('is-active', moreOn);
+        if (moreOn) moreBtn.setAttribute('aria-current', 'page');
+        else moreBtn.removeAttribute('aria-current');
+      }
     }
 
     tabs.forEach(function (tab) {
@@ -180,15 +194,27 @@
 
     if (!('IntersectionObserver' in global)) return;
 
+    /* Keep ratios across callbacks — IO only reports entries that changed. */
+    var ratios = {};
     var observer = new IntersectionObserver(function (entries) {
-      var visible = entries
-        .filter(function (entry) { return entry.isIntersecting; })
-        .sort(function (a, b) { return b.intersectionRatio - a.intersectionRatio; });
-      if (!visible.length) return;
-      setActive(visible[0].target.id);
+      entries.forEach(function (entry) {
+        ratios[entry.target.id] = entry.isIntersecting ? entry.intersectionRatio : 0;
+      });
+
+      var bestId = null;
+      var bestRatio = 0;
+      sections.forEach(function (item) {
+        var r = ratios[item.id] || 0;
+        if (r > bestRatio) {
+          bestRatio = r;
+          bestId = item.id;
+        }
+      });
+
+      if (bestId) setActive(SECTION_TO_TAB[bestId]);
     }, {
-      rootMargin: '-35% 0px -50% 0px',
-      threshold: [0.08, 0.2, 0.4]
+      rootMargin: '-28% 0px -45% 0px',
+      threshold: [0, 0.05, 0.1, 0.2, 0.35, 0.5, 0.75, 1]
     });
 
     sections.forEach(function (item) { observer.observe(item.el); });
